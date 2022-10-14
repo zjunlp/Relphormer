@@ -1,0 +1,5810 @@
+[
+ {
+  "QuestionID": "WebQTest-13",
+  "RawQuestion": "who was vice president after kennedy died?",
+  "TopicEntityID": 10805,
+  "TopicEntityName": "kennedy",
+  "AnswerEntity": [
+   30729
+  ],
+  "AnswerEntityName": "Lyndon B. Johnson",
+  "AnswerEntityID": 6488,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-16",
+  "RawQuestion": "what countries are part of the uk?",
+  "TopicEntityID": 382,
+  "TopicEntityName": "uk",
+  "AnswerEntity": [
+   32004
+  ],
+  "AnswerEntityName": "England",
+  "AnswerEntityID": 1124,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-19",
+  "RawQuestion": "what is my timezone in louisiana?",
+  "TopicEntityID": 3643,
+  "TopicEntityName": "louisiana",
+  "AnswerEntity": [
+   34812
+  ],
+  "AnswerEntityName": "Central Time Zone",
+  "AnswerEntityID": 1437,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-23",
+  "RawQuestion": "what town was martin luther king assassinated in?",
+  "TopicEntityID": 8213,
+  "TopicEntityName": "martin luther king",
+  "AnswerEntity": [
+   39340
+  ],
+  "AnswerEntityName": "Memphis",
+  "AnswerEntityID": 5108,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-24",
+  "RawQuestion": "where did edgar allan poe died?",
+  "TopicEntityID": 3807,
+  "TopicEntityName": "edgar allan poe",
+  "AnswerEntity": [
+   37610
+  ],
+  "AnswerEntityName": "Baltimore",
+  "AnswerEntityID": 1502,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-33",
+  "RawQuestion": "what timezone is sweden?",
+  "TopicEntityID": 202,
+  "TopicEntityName": "sweden",
+  "AnswerEntity": [
+   36418
+  ],
+  "AnswerEntityName": "Central European Time Zone",
+  "AnswerEntityID": 2620,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-35",
+  "RawQuestion": "what county is frederick md in?",
+  "TopicEntityID": 10485,
+  "TopicEntityName": "frederick md",
+  "AnswerEntity": [
+   39182
+  ],
+  "AnswerEntityName": "Frederick County",
+  "AnswerEntityID": 11984,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-37",
+  "RawQuestion": "what timezone is utah in?",
+  "TopicEntityID": 2035,
+  "TopicEntityName": "utah",
+  "AnswerEntity": [
+   34022
+  ],
+  "AnswerEntityName": "Mountain Time Zone",
+  "AnswerEntityID": 1874,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-52",
+  "RawQuestion": "what did george orwell died of?",
+  "TopicEntityID": 3790,
+  "TopicEntityName": "george orwell",
+  "AnswerEntity": [
+   40382
+  ],
+  "AnswerEntityName": "Tuberculosis",
+  "AnswerEntityID": 4024,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-54",
+  "RawQuestion": "what country did adolf hitler control?",
+  "TopicEntityID": 4467,
+  "TopicEntityName": "adolf hitler",
+  "AnswerEntity": [
+   35238
+  ],
+  "AnswerEntityName": "Nazi Germany",
+  "AnswerEntityID": 8406,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-58",
+  "RawQuestion": "who did jackie robinson first play for?",
+  "TopicEntityID": 13496,
+  "TopicEntityName": "jackie robinson",
+  "AnswerEntity": [
+   43945
+  ],
+  "AnswerEntityName": "UCLA Bruins football",
+  "AnswerEntityID": 8235,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-60",
+  "RawQuestion": "where did eleanor roosevelt die?",
+  "TopicEntityID": 7612,
+  "TopicEntityName": "eleanor roosevelt",
+  "AnswerEntity": [
+   45360
+  ],
+  "AnswerEntityName": "Manhattan",
+  "AnswerEntityID": 954,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-61",
+  "RawQuestion": "what are the religions practiced in indonesia?",
+  "TopicEntityID": 3485,
+  "TopicEntityName": "indonesia",
+  "AnswerEntity": [
+   33532
+  ],
+  "AnswerEntityName": "Hinduism",
+  "AnswerEntityID": 8686,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-65",
+  "RawQuestion": "who was the first dictator of the soviet union?",
+  "TopicEntityID": 4842,
+  "TopicEntityName": "soviet union",
+  "AnswerEntity": [
+   36141
+  ],
+  "AnswerEntityName": "Vladimir Lenin",
+  "AnswerEntityID": 3090,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-66",
+  "RawQuestion": "what is the currency of puerto rico called?",
+  "TopicEntityID": 6281,
+  "TopicEntityName": "puerto rico",
+  "AnswerEntity": [
+   33843
+  ],
+  "AnswerEntityName": "United States Dollar",
+  "AnswerEntityID": 90,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-75",
+  "RawQuestion": "what disease did patrick swayze died from?",
+  "TopicEntityID": 7640,
+  "TopicEntityName": "patrick swayze",
+  "AnswerEntity": [
+   39435
+  ],
+  "AnswerEntityName": "Pancreatic cancer",
+  "AnswerEntityID": 6980,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-77",
+  "RawQuestion": "what capital of austria?",
+  "TopicEntityID": 1164,
+  "TopicEntityName": "austria",
+  "AnswerEntity": [
+   39693
+  ],
+  "AnswerEntityName": "Vienna",
+  "AnswerEntityID": 705,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-79",
+  "RawQuestion": "what country did buddha come from?",
+  "TopicEntityID": 8103,
+  "TopicEntityName": "buddha",
+  "AnswerEntity": [
+   32087
+  ],
+  "AnswerEntityName": "Nepal",
+  "AnswerEntityID": 8339,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-82",
+  "RawQuestion": "what did peter tchaikovsky do?",
+  "TopicEntityID": 9199,
+  "TopicEntityName": "peter tchaikovsky",
+  "AnswerEntity": [
+   40854
+  ],
+  "AnswerEntityName": "Composer",
+  "AnswerEntityID": 1415,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-83",
+  "RawQuestion": "which countries speak german officially?",
+  "TopicEntityID": 585,
+  "TopicEntityName": "german",
+  "AnswerEntity": [
+   39144
+  ],
+  "AnswerEntityName": "Belgium",
+  "AnswerEntityID": 92,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-84",
+  "RawQuestion": "what type of music did john lennon sing?",
+  "TopicEntityID": 2557,
+  "TopicEntityName": "john lennon",
+  "AnswerEntity": [
+   35514
+  ],
+  "AnswerEntityName": "Soft rock",
+  "AnswerEntityID": 5027,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-86",
+  "RawQuestion": "which country does greenland belong to?",
+  "TopicEntityID": 12225,
+  "TopicEntityName": "greenland",
+  "AnswerEntity": [
+   43254
+  ],
+  "AnswerEntityName": "Denmark",
+  "AnswerEntityID": 816,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-93",
+  "RawQuestion": "what continent does armenia belong to?",
+  "TopicEntityID": 3590,
+  "TopicEntityName": "armenia",
+  "AnswerEntity": [
+   37273
+  ],
+  "AnswerEntityName": "Europe",
+  "AnswerEntityID": 330,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-96",
+  "RawQuestion": "where did richard nixon die?",
+  "TopicEntityID": 5299,
+  "TopicEntityName": "richard nixon",
+  "AnswerEntity": [
+   34870
+  ],
+  "AnswerEntityName": "New York City",
+  "AnswerEntityID": 592,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-98",
+  "RawQuestion": "who was vice president when jfk was president?",
+  "TopicEntityID": 10805,
+  "TopicEntityName": "jfk",
+  "AnswerEntity": [
+   30729
+  ],
+  "AnswerEntityName": "Lyndon B. Johnson",
+  "AnswerEntityID": 6488,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-99",
+  "RawQuestion": "what is serbian language called?",
+  "TopicEntityID": 3794,
+  "TopicEntityName": "serbian",
+  "AnswerEntity": [
+   32235
+  ],
+  "AnswerEntityName": "Serbian language",
+  "AnswerEntityID": 13190,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-103",
+  "RawQuestion": "what basketball teams has shaq played for?",
+  "TopicEntityID": 8789,
+  "TopicEntityName": "shaq",
+  "AnswerEntity": [
+   37982
+  ],
+  "AnswerEntityName": "LSU Tigers men's basketball",
+  "AnswerEntityID": 12087,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-104",
+  "RawQuestion": "where is jay leno from?",
+  "TopicEntityID": 2698,
+  "TopicEntityName": "jay leno",
+  "AnswerEntity": [
+   44178
+  ],
+  "AnswerEntityName": "New Rochelle",
+  "AnswerEntityID": 934,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-105",
+  "RawQuestion": "what language do people from thailand speak?",
+  "TopicEntityID": 7467,
+  "TopicEntityName": "thailand",
+  "AnswerEntity": [
+   36605
+  ],
+  "AnswerEntityName": "Thai Language",
+  "AnswerEntityID": 4336,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-116",
+  "RawQuestion": "which country was justin bieber born in?",
+  "TopicEntityID": 1267,
+  "TopicEntityName": "justin bieber",
+  "AnswerEntity": [
+   33974
+  ],
+  "AnswerEntityName": "Canada",
+  "AnswerEntityID": 181,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-118",
+  "RawQuestion": "who fought in the gulf war 1991?",
+  "TopicEntityID": 10764,
+  "TopicEntityName": "gulf war",
+  "AnswerEntity": [
+   39126
+  ],
+  "AnswerEntityName": "Saudi Arabia",
+  "AnswerEntityID": 1576,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-121",
+  "RawQuestion": "what team did david beckham play for in 2011?",
+  "TopicEntityID": 1687,
+  "TopicEntityName": "david beckham",
+  "AnswerEntity": [
+   30604
+  ],
+  "AnswerEntityName": "LA Galaxy",
+  "AnswerEntityID": 1688,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-129",
+  "RawQuestion": "what was lucille ball?",
+  "TopicEntityID": 1348,
+  "TopicEntityName": "lucille ball",
+  "AnswerEntity": [
+   34306
+  ],
+  "AnswerEntityName": "Comedian",
+  "AnswerEntityID": 967,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-134",
+  "RawQuestion": "what type of books did agatha christie wrote?",
+  "TopicEntityID": 12605,
+  "TopicEntityName": "agatha christie",
+  "AnswerEntity": [
+   39194
+  ],
+  "AnswerEntityName": "Playwright",
+  "AnswerEntityID": 6143,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-145",
+  "RawQuestion": "what college did albert einstein go to?",
+  "TopicEntityID": 3084,
+  "TopicEntityName": "albert einstein",
+  "AnswerEntity": [
+   38122
+  ],
+  "AnswerEntityName": "ETH Zurich",
+  "AnswerEntityID": 8946,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-149",
+  "RawQuestion": "what do portuguese people speak?",
+  "TopicEntityID": 27,
+  "TopicEntityName": "portuguese",
+  "AnswerEntity": [
+   36840
+  ],
+  "AnswerEntityName": "Portuguese Language",
+  "AnswerEntityID": 6473,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-150",
+  "RawQuestion": "what language does cuba speak?",
+  "TopicEntityID": 4875,
+  "TopicEntityName": "cuba",
+  "AnswerEntity": [
+   39381
+  ],
+  "AnswerEntityName": "Spanish Language",
+  "AnswerEntityID": 2272,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-154",
+  "RawQuestion": "what instruments did louis armstrong play?",
+  "TopicEntityID": 9086,
+  "TopicEntityName": "louis armstrong",
+  "AnswerEntity": [
+   35828
+  ],
+  "AnswerEntityName": "Cornet",
+  "AnswerEntityID": 2439,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-156",
+  "RawQuestion": "what time zone am i in california?",
+  "TopicEntityID": 1044,
+  "TopicEntityName": "california",
+  "AnswerEntity": [
+   44584
+  ],
+  "AnswerEntityName": "Pacific Time Zone",
+  "AnswerEntityID": 2706,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-161",
+  "RawQuestion": "what university did gordon brown attend?",
+  "TopicEntityID": 4899,
+  "TopicEntityName": "gordon brown",
+  "AnswerEntity": [
+   35133
+  ],
+  "AnswerEntityName": "University of Edinburgh",
+  "AnswerEntityID": 4123,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-162",
+  "RawQuestion": "what countries does greece share borders with?",
+  "TopicEntityID": 1163,
+  "TopicEntityName": "greece",
+  "AnswerEntity": [
+   34426
+  ],
+  "AnswerEntityName": "Bulgaria",
+  "AnswerEntityID": 1302,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-164",
+  "RawQuestion": "what did stephen hawking become famous for?",
+  "TopicEntityID": 4859,
+  "TopicEntityName": "stephen hawking",
+  "AnswerEntity": [
+   30935
+  ],
+  "AnswerEntityName": "Professor",
+  "AnswerEntityID": 8059,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-166",
+  "RawQuestion": "what was dr seuss education?",
+  "TopicEntityID": 11130,
+  "TopicEntityName": "dr seuss",
+  "AnswerEntity": [
+   37129
+  ],
+  "AnswerEntityName": "Dartmouth College",
+  "AnswerEntityID": 5364,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-167",
+  "RawQuestion": "where did queensland get its name from?",
+  "TopicEntityID": 9443,
+  "TopicEntityName": "queensland",
+  "AnswerEntity": [
+   32663
+  ],
+  "AnswerEntityName": "Queen Victoria",
+  "AnswerEntityID": 11628,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-169",
+  "RawQuestion": "what are the three official languages of belgium?",
+  "TopicEntityID": 92,
+  "TopicEntityName": "belgium",
+  "AnswerEntity": [
+   43195
+  ],
+  "AnswerEntityName": "Dutch Language",
+  "AnswerEntityID": 7378,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-178",
+  "RawQuestion": "who was the leader of the us during wwii?",
+  "TopicEntityID": 220,
+  "TopicEntityName": "wwii",
+  "AnswerEntity": [
+   36171
+  ],
+  "AnswerEntityName": "Franklin D. Roosevelt",
+  "AnswerEntityID": 12288,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-180",
+  "RawQuestion": "where the missouri river ends?",
+  "TopicEntityID": 12931,
+  "TopicEntityName": "missouri river",
+  "AnswerEntity": [
+   36420
+  ],
+  "AnswerEntityName": "Mississippi River",
+  "AnswerEntityID": 4271,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-187",
+  "RawQuestion": "what did stephen hawking study?",
+  "TopicEntityID": 4859,
+  "TopicEntityName": "stephen hawking",
+  "AnswerEntity": [
+   38464
+  ],
+  "AnswerEntityName": "Physics",
+  "AnswerEntityID": 594,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-189",
+  "RawQuestion": "what region of the world is egypt associated with?",
+  "TopicEntityID": 474,
+  "TopicEntityName": "egypt",
+  "AnswerEntity": [
+   32117
+  ],
+  "AnswerEntityName": "Middle East",
+  "AnswerEntityID": 8841,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-190",
+  "RawQuestion": "what did dr. seuss do?",
+  "TopicEntityID": 11130,
+  "TopicEntityName": "dr . seuss",
+  "AnswerEntity": [
+   40647
+  ],
+  "AnswerEntityName": "Animator",
+  "AnswerEntityID": 1753,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-194",
+  "RawQuestion": "where did the iroquois indians come from?",
+  "TopicEntityID": 11835,
+  "TopicEntityName": "iroquois",
+  "AnswerEntity": [
+   39153
+  ],
+  "AnswerEntityName": "Ontario",
+  "AnswerEntityID": 1694,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-197",
+  "RawQuestion": "what places make up new england?",
+  "TopicEntityID": 3192,
+  "TopicEntityName": "new england",
+  "AnswerEntity": [
+   45179
+  ],
+  "AnswerEntityName": "Connecticut",
+  "AnswerEntityID": 1551,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-199",
+  "RawQuestion": "what type of government does iraq have now?",
+  "TopicEntityID": 3827,
+  "TopicEntityName": "iraq",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-200",
+  "RawQuestion": "where was the vietnam war location?",
+  "TopicEntityID": 7175,
+  "TopicEntityName": "vietnam war",
+  "AnswerEntity": [
+   43316
+  ],
+  "AnswerEntityName": "Vietnam",
+  "AnswerEntityID": 8312,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-202",
+  "RawQuestion": "what is the currency used in italy?",
+  "TopicEntityID": 119,
+  "TopicEntityName": "italy",
+  "AnswerEntity": [
+   38372
+  ],
+  "AnswerEntityName": "Euro",
+  "AnswerEntityID": 5422,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-204",
+  "RawQuestion": "what is the capital of modern egypt?",
+  "TopicEntityID": 474,
+  "TopicEntityName": "egypt",
+  "AnswerEntity": [
+   44700
+  ],
+  "AnswerEntityName": "Cairo",
+  "AnswerEntityID": 6088,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-207",
+  "RawQuestion": "where is harvard university?",
+  "TopicEntityID": 3183,
+  "TopicEntityName": "harvard university",
+  "AnswerEntity": [
+   44967
+  ],
+  "AnswerEntityName": "Cambridge",
+  "AnswerEntityID": 2761,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-209",
+  "RawQuestion": "where is laos in world map?",
+  "TopicEntityID": 7752,
+  "TopicEntityName": "laos",
+  "AnswerEntity": [
+   37226
+  ],
+  "AnswerEntityName": "Southeast Asia",
+  "AnswerEntityID": 7176,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-211",
+  "RawQuestion": "what countries are near italy?",
+  "TopicEntityID": 119,
+  "TopicEntityName": "italy",
+  "AnswerEntity": [
+   32251
+  ],
+  "AnswerEntityName": "Switzerland",
+  "AnswerEntityID": 622,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-213",
+  "RawQuestion": "who did scarlett johansson date?",
+  "TopicEntityID": 3441,
+  "TopicEntityName": "scarlett johansson",
+  "AnswerEntity": [
+   40819
+  ],
+  "AnswerEntityName": "nm1157013",
+  "AnswerEntityID": 11833,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-214",
+  "RawQuestion": "which continents were part of the roman empire?",
+  "TopicEntityID": 6051,
+  "TopicEntityName": "roman empire",
+  "AnswerEntity": [
+   37273
+  ],
+  "AnswerEntityName": "Europe",
+  "AnswerEntityID": 330,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-215",
+  "RawQuestion": "where was elvis costello born?",
+  "TopicEntityID": 8030,
+  "TopicEntityName": "elvis costello",
+  "AnswerEntity": [
+   44240
+  ],
+  "AnswerEntityName": "Paddington",
+  "AnswerEntityID": 12178,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-217",
+  "RawQuestion": "what type of government does the us follow?",
+  "TopicEntityID": 32,
+  "TopicEntityName": "us",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-218",
+  "RawQuestion": "in which continent is germany?",
+  "TopicEntityID": 1080,
+  "TopicEntityName": "germany",
+  "AnswerEntity": [
+   37273
+  ],
+  "AnswerEntityName": "Europe",
+  "AnswerEntityID": 330,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-220",
+  "RawQuestion": "what language turkey people speak?",
+  "TopicEntityID": 1304,
+  "TopicEntityName": "turkey",
+  "AnswerEntity": [
+   43429
+  ],
+  "AnswerEntityName": "Turkish Language",
+  "AnswerEntityID": 10297,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-222",
+  "RawQuestion": "where is the seychelles on world map?",
+  "TopicEntityID": 5406,
+  "TopicEntityName": "seychelles",
+  "AnswerEntity": [
+   40965
+  ],
+  "AnswerEntityName": "Africa",
+  "AnswerEntityID": 2238,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-224",
+  "RawQuestion": "where did william morris go to college?",
+  "TopicEntityID": 6234,
+  "TopicEntityName": "william morris",
+  "AnswerEntity": [
+   33421
+  ],
+  "AnswerEntityName": "University of Oxford",
+  "AnswerEntityID": 733,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-232",
+  "RawQuestion": "what countries have spanish as the national language?",
+  "TopicEntityID": 2272,
+  "TopicEntityName": "spanish",
+  "AnswerEntity": [
+   38773
+  ],
+  "AnswerEntityName": "Barbados",
+  "AnswerEntityID": 1744,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-235",
+  "RawQuestion": "what is charlie chaplin famous for?",
+  "TopicEntityID": 10982,
+  "TopicEntityName": "charlie chaplin",
+  "AnswerEntity": [
+   34306
+  ],
+  "AnswerEntityName": "Comedian",
+  "AnswerEntityID": 967,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-237",
+  "RawQuestion": "what did fred durst do?",
+  "TopicEntityID": 803,
+  "TopicEntityName": "fred durst",
+  "AnswerEntity": [
+   42518
+  ],
+  "AnswerEntityName": "Businessperson",
+  "AnswerEntityID": 800,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-240",
+  "RawQuestion": "what colleges did albert einstein teach at?",
+  "TopicEntityID": 3084,
+  "TopicEntityName": "albert einstein",
+  "AnswerEntity": [
+   44045
+  ],
+  "AnswerEntityName": "Institute for Advanced Study",
+  "AnswerEntityID": 12001,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-241",
+  "RawQuestion": "who plays the voice of brian on family guy?",
+  "TopicEntityID": 1203,
+  "TopicEntityName": "family guy",
+  "AnswerEntity": [
+   42286
+  ],
+  "AnswerEntityName": "Seth MacFarlane",
+  "AnswerEntityID": 3411,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-243",
+  "RawQuestion": "where did george w bush live as a child?",
+  "TopicEntityID": 3930,
+  "TopicEntityName": "george w bush",
+  "AnswerEntity": [
+   42361
+  ],
+  "AnswerEntityName": "New Haven",
+  "AnswerEntityID": 9055,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-248",
+  "RawQuestion": "what state new york city belong to?",
+  "TopicEntityID": 592,
+  "TopicEntityName": "new york city",
+  "AnswerEntity": [
+   44693
+  ],
+  "AnswerEntityName": "New York",
+  "AnswerEntityID": 226,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-250",
+  "RawQuestion": "what type of government does usa follow?",
+  "TopicEntityID": 32,
+  "TopicEntityName": "usa",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-251",
+  "RawQuestion": "what type of currency do they use in england?",
+  "TopicEntityID": 1124,
+  "TopicEntityName": "england",
+  "AnswerEntity": [
+   43503
+  ],
+  "AnswerEntityName": "Pound sterling",
+  "AnswerEntityID": 924,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-252",
+  "RawQuestion": "where was benjamin franklin educated?",
+  "TopicEntityID": 11975,
+  "TopicEntityName": "benjamin franklin",
+  "AnswerEntity": [
+   42382
+  ],
+  "AnswerEntityName": "Boston Latin School",
+  "AnswerEntityID": 13327,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-253",
+  "RawQuestion": "what countries included in the uk?",
+  "TopicEntityID": 382,
+  "TopicEntityName": "uk",
+  "AnswerEntity": [
+   32004
+  ],
+  "AnswerEntityName": "England",
+  "AnswerEntityID": 1124,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-254",
+  "RawQuestion": "what countries in the world speak chinese?",
+  "TopicEntityID": 5698,
+  "TopicEntityName": "chinese",
+  "AnswerEntity": [
+   31064
+  ],
+  "AnswerEntityName": "Brunei",
+  "AnswerEntityID": 5172,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-255",
+  "RawQuestion": "where obama went to school?",
+  "TopicEntityID": 2433,
+  "TopicEntityName": "obama",
+  "AnswerEntity": [
+   44440
+  ],
+  "AnswerEntityName": "Harvard Law School",
+  "AnswerEntityID": 8764,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-256",
+  "RawQuestion": "what is the primary language of china?",
+  "TopicEntityID": 2121,
+  "TopicEntityName": "china",
+  "AnswerEntity": [
+   32271
+  ],
+  "AnswerEntityName": "Standard Chinese",
+  "AnswerEntityID": 2646,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-264",
+  "RawQuestion": "what does australia use for currency?",
+  "TopicEntityID": 274,
+  "TopicEntityName": "australia",
+  "AnswerEntity": [
+   39840
+  ],
+  "AnswerEntityName": "Australian dollar",
+  "AnswerEntityID": 7607,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-267",
+  "RawQuestion": "where was martin luther king jr raised?",
+  "TopicEntityID": 8213,
+  "TopicEntityName": "martin luther king jr",
+  "AnswerEntity": [
+   39181
+  ],
+  "AnswerEntityName": "Atlanta",
+  "AnswerEntityID": 2055,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-270",
+  "RawQuestion": "what kind of monarchy does japan have?",
+  "TopicEntityID": 158,
+  "TopicEntityName": "japan",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-278",
+  "RawQuestion": "who's dating claire danes?",
+  "TopicEntityID": 1680,
+  "TopicEntityName": "claire danes",
+  "AnswerEntity": [
+   41658
+  ],
+  "AnswerEntityName": "Hugh Dancy",
+  "AnswerEntityID": 9942,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-282",
+  "RawQuestion": "which countries share a border with russia?",
+  "TopicEntityID": 1405,
+  "TopicEntityName": "russia",
+  "AnswerEntity": [
+   37314
+  ],
+  "AnswerEntityName": "Belarus",
+  "AnswerEntityID": 1970,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-291",
+  "RawQuestion": "where did morgan freeman graduate?",
+  "TopicEntityID": 2937,
+  "TopicEntityName": "morgan freeman",
+  "AnswerEntity": [
+   41289
+  ],
+  "AnswerEntityName": "Los Angeles City College",
+  "AnswerEntityID": 11780,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-297",
+  "RawQuestion": "what time zone is anaheim california?",
+  "TopicEntityID": 9136,
+  "TopicEntityName": "anaheim california",
+  "AnswerEntity": [
+   44584
+  ],
+  "AnswerEntityName": "Pacific Time Zone",
+  "AnswerEntityID": 2706,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-302",
+  "RawQuestion": "what are the official colors of the dallas cowboys?",
+  "TopicEntityID": 272,
+  "TopicEntityName": "dallas cowboys",
+  "AnswerEntity": [
+   36364
+  ],
+  "AnswerEntityName": "Blue",
+  "AnswerEntityID": 2940,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-314",
+  "RawQuestion": "what kind of government is sweden?",
+  "TopicEntityID": 202,
+  "TopicEntityName": "sweden",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-316",
+  "RawQuestion": "what did shakespeare become famous for?",
+  "TopicEntityID": 4732,
+  "TopicEntityName": "shakespeare",
+  "AnswerEntity": [
+   31271
+  ],
+  "AnswerEntityName": "Lyricist",
+  "AnswerEntityID": 6198,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-317",
+  "RawQuestion": "where does russia import from?",
+  "TopicEntityID": 1405,
+  "TopicEntityName": "russia",
+  "AnswerEntity": [
+   30800
+  ],
+  "AnswerEntityName": "Uzbekistan",
+  "AnswerEntityID": 6027,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-321",
+  "RawQuestion": "what do people in australia speak?",
+  "TopicEntityID": 274,
+  "TopicEntityName": "australia",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-323",
+  "RawQuestion": "what movies did ron howard director?",
+  "TopicEntityID": 7557,
+  "TopicEntityName": "ron howard",
+  "AnswerEntity": [
+   44749
+  ],
+  "AnswerEntityName": "Apollo 13",
+  "AnswerEntityID": 1996,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-326",
+  "RawQuestion": "what did gerald r ford die from?",
+  "TopicEntityID": 9402,
+  "TopicEntityName": "gerald r ford",
+  "AnswerEntity": [
+   40011
+  ],
+  "AnswerEntityName": "Cardiovascular disease",
+  "AnswerEntityID": 9917,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-327",
+  "RawQuestion": "what two continents is turkey on?",
+  "TopicEntityID": 1304,
+  "TopicEntityName": "turkey",
+  "AnswerEntity": [
+   31577
+  ],
+  "AnswerEntityName": "Eurasia",
+  "AnswerEntityID": 6026,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-329",
+  "RawQuestion": "what type of government was formed when italy unified?",
+  "TopicEntityID": 119,
+  "TopicEntityName": "italy",
+  "AnswerEntity": [
+   44295
+  ],
+  "AnswerEntityName": "Unitary state",
+  "AnswerEntityID": 4494,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-333",
+  "RawQuestion": "what movies did morgan freeman star in?",
+  "TopicEntityID": 2937,
+  "TopicEntityName": "morgan freeman",
+  "AnswerEntity": [
+   37406
+  ],
+  "AnswerEntityName": "Unforgiven",
+  "AnswerEntityID": 941,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-338",
+  "RawQuestion": "what do they call money in japan?",
+  "TopicEntityID": 158,
+  "TopicEntityName": "japan",
+  "AnswerEntity": [
+   32521
+  ],
+  "AnswerEntityName": "Japanese yen",
+  "AnswerEntityID": 11998,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-341",
+  "RawQuestion": "what countries share borders with spain?",
+  "TopicEntityID": 1934,
+  "TopicEntityName": "spain",
+  "AnswerEntity": [
+   45405
+  ],
+  "AnswerEntityName": "Gibraltar",
+  "AnswerEntityID": 9002,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-342",
+  "RawQuestion": "what countries have english as their official language?",
+  "TopicEntityID": 160,
+  "TopicEntityName": "english",
+  "AnswerEntity": [
+   38246
+  ],
+  "AnswerEntityName": "Bahamas",
+  "AnswerEntityID": 56,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-343",
+  "RawQuestion": "what international organizations is china part of?",
+  "TopicEntityID": 2121,
+  "TopicEntityName": "china",
+  "AnswerEntity": [
+   38051
+  ],
+  "AnswerEntityName": "Asian Development Bank",
+  "AnswerEntityID": 3486,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-366",
+  "RawQuestion": "what language do british speak?",
+  "TopicEntityID": 382,
+  "TopicEntityName": "british",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-367",
+  "RawQuestion": "what makes elvis presley famous?",
+  "TopicEntityID": 5169,
+  "TopicEntityName": "elvis presley",
+  "AnswerEntity": [
+   30526
+  ],
+  "AnswerEntityName": "Actor",
+  "AnswerEntityID": 862,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-370",
+  "RawQuestion": "what language do people speak in the netherlands?",
+  "TopicEntityID": 1046,
+  "TopicEntityName": "netherlands",
+  "AnswerEntity": [
+   43195
+  ],
+  "AnswerEntityName": "Dutch Language",
+  "AnswerEntityID": 7378,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-371",
+  "RawQuestion": "what are the major languages spoken in greece?",
+  "TopicEntityID": 1163,
+  "TopicEntityName": "greece",
+  "AnswerEntity": [
+   40869
+  ],
+  "AnswerEntityName": "Greek Language",
+  "AnswerEntityID": 11307,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-381",
+  "RawQuestion": "what shows are shot in new york?",
+  "TopicEntityID": 592,
+  "TopicEntityName": "new york",
+  "AnswerEntity": [
+   45415
+  ],
+  "AnswerEntityName": "Flight of the Conchords",
+  "AnswerEntityID": 12252,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-393",
+  "RawQuestion": "what are the two official languages of paraguay?",
+  "TopicEntityID": 1394,
+  "TopicEntityName": "paraguay",
+  "AnswerEntity": [
+   39381
+  ],
+  "AnswerEntityName": "Spanish Language",
+  "AnswerEntityID": 2272,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-395",
+  "RawQuestion": "what state is the steelers from?",
+  "TopicEntityID": 1378,
+  "TopicEntityName": "steelers",
+  "AnswerEntity": [
+   35808
+  ],
+  "AnswerEntityName": "Pittsburgh",
+  "AnswerEntityID": 4231,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-396",
+  "RawQuestion": "what college did sir isaac newton go to?",
+  "TopicEntityID": 6971,
+  "TopicEntityName": "sir isaac newton",
+  "AnswerEntity": [
+   32388
+  ],
+  "AnswerEntityName": "Trinity College, Cambridge",
+  "AnswerEntityID": 11331,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-397",
+  "RawQuestion": "what are the school colors for harvard university?",
+  "TopicEntityID": 3183,
+  "TopicEntityName": "harvard university",
+  "AnswerEntity": [
+   36668
+  ],
+  "AnswerEntityName": "Crimson",
+  "AnswerEntityID": 6923,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-400",
+  "RawQuestion": "what was the capital city of the east roman empire?",
+  "TopicEntityID": 11046,
+  "TopicEntityName": "east roman empire",
+  "AnswerEntity": [
+   32783
+  ],
+  "AnswerEntityName": "Constantinople",
+  "AnswerEntityID": 8529,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-401",
+  "RawQuestion": "who plays edward scissorhands?",
+  "TopicEntityID": 4941,
+  "TopicEntityName": "edward scissorhands",
+  "AnswerEntity": [
+   37197
+  ],
+  "AnswerEntityName": "Johnny Depp",
+  "AnswerEntityID": 2215,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-402",
+  "RawQuestion": "what does joey jordison play in slipknot?",
+  "TopicEntityID": 7731,
+  "TopicEntityName": "joey jordison",
+  "AnswerEntity": [
+   38391
+  ],
+  "AnswerEntityName": "Drums",
+  "AnswerEntityID": 1546,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-403",
+  "RawQuestion": "what kind of language does turkey speak?",
+  "TopicEntityID": 1304,
+  "TopicEntityName": "turkey",
+  "AnswerEntity": [
+   43429
+  ],
+  "AnswerEntityName": "Turkish Language",
+  "AnswerEntityID": 10297,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-404",
+  "RawQuestion": "what was lebron james first team?",
+  "TopicEntityID": 12639,
+  "TopicEntityName": "lebron james",
+  "AnswerEntity": [
+   35895
+  ],
+  "AnswerEntityName": "Cleveland Cavaliers",
+  "AnswerEntityID": 10554,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-410",
+  "RawQuestion": "what are the major cities in ukraine?",
+  "TopicEntityID": 1276,
+  "TopicEntityName": "ukraine",
+  "AnswerEntity": [
+   30618
+  ],
+  "AnswerEntityName": "Kiev",
+  "AnswerEntityID": 6216,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-418",
+  "RawQuestion": "what league are the indianapolis colts in?",
+  "TopicEntityID": 5546,
+  "TopicEntityName": "indianapolis colts",
+  "AnswerEntity": [
+   41871
+  ],
+  "AnswerEntityName": "National Football League",
+  "AnswerEntityID": 11040,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-425",
+  "RawQuestion": "where english is spoken?",
+  "TopicEntityID": 160,
+  "TopicEntityName": "english",
+  "AnswerEntity": [
+   38246
+  ],
+  "AnswerEntityName": "Bahamas",
+  "AnswerEntityID": 56,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-431",
+  "RawQuestion": "what language does australians speak?",
+  "TopicEntityID": 274,
+  "TopicEntityName": "australians",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-439",
+  "RawQuestion": "where is the time zone line in south dakota?",
+  "TopicEntityID": 1161,
+  "TopicEntityName": "south dakota",
+  "AnswerEntity": [
+   34812
+  ],
+  "AnswerEntityName": "Central Time Zone",
+  "AnswerEntityID": 1437,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-440",
+  "RawQuestion": "where is jason mraz from?",
+  "TopicEntityID": 2545,
+  "TopicEntityName": "jason mraz",
+  "AnswerEntity": [
+   33582
+  ],
+  "AnswerEntityName": "California",
+  "AnswerEntityID": 1044,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-442",
+  "RawQuestion": "what industry does walmart operate in?",
+  "TopicEntityID": 12817,
+  "TopicEntityName": "walmart",
+  "AnswerEntity": [
+   33114
+  ],
+  "AnswerEntityName": "Retail",
+  "AnswerEntityID": 14061,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-446",
+  "RawQuestion": "what music period did beethoven live in?",
+  "TopicEntityID": 3510,
+  "TopicEntityName": "beethoven",
+  "AnswerEntity": [
+   32580
+  ],
+  "AnswerEntityName": "Opera",
+  "AnswerEntityID": 729,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-448",
+  "RawQuestion": "what type of government system does italy have?",
+  "TopicEntityID": 119,
+  "TopicEntityName": "italy",
+  "AnswerEntity": [
+   44295
+  ],
+  "AnswerEntityName": "Unitary state",
+  "AnswerEntityID": 4494,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-453",
+  "RawQuestion": "what languages do they speak in costa rica?",
+  "TopicEntityID": 9448,
+  "TopicEntityName": "costa rica",
+  "AnswerEntity": [
+   39381
+  ],
+  "AnswerEntityName": "Spanish Language",
+  "AnswerEntityID": 2272,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-462",
+  "RawQuestion": "what time is it in texas houston right now?",
+  "TopicEntityID": 4464,
+  "TopicEntityName": "houston",
+  "AnswerEntity": [
+   34812
+  ],
+  "AnswerEntityName": "Central Time Zone",
+  "AnswerEntityID": 1437,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-465",
+  "RawQuestion": "what is new york city airport?",
+  "TopicEntityID": 592,
+  "TopicEntityName": "new york city",
+  "AnswerEntity": [
+   41470
+  ],
+  "AnswerEntityName": "LaGuardia Airport",
+  "AnswerEntityID": 13959,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-466",
+  "RawQuestion": "what language brazil speak?",
+  "TopicEntityID": 449,
+  "TopicEntityName": "brazil",
+  "AnswerEntity": [
+   45401
+  ],
+  "AnswerEntityName": "Italian Language",
+  "AnswerEntityID": 29,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-468",
+  "RawQuestion": "where did venus williams come from?",
+  "TopicEntityID": 7946,
+  "TopicEntityName": "venus williams",
+  "AnswerEntity": [
+   32640
+  ],
+  "AnswerEntityName": "Lynwood",
+  "AnswerEntityID": 12541,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-472",
+  "RawQuestion": "what team did ronaldo play for in 2003?",
+  "TopicEntityID": 7204,
+  "TopicEntityName": "ronaldo",
+  "AnswerEntity": [
+   33479
+  ],
+  "AnswerEntityName": "Brazil national football team",
+  "AnswerEntityID": 11806,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-473",
+  "RawQuestion": "where does robin williams live 2011?",
+  "TopicEntityID": 4294,
+  "TopicEntityName": "robin williams",
+  "AnswerEntity": [
+   35341
+  ],
+  "AnswerEntityName": "San Francisco",
+  "AnswerEntityID": 2879,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-474",
+  "RawQuestion": "who played jacob black in twilight?",
+  "TopicEntityID": 4415,
+  "TopicEntityName": "twilight",
+  "AnswerEntity": [
+   31876
+  ],
+  "AnswerEntityName": "Taylor Lautner",
+  "AnswerEntityID": 4692,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-481",
+  "RawQuestion": "what kind of money do they use in germany?",
+  "TopicEntityID": 1080,
+  "TopicEntityName": "germany",
+  "AnswerEntity": [
+   38372
+  ],
+  "AnswerEntityName": "Euro",
+  "AnswerEntityID": 5422,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-484",
+  "RawQuestion": "what language does australia use?",
+  "TopicEntityID": 274,
+  "TopicEntityName": "australia",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-490",
+  "RawQuestion": "what did the ancient romans speak?",
+  "TopicEntityID": 6051,
+  "TopicEntityName": "romans",
+  "AnswerEntity": [
+   45288
+  ],
+  "AnswerEntityName": "Latin Language",
+  "AnswerEntityID": 10755,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-493",
+  "RawQuestion": "what type of government does australia have?",
+  "TopicEntityID": 274,
+  "TopicEntityName": "australia",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-502",
+  "RawQuestion": "where did al qaeda attack?",
+  "TopicEntityID": 13970,
+  "TopicEntityName": "al qaeda",
+  "AnswerEntity": [
+   41301
+  ],
+  "AnswerEntityName": "Taliban insurgency",
+  "AnswerEntityID": 13079,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-503",
+  "RawQuestion": "what language is spoken in switzerland?",
+  "TopicEntityID": 622,
+  "TopicEntityName": "switzerland",
+  "AnswerEntity": [
+   45401
+  ],
+  "AnswerEntityName": "Italian Language",
+  "AnswerEntityID": 29,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-506",
+  "RawQuestion": "what the time zone in england?",
+  "TopicEntityID": 1124,
+  "TopicEntityName": "england",
+  "AnswerEntity": [
+   30970
+  ],
+  "AnswerEntityName": "Greenwich Mean Time Zone",
+  "AnswerEntityID": 5054,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-509",
+  "RawQuestion": "what system of government is practiced in nigeria?",
+  "TopicEntityID": 1058,
+  "TopicEntityName": "nigeria",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-513",
+  "RawQuestion": "what language do most australians speak?",
+  "TopicEntityID": 274,
+  "TopicEntityName": "australians",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-515",
+  "RawQuestion": "where was teddy roosevelt's house?",
+  "TopicEntityID": 10605,
+  "TopicEntityName": "teddy roosevelt",
+  "AnswerEntity": [
+   34870
+  ],
+  "AnswerEntityName": "New York City",
+  "AnswerEntityID": 592,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-516",
+  "RawQuestion": "what is the government system of malaysia?",
+  "TopicEntityID": 945,
+  "TopicEntityName": "malaysia",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-517",
+  "RawQuestion": "what do people speak in canada?",
+  "TopicEntityID": 181,
+  "TopicEntityName": "canada",
+  "AnswerEntity": [
+   38695
+  ],
+  "AnswerEntityName": "Gujarati Language",
+  "AnswerEntityID": 12029,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-519",
+  "RawQuestion": "what timezone is nashville tn?",
+  "TopicEntityID": 4706,
+  "TopicEntityName": "nashville tn",
+  "AnswerEntity": [
+   34812
+  ],
+  "AnswerEntityName": "Central Time Zone",
+  "AnswerEntityID": 1437,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-522",
+  "RawQuestion": "where did adolf hitler die?",
+  "TopicEntityID": 4467,
+  "TopicEntityName": "adolf hitler",
+  "AnswerEntity": [
+   42020
+  ],
+  "AnswerEntityName": "Berlin",
+  "AnswerEntityID": 1445,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-523",
+  "RawQuestion": "what is the largest nation in europe?",
+  "TopicEntityID": 330,
+  "TopicEntityName": "europe",
+  "AnswerEntity": [
+   39217
+  ],
+  "AnswerEntityName": "Russia",
+  "AnswerEntityID": 1405,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-524",
+  "RawQuestion": "where was the first gulf war fought?",
+  "TopicEntityID": 10764,
+  "TopicEntityName": "gulf war",
+  "AnswerEntity": [
+   39126
+  ],
+  "AnswerEntityName": "Saudi Arabia",
+  "AnswerEntityID": 1576,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-527",
+  "RawQuestion": "what country borders slovakia?",
+  "TopicEntityID": 607,
+  "TopicEntityName": "slovakia",
+  "AnswerEntity": [
+   41371
+  ],
+  "AnswerEntityName": "Czech Republic",
+  "AnswerEntityID": 1361,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-531",
+  "RawQuestion": "what style of music does michael jackson perform?",
+  "TopicEntityID": 4688,
+  "TopicEntityName": "michael jackson",
+  "AnswerEntity": [
+   45001
+  ],
+  "AnswerEntityName": "New jack swing",
+  "AnswerEntityID": 1739,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-532",
+  "RawQuestion": "what does david beckham play?",
+  "TopicEntityID": 1687,
+  "TopicEntityName": "david beckham",
+  "AnswerEntity": [
+   37286
+  ],
+  "AnswerEntityName": "Football",
+  "AnswerEntityID": 344,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-535",
+  "RawQuestion": "what is the second biggest state in the united states?",
+  "TopicEntityID": 32,
+  "TopicEntityName": "united states",
+  "AnswerEntity": [
+   44868
+  ],
+  "AnswerEntityName": "Texas",
+  "AnswerEntityID": 3373,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-538",
+  "RawQuestion": "what are all the movies taylor swift has been in?",
+  "TopicEntityID": 3815,
+  "TopicEntityName": "taylor swift",
+  "AnswerEntity": [
+   32709
+  ],
+  "AnswerEntityName": "Hannah Montana: The Movie",
+  "AnswerEntityID": 473,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-540",
+  "RawQuestion": "what college did brett favre?",
+  "TopicEntityID": 6784,
+  "TopicEntityName": "brett favre",
+  "AnswerEntity": [
+   43494
+  ],
+  "AnswerEntityName": "University of Southern Mississippi",
+  "AnswerEntityID": 2579,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-543",
+  "RawQuestion": "what college did martin luther king jr go to?",
+  "TopicEntityID": 8213,
+  "TopicEntityName": "martin luther king jr",
+  "AnswerEntity": [
+   40363
+  ],
+  "AnswerEntityName": "Morehouse College",
+  "AnswerEntityID": 9888,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-552",
+  "RawQuestion": "what language do most italians speak?",
+  "TopicEntityID": 119,
+  "TopicEntityName": "italians",
+  "AnswerEntity": [
+   45401
+  ],
+  "AnswerEntityName": "Italian Language",
+  "AnswerEntityID": 29,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-554",
+  "RawQuestion": "what money do they use in spain?",
+  "TopicEntityID": 1934,
+  "TopicEntityName": "spain",
+  "AnswerEntity": [
+   38372
+  ],
+  "AnswerEntityName": "Euro",
+  "AnswerEntityID": 5422,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-559",
+  "RawQuestion": "what instrument did robin gibb play?",
+  "TopicEntityID": 6360,
+  "TopicEntityName": "robin gibb",
+  "AnswerEntity": [
+   38903
+  ],
+  "AnswerEntityName": "Piano",
+  "AnswerEntityID": 212,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-570",
+  "RawQuestion": "what is william taft famous for?",
+  "TopicEntityID": 1701,
+  "TopicEntityName": "william taft",
+  "AnswerEntity": [
+   35159
+  ],
+  "AnswerEntityName": "Lawyer",
+  "AnswerEntityID": 3091,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-579",
+  "RawQuestion": "where are the new orleans hornets moving to?",
+  "TopicEntityID": 10885,
+  "TopicEntityName": "new orleans hornets",
+  "AnswerEntity": [
+   33337
+  ],
+  "AnswerEntityName": "Charlotte",
+  "AnswerEntityID": 8712,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-580",
+  "RawQuestion": "what language does algerian people speak?",
+  "TopicEntityID": 190,
+  "TopicEntityName": "algerian",
+  "AnswerEntity": [
+   42538
+  ],
+  "AnswerEntityName": "Arabic Language",
+  "AnswerEntityID": 5086,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-582",
+  "RawQuestion": "what did galileo do to become famous?",
+  "TopicEntityID": 9621,
+  "TopicEntityName": "galileo",
+  "AnswerEntity": [
+   41570
+  ],
+  "AnswerEntityName": "Astrologer",
+  "AnswerEntityID": 13693,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-583",
+  "RawQuestion": "what school did martin luther king jr received his doctorate degree from?",
+  "TopicEntityID": 8213,
+  "TopicEntityName": "martin luther king jr",
+  "AnswerEntity": [
+   40990
+  ],
+  "AnswerEntityName": "Boston University",
+  "AnswerEntityID": 6632,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-589",
+  "RawQuestion": "what russian language called?",
+  "TopicEntityID": 1405,
+  "TopicEntityName": "russian",
+  "AnswerEntity": [
+   42209
+  ],
+  "AnswerEntityName": "Russian Language",
+  "AnswerEntityID": 5397,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-596",
+  "RawQuestion": "where did kansas city royals come from?",
+  "TopicEntityID": 980,
+  "TopicEntityName": "kansas city royals",
+  "AnswerEntity": [
+   37572
+  ],
+  "AnswerEntityName": "Kansas City",
+  "AnswerEntityID": 1803,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-597",
+  "RawQuestion": "what style of music does john mayer play?",
+  "TopicEntityID": 4472,
+  "TopicEntityName": "john mayer",
+  "AnswerEntity": [
+   33745
+  ],
+  "AnswerEntityName": "Indie rock",
+  "AnswerEntityID": 2751,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-0",
+  "RawQuestion": "where did djokovic come from?",
+  "TopicEntityID": 9911,
+  "TopicEntityName": "djokovic",
+  "AnswerEntity": [
+   42617
+  ],
+  "AnswerEntityName": "Serbia",
+  "AnswerEntityID": 3794,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-604",
+  "RawQuestion": "what kind of music did jimi hendrix play?",
+  "TopicEntityID": 4603,
+  "TopicEntityName": "jimi hendrix",
+  "AnswerEntity": [
+   31374
+  ],
+  "AnswerEntityName": "Blues",
+  "AnswerEntityID": 7160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-605",
+  "RawQuestion": "what degrees did obama get in college?",
+  "TopicEntityID": 2433,
+  "TopicEntityName": "obama",
+  "AnswerEntity": [
+   35672
+  ],
+  "AnswerEntityName": "Juris Doctor",
+  "AnswerEntityID": 1323,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-613",
+  "RawQuestion": "what college did deion sanders jr go to?",
+  "TopicEntityID": 5139,
+  "TopicEntityName": "deion sanders",
+  "AnswerEntity": [
+   39696
+  ],
+  "AnswerEntityName": "Florida State University",
+  "AnswerEntityID": 6673,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-621",
+  "RawQuestion": "what countries have german as the official language?",
+  "TopicEntityID": 585,
+  "TopicEntityName": "german",
+  "AnswerEntity": [
+   39144
+  ],
+  "AnswerEntityName": "Belgium",
+  "AnswerEntityID": 92,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-622",
+  "RawQuestion": "where did the taliban began?",
+  "TopicEntityID": 13080,
+  "TopicEntityName": "taliban",
+  "AnswerEntity": [
+   44113
+  ],
+  "AnswerEntityName": "Afghanistan",
+  "AnswerEntityID": 3100,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-626",
+  "RawQuestion": "what does the missouri river bisect?",
+  "TopicEntityID": 12931,
+  "TopicEntityName": "missouri river",
+  "AnswerEntity": [
+   39476
+  ],
+  "AnswerEntityName": "Iowa",
+  "AnswerEntityID": 794,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-627",
+  "RawQuestion": "what nationality is taylor lautner jacob black?",
+  "TopicEntityID": 4692,
+  "TopicEntityName": "taylor lautner",
+  "AnswerEntity": [
+   36097
+  ],
+  "AnswerEntityName": "United States of America",
+  "AnswerEntityID": 32,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-630",
+  "RawQuestion": "what language do colombian people speak?",
+  "TopicEntityID": 293,
+  "TopicEntityName": "colombian",
+  "AnswerEntity": [
+   39381
+  ],
+  "AnswerEntityName": "Spanish Language",
+  "AnswerEntityID": 2272,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-633",
+  "RawQuestion": "what is claire danes famous for?",
+  "TopicEntityID": 1680,
+  "TopicEntityName": "claire danes",
+  "AnswerEntity": [
+   30526
+  ],
+  "AnswerEntityName": "Actor",
+  "AnswerEntityID": 862,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-638",
+  "RawQuestion": "what languages are there in japan?",
+  "TopicEntityID": 158,
+  "TopicEntityName": "japan",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-645",
+  "RawQuestion": "what type of art did leonardo da vinci make?",
+  "TopicEntityID": 9112,
+  "TopicEntityName": "leonardo da vinci",
+  "AnswerEntity": [
+   30835
+  ],
+  "AnswerEntityName": "Drawing",
+  "AnswerEntityID": 13751,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-651",
+  "RawQuestion": "what is the currency of germany now?",
+  "TopicEntityID": 1080,
+  "TopicEntityName": "germany",
+  "AnswerEntity": [
+   38372
+  ],
+  "AnswerEntityName": "Euro",
+  "AnswerEntityID": 5422,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-657",
+  "RawQuestion": "where did martin luther king got shot at?",
+  "TopicEntityID": 8213,
+  "TopicEntityName": "martin luther king",
+  "AnswerEntity": [
+   39340
+  ],
+  "AnswerEntityName": "Memphis",
+  "AnswerEntityID": 5108,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-659",
+  "RawQuestion": "what form of government is the uk?",
+  "TopicEntityID": 382,
+  "TopicEntityName": "uk",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-665",
+  "RawQuestion": "what government does new zealand have?",
+  "TopicEntityID": 853,
+  "TopicEntityName": "new zealand",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-667",
+  "RawQuestion": "what is the capital of republic of ireland?",
+  "TopicEntityID": 308,
+  "TopicEntityName": "ireland",
+  "AnswerEntity": [
+   32733
+  ],
+  "AnswerEntityName": "Dublin",
+  "AnswerEntityID": 6079,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-684",
+  "RawQuestion": "what sort of government does nigeria have?",
+  "TopicEntityID": 1058,
+  "TopicEntityName": "nigeria",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-688",
+  "RawQuestion": "what kind of language do they speak in iran?",
+  "TopicEntityID": 3466,
+  "TopicEntityName": "iran",
+  "AnswerEntity": [
+   39262
+  ],
+  "AnswerEntityName": "Persian Language",
+  "AnswerEntityID": 13027,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-689",
+  "RawQuestion": "what was the first language spoken in spain?",
+  "TopicEntityID": 1934,
+  "TopicEntityName": "spain",
+  "AnswerEntity": [
+   39381
+  ],
+  "AnswerEntityName": "Spanish Language",
+  "AnswerEntityID": 2272,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-699",
+  "RawQuestion": "what is the capital of australia victoria state?",
+  "TopicEntityID": 9213,
+  "TopicEntityName": "victoria state",
+  "AnswerEntity": [
+   33831
+  ],
+  "AnswerEntityName": "Melbourne",
+  "AnswerEntityID": 8321,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-700",
+  "RawQuestion": "where is french spoken most?",
+  "TopicEntityID": 5334,
+  "TopicEntityName": "french",
+  "AnswerEntity": [
+   39144
+  ],
+  "AnswerEntityName": "Belgium",
+  "AnswerEntityID": 92,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-709",
+  "RawQuestion": "what did general robert e lee die from?",
+  "TopicEntityID": 9731,
+  "TopicEntityName": "robert e lee",
+  "AnswerEntity": [
+   42116
+  ],
+  "AnswerEntityName": "Pneumonia",
+  "AnswerEntityID": 5983,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-712",
+  "RawQuestion": "what countries have territories in oceania?",
+  "TopicEntityID": 9868,
+  "TopicEntityName": "oceania",
+  "AnswerEntity": [
+   38494
+  ],
+  "AnswerEntityName": "Solomon Islands",
+  "AnswerEntityID": 9372,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-717",
+  "RawQuestion": "what timezone is tucson arizona in right now?",
+  "TopicEntityID": 3718,
+  "TopicEntityName": "tucson arizona",
+  "AnswerEntity": [
+   34022
+  ],
+  "AnswerEntityName": "Mountain Time Zone",
+  "AnswerEntityID": 1874,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-719",
+  "RawQuestion": "which political party does barack obama represent?",
+  "TopicEntityID": 2433,
+  "TopicEntityName": "barack obama",
+  "AnswerEntity": [
+   37143
+  ],
+  "AnswerEntityName": "Democratic Party",
+  "AnswerEntityID": 8433,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-725",
+  "RawQuestion": "what states does the sierra nevada run through?",
+  "TopicEntityID": 13777,
+  "TopicEntityName": "the sierra",
+  "AnswerEntity": [
+   33582
+  ],
+  "AnswerEntityName": "California",
+  "AnswerEntityID": 1044,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-726",
+  "RawQuestion": "what language is spoken in greek?",
+  "TopicEntityID": 1163,
+  "TopicEntityName": "greek",
+  "AnswerEntity": [
+   39064
+  ],
+  "AnswerEntityName": "Albanian language",
+  "AnswerEntityID": 12000,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-728",
+  "RawQuestion": "what is the name of the speaker of the house of representatives now 2011?",
+  "TopicEntityID": 13771,
+  "TopicEntityName": "speaker of the house of representatives",
+  "AnswerEntity": [
+   35069
+  ],
+  "AnswerEntityName": "Nancy Pelosi",
+  "AnswerEntityID": 5656,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-730",
+  "RawQuestion": "what record label is kelly clarkson signed with?",
+  "TopicEntityID": 3934,
+  "TopicEntityName": "kelly clarkson",
+  "AnswerEntity": [
+   44375
+  ],
+  "AnswerEntityName": "RCA Records",
+  "AnswerEntityID": 6809,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-737",
+  "RawQuestion": "what is the name of the capital of belgium?",
+  "TopicEntityID": 92,
+  "TopicEntityName": "belgium",
+  "AnswerEntity": [
+   32430
+  ],
+  "AnswerEntityName": "Brussels",
+  "AnswerEntityID": 4557,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-738",
+  "RawQuestion": "what kind of government does japan have now?",
+  "TopicEntityID": 158,
+  "TopicEntityName": "japan",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-741",
+  "RawQuestion": "who plays caesar flickerman in the hunger games?",
+  "TopicEntityID": 629,
+  "TopicEntityName": "hunger games",
+  "AnswerEntity": [
+   43126
+  ],
+  "AnswerEntityName": "Stanley Tucci",
+  "AnswerEntityID": 7700,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-743",
+  "RawQuestion": "what was the name of jfk's brothers?",
+  "TopicEntityID": 10805,
+  "TopicEntityName": "jfk",
+  "AnswerEntity": [
+   39362
+  ],
+  "AnswerEntityName": "Ted Kennedy",
+  "AnswerEntityID": 9287,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-744",
+  "RawQuestion": "who was tupac signed to?",
+  "TopicEntityID": 8886,
+  "TopicEntityName": "tupac",
+  "AnswerEntity": [
+   36857
+  ],
+  "AnswerEntityName": "Death Row Records",
+  "AnswerEntityID": 10069,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-747",
+  "RawQuestion": "what language does colombia?",
+  "TopicEntityID": 293,
+  "TopicEntityName": "colombia",
+  "AnswerEntity": [
+   39381
+  ],
+  "AnswerEntityName": "Spanish Language",
+  "AnswerEntityID": 2272,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-749",
+  "RawQuestion": "who was president in 1988 in the united states?",
+  "TopicEntityID": 13814,
+  "TopicEntityName": "president",
+  "AnswerEntity": [
+   35386
+  ],
+  "AnswerEntityName": "Ronald Reagan",
+  "AnswerEntityID": 12242,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-759",
+  "RawQuestion": "who brad pitt has dated?",
+  "TopicEntityID": 2269,
+  "TopicEntityName": "brad pitt",
+  "AnswerEntity": [
+   42529
+  ],
+  "AnswerEntityName": "Thandie Newton",
+  "AnswerEntityID": 4401,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-760",
+  "RawQuestion": "what party does barack obama belong to?",
+  "TopicEntityID": 2433,
+  "TopicEntityName": "barack obama",
+  "AnswerEntity": [
+   37143
+  ],
+  "AnswerEntityName": "Democratic Party",
+  "AnswerEntityID": 8433,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-764",
+  "RawQuestion": "where did john mayer go to college?",
+  "TopicEntityID": 4472,
+  "TopicEntityName": "john mayer",
+  "AnswerEntity": [
+   36156
+  ],
+  "AnswerEntityName": "Berklee College of Music",
+  "AnswerEntityID": 972,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-765",
+  "RawQuestion": "what celebrities has brody jenner dated?",
+  "TopicEntityID": 9093,
+  "TopicEntityName": "brody jenner",
+  "AnswerEntity": [
+   42562
+  ],
+  "AnswerEntityName": "Nicole Richie",
+  "AnswerEntityID": 10494,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-771",
+  "RawQuestion": "who is the newly elected governor of california?",
+  "TopicEntityID": 1044,
+  "TopicEntityName": "california",
+  "AnswerEntity": [
+   37018
+  ],
+  "AnswerEntityName": "Arnold Schwarzenegger",
+  "AnswerEntityID": 2161,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-777",
+  "RawQuestion": "where is the main headquarters of google?",
+  "TopicEntityID": 4800,
+  "TopicEntityName": "google",
+  "AnswerEntity": [
+   36770
+  ],
+  "AnswerEntityName": "Mountain View",
+  "AnswerEntityID": 12408,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-779",
+  "RawQuestion": "where does carlos santana live?",
+  "TopicEntityID": 10903,
+  "TopicEntityName": "carlos santana",
+  "AnswerEntity": [
+   39427
+  ],
+  "AnswerEntityName": "Jalisco",
+  "AnswerEntityID": 8571,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-780",
+  "RawQuestion": "what is the new movie john carter about?",
+  "TopicEntityID": 9242,
+  "TopicEntityName": "movie john carter",
+  "AnswerEntity": [
+   33083
+  ],
+  "AnswerEntityName": "Fantasy",
+  "AnswerEntityID": 1314,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-783",
+  "RawQuestion": "what county is houston tx in?",
+  "TopicEntityID": 4464,
+  "TopicEntityName": "houston",
+  "AnswerEntity": [
+   40807
+  ],
+  "AnswerEntityName": "Montgomery County",
+  "AnswerEntityID": 10084,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-798",
+  "RawQuestion": "what states share a border with tennessee?",
+  "TopicEntityID": 3514,
+  "TopicEntityName": "tennessee",
+  "AnswerEntity": [
+   38171
+  ],
+  "AnswerEntityName": "Kentucky",
+  "AnswerEntityID": 3796,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-800",
+  "RawQuestion": "what war did the us lose the most soldiers?",
+  "TopicEntityID": 32,
+  "TopicEntityName": "us",
+  "AnswerEntity": [
+   31410
+  ],
+  "AnswerEntityName": "World War II",
+  "AnswerEntityID": 220,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-805",
+  "RawQuestion": "where do john lennon die?",
+  "TopicEntityID": 2557,
+  "TopicEntityName": "john lennon",
+  "AnswerEntity": [
+   34870
+  ],
+  "AnswerEntityName": "New York City",
+  "AnswerEntityID": 592,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-810",
+  "RawQuestion": "what language do people from greece speak?",
+  "TopicEntityID": 1163,
+  "TopicEntityName": "greece",
+  "AnswerEntity": [
+   39064
+  ],
+  "AnswerEntityName": "Albanian language",
+  "AnswerEntityID": 12000,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-823",
+  "RawQuestion": "what does bolivia border?",
+  "TopicEntityID": 9534,
+  "TopicEntityName": "bolivia",
+  "AnswerEntity": [
+   30946
+  ],
+  "AnswerEntityName": "Brazil",
+  "AnswerEntityID": 449,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-827",
+  "RawQuestion": "what country does justin bieber come from?",
+  "TopicEntityID": 1267,
+  "TopicEntityName": "justin bieber",
+  "AnswerEntity": [
+   33974
+  ],
+  "AnswerEntityName": "Canada",
+  "AnswerEntityID": 181,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-830",
+  "RawQuestion": "where is taylor swift from?",
+  "TopicEntityID": 3815,
+  "TopicEntityName": "taylor swift",
+  "AnswerEntity": [
+   40625
+  ],
+  "AnswerEntityName": "Reading",
+  "AnswerEntityID": 4710,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-831",
+  "RawQuestion": "what type of religion does argentina have?",
+  "TopicEntityID": 68,
+  "TopicEntityName": "argentina",
+  "AnswerEntity": [
+   44817
+  ],
+  "AnswerEntityName": "Judaism",
+  "AnswerEntityID": 6851,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-833",
+  "RawQuestion": "what is the main language used in china?",
+  "TopicEntityID": 2121,
+  "TopicEntityName": "china",
+  "AnswerEntity": [
+   32271
+  ],
+  "AnswerEntityName": "Standard Chinese",
+  "AnswerEntityID": 2646,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-841",
+  "RawQuestion": "what is money called in italy?",
+  "TopicEntityID": 119,
+  "TopicEntityName": "italy",
+  "AnswerEntity": [
+   38372
+  ],
+  "AnswerEntityName": "Euro",
+  "AnswerEntityID": 5422,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-851",
+  "RawQuestion": "what is the capital of modern day egypt?",
+  "TopicEntityID": 474,
+  "TopicEntityName": "egypt",
+  "AnswerEntity": [
+   44700
+  ],
+  "AnswerEntityName": "Cairo",
+  "AnswerEntityID": 6088,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-852",
+  "RawQuestion": "what province is toronto in ( 7 letters )?",
+  "TopicEntityID": 1457,
+  "TopicEntityName": "toronto",
+  "AnswerEntity": [
+   39153
+  ],
+  "AnswerEntityName": "Ontario",
+  "AnswerEntityID": 1694,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-857",
+  "RawQuestion": "what other states border florida?",
+  "TopicEntityID": 2388,
+  "TopicEntityName": "florida",
+  "AnswerEntity": [
+   43282
+  ],
+  "AnswerEntityName": "Georgia",
+  "AnswerEntityID": 2792,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-859",
+  "RawQuestion": "what are the predominant religions in russia?",
+  "TopicEntityID": 1405,
+  "TopicEntityName": "russia",
+  "AnswerEntity": [
+   41361
+  ],
+  "AnswerEntityName": "Russian Orthodox Church",
+  "AnswerEntityID": 7728,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-874",
+  "RawQuestion": "what language do people from bosnia speak?",
+  "TopicEntityID": 6157,
+  "TopicEntityName": "bosnia",
+  "AnswerEntity": [
+   32397
+  ],
+  "AnswerEntityName": "Serbo-Croatian Language",
+  "AnswerEntityID": 13856,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-876",
+  "RawQuestion": "who does japan import from?",
+  "TopicEntityID": 158,
+  "TopicEntityName": "japan",
+  "AnswerEntity": [
+   40555
+  ],
+  "AnswerEntityName": "Kiribati",
+  "AnswerEntityID": 3898,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-888",
+  "RawQuestion": "what 5 countries border switzerland?",
+  "TopicEntityID": 622,
+  "TopicEntityName": "switzerland",
+  "AnswerEntity": [
+   44018
+  ],
+  "AnswerEntityName": "Germany",
+  "AnswerEntityID": 1080,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-889",
+  "RawQuestion": "what country did benito mussolini govern?",
+  "TopicEntityID": 10703,
+  "TopicEntityName": "benito mussolini",
+  "AnswerEntity": [
+   35750
+  ],
+  "AnswerEntityName": "Italy",
+  "AnswerEntityID": 119,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-892",
+  "RawQuestion": "what did miles davis died of?",
+  "TopicEntityID": 2592,
+  "TopicEntityName": "miles davis",
+  "AnswerEntity": [
+   41842
+  ],
+  "AnswerEntityName": "Respiratory failure",
+  "AnswerEntityID": 12341,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-904",
+  "RawQuestion": "what state is barack obama from?",
+  "TopicEntityID": 2433,
+  "TopicEntityName": "barack obama",
+  "AnswerEntity": [
+   32720
+  ],
+  "AnswerEntityName": "Hawaii",
+  "AnswerEntityID": 5949,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-914",
+  "RawQuestion": "what countries are in the uk yahoo?",
+  "TopicEntityID": 382,
+  "TopicEntityName": "uk",
+  "AnswerEntity": [
+   32004
+  ],
+  "AnswerEntityName": "England",
+  "AnswerEntityID": 1124,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-916",
+  "RawQuestion": "what is the language of russia s spoken?",
+  "TopicEntityID": 1405,
+  "TopicEntityName": "russia",
+  "AnswerEntity": [
+   42209
+  ],
+  "AnswerEntityName": "Russian Language",
+  "AnswerEntityID": 5397,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-920",
+  "RawQuestion": "what schools did sir isaac newton go to?",
+  "TopicEntityID": 6971,
+  "TopicEntityName": "sir isaac newton",
+  "AnswerEntity": [
+   32388
+  ],
+  "AnswerEntityName": "Trinity College, Cambridge",
+  "AnswerEntityID": 11331,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-923",
+  "RawQuestion": "what countries does england border?",
+  "TopicEntityID": 1124,
+  "TopicEntityName": "england",
+  "AnswerEntity": [
+   35055
+  ],
+  "AnswerEntityName": "Scotland",
+  "AnswerEntityID": 6123,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-924",
+  "RawQuestion": "what team did messi play for in 2010?",
+  "TopicEntityID": 9457,
+  "TopicEntityName": "messi",
+  "AnswerEntity": [
+   41126
+  ],
+  "AnswerEntityName": "Argentina national football team",
+  "AnswerEntityID": 9458,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-937",
+  "RawQuestion": "where are people who speak arabic from?",
+  "TopicEntityID": 5086,
+  "TopicEntityName": "arabic",
+  "AnswerEntity": [
+   31121
+  ],
+  "AnswerEntityName": "Bahrain",
+  "AnswerEntityID": 3420,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-945",
+  "RawQuestion": "what political system did spain have?",
+  "TopicEntityID": 1934,
+  "TopicEntityName": "spain",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-952",
+  "RawQuestion": "what country does alaska belong to?",
+  "TopicEntityID": 787,
+  "TopicEntityName": "alaska",
+  "AnswerEntity": [
+   36097
+  ],
+  "AnswerEntityName": "United States of America",
+  "AnswerEntityID": 32,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-957",
+  "RawQuestion": "what language did the sioux indians speak?",
+  "TopicEntityID": 13022,
+  "TopicEntityName": "sioux indians",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-960",
+  "RawQuestion": "who plays dwight in the office?",
+  "TopicEntityID": 1431,
+  "TopicEntityName": "the office",
+  "AnswerEntity": [
+   35772
+  ],
+  "AnswerEntityName": "Rainn Wilson",
+  "AnswerEntityID": 177,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-962",
+  "RawQuestion": "what county is san diego ca?",
+  "TopicEntityID": 6680,
+  "TopicEntityName": "san diego ca",
+  "AnswerEntity": [
+   44860
+  ],
+  "AnswerEntityName": "San Diego County",
+  "AnswerEntityID": 9191,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-973",
+  "RawQuestion": "what time zone is chicago in right now?",
+  "TopicEntityID": 1652,
+  "TopicEntityName": "chicago",
+  "AnswerEntity": [
+   34812
+  ],
+  "AnswerEntityName": "Central Time Zone",
+  "AnswerEntityID": 1437,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-975",
+  "RawQuestion": "who was the vice president under ronald reagan?",
+  "TopicEntityID": 12242,
+  "TopicEntityName": "ronald reagan",
+  "AnswerEntity": [
+   31974
+  ],
+  "AnswerEntityName": "George H. W. Bush",
+  "AnswerEntityID": 7260,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-983",
+  "RawQuestion": "where did tennessee williams go to college?",
+  "TopicEntityID": 9328,
+  "TopicEntityName": "tennessee williams",
+  "AnswerEntity": [
+   32232
+  ],
+  "AnswerEntityName": "University of Missouri",
+  "AnswerEntityID": 9565,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-984",
+  "RawQuestion": "what is the name of airport in new york?",
+  "TopicEntityID": 592,
+  "TopicEntityName": "new york",
+  "AnswerEntity": [
+   36484
+  ],
+  "AnswerEntityName": "John F. Kennedy International Airport",
+  "AnswerEntityID": 11230,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1000",
+  "RawQuestion": "what countries included in oceania?",
+  "TopicEntityID": 9868,
+  "TopicEntityName": "oceania",
+  "AnswerEntity": [
+   38494
+  ],
+  "AnswerEntityName": "Solomon Islands",
+  "AnswerEntityID": 9372,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1001",
+  "RawQuestion": "what country is nicki minaj from?",
+  "TopicEntityID": 2109,
+  "TopicEntityName": "nicki minaj",
+  "AnswerEntity": [
+   36097
+  ],
+  "AnswerEntityName": "United States of America",
+  "AnswerEntityID": 32,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1005",
+  "RawQuestion": "what is capital city of morocco?",
+  "TopicEntityID": 1087,
+  "TopicEntityName": "morocco",
+  "AnswerEntity": [
+   36129
+  ],
+  "AnswerEntityName": "Rabat",
+  "AnswerEntityID": 13760,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1009",
+  "RawQuestion": "where did george herbert walker bush go to college?",
+  "TopicEntityID": 7260,
+  "TopicEntityName": "george herbert walker bush",
+  "AnswerEntity": [
+   33305
+  ],
+  "AnswerEntityName": "University Yale",
+  "AnswerEntityID": 53,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1014",
+  "RawQuestion": "where did kim kardashian come from?",
+  "TopicEntityID": 6745,
+  "TopicEntityName": "kim kardashian",
+  "AnswerEntity": [
+   39120
+  ],
+  "AnswerEntityName": "Los Angeles",
+  "AnswerEntityID": 1327,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1022",
+  "RawQuestion": "what country is nike based in?",
+  "TopicEntityID": 12039,
+  "TopicEntityName": "nike",
+  "AnswerEntity": [
+   36097
+  ],
+  "AnswerEntityName": "United States of America",
+  "AnswerEntityID": 32,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1031",
+  "RawQuestion": "what has angelina jolie accomplished?",
+  "TopicEntityID": 2037,
+  "TopicEntityName": "angelina jolie",
+  "AnswerEntity": [
+   37377
+  ],
+  "AnswerEntityName": "Film Producer",
+  "AnswerEntityID": 215,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1038",
+  "RawQuestion": "who was wesley snipes?",
+  "TopicEntityID": 4508,
+  "TopicEntityName": "wesley snipes",
+  "AnswerEntity": [
+   42518
+  ],
+  "AnswerEntityName": "Businessperson",
+  "AnswerEntityID": 800,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1040",
+  "RawQuestion": "what kind of language does colombia speak?",
+  "TopicEntityID": 293,
+  "TopicEntityName": "colombia",
+  "AnswerEntity": [
+   39381
+  ],
+  "AnswerEntityName": "Spanish Language",
+  "AnswerEntityID": 2272,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1041",
+  "RawQuestion": "what currency does england use now?",
+  "TopicEntityID": 1124,
+  "TopicEntityName": "england",
+  "AnswerEntity": [
+   43503
+  ],
+  "AnswerEntityName": "Pound sterling",
+  "AnswerEntityID": 924,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1046",
+  "RawQuestion": "what is jacksonville fl timezone?",
+  "TopicEntityID": 7649,
+  "TopicEntityName": "jacksonville fl",
+  "AnswerEntity": [
+   32925
+  ],
+  "AnswerEntityName": "Eastern Time Zone",
+  "AnswerEntityID": 2438,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1056",
+  "RawQuestion": "who did the cleveland cavaliers draft?",
+  "TopicEntityID": 10554,
+  "TopicEntityName": "cleveland cavaliers",
+  "AnswerEntity": [
+   37378
+  ],
+  "AnswerEntityName": "LeBron James",
+  "AnswerEntityID": 12639,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1059",
+  "RawQuestion": "what language does east timor speak?",
+  "TopicEntityID": 3394,
+  "TopicEntityName": "east timor",
+  "AnswerEntity": [
+   36840
+  ],
+  "AnswerEntityName": "Portuguese Language",
+  "AnswerEntityID": 6473,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1060",
+  "RawQuestion": "what is the currency in italy?",
+  "TopicEntityID": 119,
+  "TopicEntityName": "italy",
+  "AnswerEntity": [
+   38372
+  ],
+  "AnswerEntityName": "Euro",
+  "AnswerEntityID": 5422,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1062",
+  "RawQuestion": "what is the name of the currency used in italy?",
+  "TopicEntityID": 119,
+  "TopicEntityName": "italy",
+  "AnswerEntity": [
+   38372
+  ],
+  "AnswerEntityName": "Euro",
+  "AnswerEntityID": 5422,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1077",
+  "RawQuestion": "what language do the russian speak?",
+  "TopicEntityID": 1405,
+  "TopicEntityName": "russian",
+  "AnswerEntity": [
+   42209
+  ],
+  "AnswerEntityName": "Russian Language",
+  "AnswerEntityID": 5397,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1078",
+  "RawQuestion": "what language do australia people speak?",
+  "TopicEntityID": 274,
+  "TopicEntityName": "australia",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1083",
+  "RawQuestion": "where president obama was born?",
+  "TopicEntityID": 2433,
+  "TopicEntityName": "president obama",
+  "AnswerEntity": [
+   38288
+  ],
+  "AnswerEntityName": "Honolulu",
+  "AnswerEntityID": 4921,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1085",
+  "RawQuestion": "who was demi lovato dating?",
+  "TopicEntityID": 2995,
+  "TopicEntityName": "demi lovato",
+  "AnswerEntity": [
+   34166
+  ],
+  "AnswerEntityName": "Wilmer Valderrama",
+  "AnswerEntityID": 5605,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1088",
+  "RawQuestion": "who originally voiced meg on family guy?",
+  "TopicEntityID": 1203,
+  "TopicEntityName": "family guy",
+  "AnswerEntity": [
+   35780
+  ],
+  "AnswerEntityName": "Lacey Chabert",
+  "AnswerEntityID": 4970,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1090",
+  "RawQuestion": "where are boeing headquarters?",
+  "TopicEntityID": 3531,
+  "TopicEntityName": "boeing",
+  "AnswerEntity": [
+   41396
+  ],
+  "AnswerEntityName": "Chicago",
+  "AnswerEntityID": 1652,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1091",
+  "RawQuestion": "what type of religions are in the united states?",
+  "TopicEntityID": 32,
+  "TopicEntityName": "united states",
+  "AnswerEntity": [
+   31341
+  ],
+  "AnswerEntityName": "Christianity",
+  "AnswerEntityID": 44,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1094",
+  "RawQuestion": "who was isaac newton and what did he do?",
+  "TopicEntityID": 6971,
+  "TopicEntityName": "isaac newton",
+  "AnswerEntity": [
+   38885
+  ],
+  "AnswerEntityName": "Chemist",
+  "AnswerEntityID": 13879,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1098",
+  "RawQuestion": "what kind of music did franz liszt compose?",
+  "TopicEntityID": 11177,
+  "TopicEntityName": "franz liszt",
+  "AnswerEntity": [
+   32580
+  ],
+  "AnswerEntityName": "Opera",
+  "AnswerEntityID": 729,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1102",
+  "RawQuestion": "where is victoria british columbia?",
+  "TopicEntityID": 8635,
+  "TopicEntityName": "victoria british columbia",
+  "AnswerEntity": [
+   37092
+  ],
+  "AnswerEntityName": "British Columbia",
+  "AnswerEntityID": 7188,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1106",
+  "RawQuestion": "what team does david beckham play for in 2012?",
+  "TopicEntityID": 1687,
+  "TopicEntityName": "david beckham",
+  "AnswerEntity": [
+   30604
+  ],
+  "AnswerEntityName": "LA Galaxy",
+  "AnswerEntityID": 1688,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1114",
+  "RawQuestion": "what countries makes up the uk?",
+  "TopicEntityID": 382,
+  "TopicEntityName": "uk",
+  "AnswerEntity": [
+   32004
+  ],
+  "AnswerEntityName": "England",
+  "AnswerEntityID": 1124,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1116",
+  "RawQuestion": "what is the capital city of spain wiki answers?",
+  "TopicEntityID": 1934,
+  "TopicEntityName": "spain",
+  "AnswerEntity": [
+   32882
+  ],
+  "AnswerEntityName": "Madrid",
+  "AnswerEntityID": 4429,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1117",
+  "RawQuestion": "where do they speak german?",
+  "TopicEntityID": 585,
+  "TopicEntityName": "german",
+  "AnswerEntity": [
+   39144
+  ],
+  "AnswerEntityName": "Belgium",
+  "AnswerEntityID": 92,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1125",
+  "RawQuestion": "what area of science did sir isaac newton study?",
+  "TopicEntityID": 6971,
+  "TopicEntityName": "sir isaac newton",
+  "AnswerEntity": [
+   38885
+  ],
+  "AnswerEntityName": "Chemist",
+  "AnswerEntityID": 13879,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1126",
+  "RawQuestion": "what county is san diego in?",
+  "TopicEntityID": 6680,
+  "TopicEntityName": "san diego",
+  "AnswerEntity": [
+   44860
+  ],
+  "AnswerEntityName": "San Diego County",
+  "AnswerEntityID": 9191,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1127",
+  "RawQuestion": "which country in north america is divided into provinces?",
+  "TopicEntityID": 8202,
+  "TopicEntityName": "north america",
+  "AnswerEntity": [
+   33974
+  ],
+  "AnswerEntityName": "Canada",
+  "AnswerEntityID": 181,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1136",
+  "RawQuestion": "what religion did adolf hitler follow?",
+  "TopicEntityID": 4467,
+  "TopicEntityName": "adolf hitler",
+  "AnswerEntity": [
+   31341
+  ],
+  "AnswerEntityName": "Christianity",
+  "AnswerEntityID": 44,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1144",
+  "RawQuestion": "what are the major trading partners of germany?",
+  "TopicEntityID": 1080,
+  "TopicEntityName": "germany",
+  "AnswerEntity": [
+   32087
+  ],
+  "AnswerEntityName": "Nepal",
+  "AnswerEntityID": 8339,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1151",
+  "RawQuestion": "where did charles darwin and his wife live?",
+  "TopicEntityID": 11863,
+  "TopicEntityName": "charles darwin",
+  "AnswerEntity": [
+   35340
+  ],
+  "AnswerEntityName": "Shrewsbury",
+  "AnswerEntityID": 13535,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1183",
+  "RawQuestion": "where was farrah fawcett buried?",
+  "TopicEntityID": 9291,
+  "TopicEntityName": "farrah fawcett",
+  "AnswerEntity": [
+   35137
+  ],
+  "AnswerEntityName": "Westwood Village Memorial Park Cemetery",
+  "AnswerEntityID": 2904,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1187",
+  "RawQuestion": "where are english speakers distributed?",
+  "TopicEntityID": 160,
+  "TopicEntityName": "english",
+  "AnswerEntity": [
+   38246
+  ],
+  "AnswerEntityName": "Bahamas",
+  "AnswerEntityID": 56,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1189",
+  "RawQuestion": "what is the capital of italy today?",
+  "TopicEntityID": 119,
+  "TopicEntityName": "italy",
+  "AnswerEntity": [
+   36943
+  ],
+  "AnswerEntityName": "Rome",
+  "AnswerEntityID": 6679,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1191",
+  "RawQuestion": "what language do people speak in the bahamas?",
+  "TopicEntityID": 56,
+  "TopicEntityName": "bahamas",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1197",
+  "RawQuestion": "what language do people speak in brazil?",
+  "TopicEntityID": 449,
+  "TopicEntityName": "brazil",
+  "AnswerEntity": [
+   45401
+  ],
+  "AnswerEntityName": "Italian Language",
+  "AnswerEntityID": 29,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1199",
+  "RawQuestion": "what does kim kardashian work as?",
+  "TopicEntityID": 6745,
+  "TopicEntityName": "kim kardashian",
+  "AnswerEntity": [
+   42518
+  ],
+  "AnswerEntityName": "Businessperson",
+  "AnswerEntityID": 800,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1213",
+  "RawQuestion": "which country was michael jackson born?",
+  "TopicEntityID": 4688,
+  "TopicEntityName": "michael jackson",
+  "AnswerEntity": [
+   36097
+  ],
+  "AnswerEntityName": "United States of America",
+  "AnswerEntityID": 32,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1216",
+  "RawQuestion": "what country was stalin in charge of?",
+  "TopicEntityID": 10010,
+  "TopicEntityName": "stalin",
+  "AnswerEntity": [
+   41472
+  ],
+  "AnswerEntityName": "Soviet Union",
+  "AnswerEntityID": 4842,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1219",
+  "RawQuestion": "what nationality is rihanna?",
+  "TopicEntityID": 6555,
+  "TopicEntityName": "rihanna",
+  "AnswerEntity": [
+   38773
+  ],
+  "AnswerEntityName": "Barbados",
+  "AnswerEntityID": 1744,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1226",
+  "RawQuestion": "what form of government does australia use?",
+  "TopicEntityID": 274,
+  "TopicEntityName": "australia",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1231",
+  "RawQuestion": "where is chris paul from?",
+  "TopicEntityID": 9815,
+  "TopicEntityName": "chris paul",
+  "AnswerEntity": [
+   36097
+  ],
+  "AnswerEntityName": "United States of America",
+  "AnswerEntityID": 32,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1233",
+  "RawQuestion": "what are the colors of the ny giants?",
+  "TopicEntityID": 4277,
+  "TopicEntityName": "ny giants",
+  "AnswerEntity": [
+   36364
+  ],
+  "AnswerEntityName": "Blue",
+  "AnswerEntityID": 2940,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1237",
+  "RawQuestion": "who did shaq first play for?",
+  "TopicEntityID": 8789,
+  "TopicEntityName": "shaq",
+  "AnswerEntity": [
+   43637
+  ],
+  "AnswerEntityName": "Orlando Magic",
+  "AnswerEntityID": 5481,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1238",
+  "RawQuestion": "who was the artist of mickey mouse?",
+  "TopicEntityID": 14494,
+  "TopicEntityName": "mickey mouse",
+  "AnswerEntity": [
+   37152
+  ],
+  "AnswerEntityName": "Walt Disney",
+  "AnswerEntityID": 2197,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1247",
+  "RawQuestion": "who is angelina jolie?",
+  "TopicEntityID": 2037,
+  "TopicEntityName": "angelina jolie",
+  "AnswerEntity": [
+   37377
+  ],
+  "AnswerEntityName": "Film Producer",
+  "AnswerEntityID": 215,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1251",
+  "RawQuestion": "which countries speak germanic languages?",
+  "TopicEntityID": 585,
+  "TopicEntityName": "germanic languages",
+  "AnswerEntity": [
+   39144
+  ],
+  "AnswerEntityName": "Belgium",
+  "AnswerEntityID": 92,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1252",
+  "RawQuestion": "who plays eowyn in lord of the rings?",
+  "TopicEntityID": 4341,
+  "TopicEntityName": "lord of the rings",
+  "AnswerEntity": [
+   39158
+  ],
+  "AnswerEntityName": "Miranda Otto",
+  "AnswerEntityID": 3887,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1280",
+  "RawQuestion": "who was president after franklin d. roosevelt?",
+  "TopicEntityID": 12288,
+  "TopicEntityName": "franklin d . roosevelt",
+  "AnswerEntity": [
+   34345
+  ],
+  "AnswerEntityName": "Harry S. Truman",
+  "AnswerEntityID": 3304,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1282",
+  "RawQuestion": "under what political system does the united states government operate?",
+  "TopicEntityID": 32,
+  "TopicEntityName": "united states government",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1289",
+  "RawQuestion": "what type of music did mozart composed?",
+  "TopicEntityID": 7106,
+  "TopicEntityName": "mozart",
+  "AnswerEntity": [
+   43891
+  ],
+  "AnswerEntityName": "Ballet",
+  "AnswerEntityID": 3336,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1297",
+  "RawQuestion": "what continent does canada belong to?",
+  "TopicEntityID": 181,
+  "TopicEntityName": "canada",
+  "AnswerEntity": [
+   32745
+  ],
+  "AnswerEntityName": "North America",
+  "AnswerEntityID": 8202,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1300",
+  "RawQuestion": "what city does fulham play in?",
+  "TopicEntityID": 6199,
+  "TopicEntityName": "fulham",
+  "AnswerEntity": [
+   36323
+  ],
+  "AnswerEntityName": "Fulham",
+  "AnswerEntityID": 12320,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1306",
+  "RawQuestion": "what kind of government does iran have after 1979?",
+  "TopicEntityID": 3466,
+  "TopicEntityName": "iran",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1308",
+  "RawQuestion": "what college did jrr tolkien go to?",
+  "TopicEntityID": 350,
+  "TopicEntityName": "jrr tolkien",
+  "AnswerEntity": [
+   33421
+  ],
+  "AnswerEntityName": "University of Oxford",
+  "AnswerEntityID": 733,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1312",
+  "RawQuestion": "in what country do people speak danish?",
+  "TopicEntityID": 7511,
+  "TopicEntityName": "danish",
+  "AnswerEntity": [
+   43254
+  ],
+  "AnswerEntityName": "Denmark",
+  "AnswerEntityID": 816,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1317",
+  "RawQuestion": "what the largest city in spain?",
+  "TopicEntityID": 1934,
+  "TopicEntityName": "spain",
+  "AnswerEntity": [
+   31840
+  ],
+  "AnswerEntityName": "Catalonia",
+  "AnswerEntityID": 13675,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1325",
+  "RawQuestion": "what language do maltese speak?",
+  "TopicEntityID": 890,
+  "TopicEntityName": "maltese",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1327",
+  "RawQuestion": "where is shakira from?",
+  "TopicEntityID": 2951,
+  "TopicEntityName": "shakira",
+  "AnswerEntity": [
+   34010
+  ],
+  "AnswerEntityName": "Colombia",
+  "AnswerEntityID": 293,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1329",
+  "RawQuestion": "who played bilbo in the fellowship of the ring?",
+  "TopicEntityID": 805,
+  "TopicEntityName": "the fellowship of the ring",
+  "AnswerEntity": [
+   38739
+  ],
+  "AnswerEntityName": "Ian Holm",
+  "AnswerEntityID": 5222,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1330",
+  "RawQuestion": "what is the most populated state in united states?",
+  "TopicEntityID": 32,
+  "TopicEntityName": "united states",
+  "AnswerEntity": [
+   44693
+  ],
+  "AnswerEntityName": "New York",
+  "AnswerEntityID": 226,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1335",
+  "RawQuestion": "what language do they in ghana?",
+  "TopicEntityID": 1837,
+  "TopicEntityName": "ghana",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1336",
+  "RawQuestion": "what is utah's state capitol?",
+  "TopicEntityID": 2035,
+  "TopicEntityName": "utah",
+  "AnswerEntity": [
+   43382
+  ],
+  "AnswerEntityName": "Salt Lake City",
+  "AnswerEntityID": 532,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1342",
+  "RawQuestion": "what kind of language does france speak?",
+  "TopicEntityID": 637,
+  "TopicEntityName": "france",
+  "AnswerEntity": [
+   37468
+  ],
+  "AnswerEntityName": "French",
+  "AnswerEntityID": 5334,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1343",
+  "RawQuestion": "what degree did martin luther king earn?",
+  "TopicEntityID": 8213,
+  "TopicEntityName": "martin luther king",
+  "AnswerEntity": [
+   40738
+  ],
+  "AnswerEntityName": "Bachelor of Arts",
+  "AnswerEntityID": 1177,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1344",
+  "RawQuestion": "what two states is st louis in?",
+  "TopicEntityID": 4089,
+  "TopicEntityName": "st louis",
+  "AnswerEntity": [
+   43045
+  ],
+  "AnswerEntityName": "Missouri",
+  "AnswerEntityID": 855,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1353",
+  "RawQuestion": "what are the four nations of the united kingdom?",
+  "TopicEntityID": 382,
+  "TopicEntityName": "united kingdom",
+  "AnswerEntity": [
+   32004
+  ],
+  "AnswerEntityName": "England",
+  "AnswerEntityID": 1124,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1355",
+  "RawQuestion": "what school did robert f kennedy go to?",
+  "TopicEntityID": 5862,
+  "TopicEntityName": "robert f kennedy",
+  "AnswerEntity": [
+   34731
+  ],
+  "AnswerEntityName": "Harvard College",
+  "AnswerEntityID": 3227,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1358",
+  "RawQuestion": "what is los angeles california time zone?",
+  "TopicEntityID": 1327,
+  "TopicEntityName": "los angeles california",
+  "AnswerEntity": [
+   44584
+  ],
+  "AnswerEntityName": "Pacific Time Zone",
+  "AnswerEntityID": 2706,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1363",
+  "RawQuestion": "who was jessica simpson married too?",
+  "TopicEntityID": 4550,
+  "TopicEntityName": "jessica simpson",
+  "AnswerEntity": [
+   43422
+  ],
+  "AnswerEntityName": "Nick Lachey",
+  "AnswerEntityID": 3289,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1364",
+  "RawQuestion": "what do they speak in scotland?",
+  "TopicEntityID": 6123,
+  "TopicEntityName": "scotland",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1370",
+  "RawQuestion": "where did thomas hobbes live?",
+  "TopicEntityID": 5522,
+  "TopicEntityName": "thomas hobbes",
+  "AnswerEntity": [
+   38988
+  ],
+  "AnswerEntityName": "Paris",
+  "AnswerEntityID": 4358,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1373",
+  "RawQuestion": "where was john f kennedy when he got shot?",
+  "TopicEntityID": 10805,
+  "TopicEntityName": "john f kennedy",
+  "AnswerEntity": [
+   33362
+  ],
+  "AnswerEntityName": "Dallas",
+  "AnswerEntityID": 5445,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1374",
+  "RawQuestion": "what type of government does italy have 2011?",
+  "TopicEntityID": 119,
+  "TopicEntityName": "italy",
+  "AnswerEntity": [
+   44295
+  ],
+  "AnswerEntityName": "Unitary state",
+  "AnswerEntityID": 4494,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1376",
+  "RawQuestion": "what province is montreal canada located?",
+  "TopicEntityID": 2244,
+  "TopicEntityName": "montreal canada",
+  "AnswerEntity": [
+   37723
+  ],
+  "AnswerEntityName": "Qu\u00e9bec",
+  "AnswerEntityID": 6562,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1379",
+  "RawQuestion": "what did franz liszt do to earn a living?",
+  "TopicEntityID": 11177,
+  "TopicEntityName": "franz liszt",
+  "AnswerEntity": [
+   40854
+  ],
+  "AnswerEntityName": "Composer",
+  "AnswerEntityID": 1415,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1382",
+  "RawQuestion": "what other countries border argentina?",
+  "TopicEntityID": 68,
+  "TopicEntityName": "argentina",
+  "AnswerEntity": [
+   30946
+  ],
+  "AnswerEntityName": "Brazil",
+  "AnswerEntityID": 449,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1384",
+  "RawQuestion": "what is the predominant religion in israel?",
+  "TopicEntityID": 4474,
+  "TopicEntityName": "israel",
+  "AnswerEntity": [
+   44817
+  ],
+  "AnswerEntityName": "Judaism",
+  "AnswerEntityID": 6851,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1387",
+  "RawQuestion": "what time zone is toronto gmt?",
+  "TopicEntityID": 1457,
+  "TopicEntityName": "toronto",
+  "AnswerEntity": [
+   32925
+  ],
+  "AnswerEntityName": "Eastern Time Zone",
+  "AnswerEntityID": 2438,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1392",
+  "RawQuestion": "what the language spoken in indonesia?",
+  "TopicEntityID": 3485,
+  "TopicEntityName": "indonesia",
+  "AnswerEntity": [
+   41700
+  ],
+  "AnswerEntityName": "Indonesian Language",
+  "AnswerEntityID": 12111,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1395",
+  "RawQuestion": "what other countries does south africa share borders with?",
+  "TopicEntityID": 640,
+  "TopicEntityName": "south africa",
+  "AnswerEntity": [
+   34205
+  ],
+  "AnswerEntityName": "Botswana",
+  "AnswerEntityID": 4154,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1409",
+  "RawQuestion": "what are the major languages spoken in the united kingdom?",
+  "TopicEntityID": 382,
+  "TopicEntityName": "united kingdom",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1422",
+  "RawQuestion": "what language do they speak in sweden yahoo?",
+  "TopicEntityID": 202,
+  "TopicEntityName": "sweden",
+  "AnswerEntity": [
+   34931
+  ],
+  "AnswerEntityName": "Swedish Language",
+  "AnswerEntityID": 4175,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1424",
+  "RawQuestion": "what form of government do we have in the philippines?",
+  "TopicEntityID": 419,
+  "TopicEntityName": "philippines",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1445",
+  "RawQuestion": "what tv series did mark harmon star in?",
+  "TopicEntityID": 4612,
+  "TopicEntityName": "mark harmon",
+  "AnswerEntity": [
+   33068
+  ],
+  "AnswerEntityName": "Chicago Hope",
+  "AnswerEntityID": 5321,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1448",
+  "RawQuestion": "where does michelle pfeiffer live now?",
+  "TopicEntityID": 6001,
+  "TopicEntityName": "michelle pfeiffer",
+  "AnswerEntity": [
+   38623
+  ],
+  "AnswerEntityName": "Orange County",
+  "AnswerEntityID": 444,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1454",
+  "RawQuestion": "where did madonna grew up?",
+  "TopicEntityID": 2016,
+  "TopicEntityName": "madonna",
+  "AnswerEntity": [
+   41401
+  ],
+  "AnswerEntityName": "Bay City",
+  "AnswerEntityID": 8476,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1462",
+  "RawQuestion": "who is running for vice president with barack obama 2012?",
+  "TopicEntityID": 2433,
+  "TopicEntityName": "barack obama",
+  "AnswerEntity": [
+   31035
+  ],
+  "AnswerEntityName": "Joe Biden",
+  "AnswerEntityID": 5528,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1463",
+  "RawQuestion": "what language do people from the uk speak?",
+  "TopicEntityID": 382,
+  "TopicEntityName": "uk",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1465",
+  "RawQuestion": "what kind of government is south korea?",
+  "TopicEntityID": 1260,
+  "TopicEntityName": "south korea",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1470",
+  "RawQuestion": "what kind of government does poland have?",
+  "TopicEntityID": 331,
+  "TopicEntityName": "poland",
+  "AnswerEntity": [
+   39511
+  ],
+  "AnswerEntityName": "Democracy",
+  "AnswerEntityID": 6163,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1473",
+  "RawQuestion": "what currency does cyprus use?",
+  "TopicEntityID": 8677,
+  "TopicEntityName": "cyprus",
+  "AnswerEntity": [
+   38372
+  ],
+  "AnswerEntityName": "Euro",
+  "AnswerEntityID": 5422,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1475",
+  "RawQuestion": "what type of guitar does johnny depp play?",
+  "TopicEntityID": 2215,
+  "TopicEntityName": "johnny depp",
+  "AnswerEntity": [
+   35867
+  ],
+  "AnswerEntityName": "Guitar",
+  "AnswerEntityID": 138,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1480",
+  "RawQuestion": "who did cher have a son with?",
+  "TopicEntityID": 7051,
+  "TopicEntityName": "cher",
+  "AnswerEntity": [
+   30897
+  ],
+  "AnswerEntityName": "Gregg Allman",
+  "AnswerEntityID": 2048,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1481",
+  "RawQuestion": "what city is the university of oregon state in?",
+  "TopicEntityID": 4708,
+  "TopicEntityName": "the university of oregon",
+  "AnswerEntity": [
+   43934
+  ],
+  "AnswerEntityName": "Eugene",
+  "AnswerEntityID": 13020,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1490",
+  "RawQuestion": "what language is spoken in argentina?",
+  "TopicEntityID": 68,
+  "TopicEntityName": "argentina",
+  "AnswerEntity": [
+   45401
+  ],
+  "AnswerEntityName": "Italian Language",
+  "AnswerEntityID": 29,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1501",
+  "RawQuestion": "where is the un based?",
+  "TopicEntityID": 209,
+  "TopicEntityName": "un",
+  "AnswerEntity": [
+   34870
+  ],
+  "AnswerEntityName": "New York City",
+  "AnswerEntityID": 592,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1502",
+  "RawQuestion": "what city and state is yale located in?",
+  "TopicEntityID": 53,
+  "TopicEntityName": "yale",
+  "AnswerEntity": [
+   42361
+  ],
+  "AnswerEntityName": "New Haven",
+  "AnswerEntityID": 9055,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1508",
+  "RawQuestion": "when did bill clinton go to college?",
+  "TopicEntityID": 1420,
+  "TopicEntityName": "bill clinton",
+  "AnswerEntity": [
+   45039
+  ],
+  "AnswerEntityName": "Yale Law School",
+  "AnswerEntityID": 4906,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1519",
+  "RawQuestion": "what continent is cayman islands located?",
+  "TopicEntityID": 9592,
+  "TopicEntityName": "cayman islands",
+  "AnswerEntity": [
+   32745
+  ],
+  "AnswerEntityName": "North America",
+  "AnswerEntityID": 8202,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1520",
+  "RawQuestion": "what language speak in brazil?",
+  "TopicEntityID": 449,
+  "TopicEntityName": "brazil",
+  "AnswerEntity": [
+   45401
+  ],
+  "AnswerEntityName": "Italian Language",
+  "AnswerEntityID": 29,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1524",
+  "RawQuestion": "who invented islamic religion?",
+  "TopicEntityID": 363,
+  "TopicEntityName": "islamic",
+  "AnswerEntity": [
+   38182
+  ],
+  "AnswerEntityName": "Muhammad in Islam",
+  "AnswerEntityID": 10405,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1525",
+  "RawQuestion": "who were we fighting in the gulf war?",
+  "TopicEntityID": 10764,
+  "TopicEntityName": "gulf war",
+  "AnswerEntity": [
+   39126
+  ],
+  "AnswerEntityName": "Saudi Arabia",
+  "AnswerEntityID": 1576,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1526",
+  "RawQuestion": "how many languages do they speak in switzerland?",
+  "TopicEntityID": 622,
+  "TopicEntityName": "switzerland",
+  "AnswerEntity": [
+   45401
+  ],
+  "AnswerEntityName": "Italian Language",
+  "AnswerEntityID": 29,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1527",
+  "RawQuestion": "what political party does barack obama represent?",
+  "TopicEntityID": 2433,
+  "TopicEntityName": "barack obama",
+  "AnswerEntity": [
+   37143
+  ],
+  "AnswerEntityName": "Democratic Party",
+  "AnswerEntityID": 8433,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1531",
+  "RawQuestion": "where is mali located?",
+  "TopicEntityID": 8754,
+  "TopicEntityName": "mali",
+  "AnswerEntity": [
+   40965
+  ],
+  "AnswerEntityName": "Africa",
+  "AnswerEntityID": 2238,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1536",
+  "RawQuestion": "where did john steinbeck go to college?",
+  "TopicEntityID": 4539,
+  "TopicEntityName": "john steinbeck",
+  "AnswerEntity": [
+   36283
+  ],
+  "AnswerEntityName": "Stanford University",
+  "AnswerEntityID": 447,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1539",
+  "RawQuestion": "who is ryan reynolds married to 2012?",
+  "TopicEntityID": 8803,
+  "TopicEntityName": "ryan reynolds",
+  "AnswerEntity": [
+   39896
+  ],
+  "AnswerEntityName": "Blake Lively",
+  "AnswerEntityID": 6766,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1542",
+  "RawQuestion": "what school does james franco go to?",
+  "TopicEntityID": 54,
+  "TopicEntityName": "james franco",
+  "AnswerEntity": [
+   40017
+  ],
+  "AnswerEntityName": "Brooklyn College",
+  "AnswerEntityID": 6156,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1543",
+  "RawQuestion": "what is samuel langhorne clemens well known for?",
+  "TopicEntityID": 3704,
+  "TopicEntityName": "samuel langhorne clemens",
+  "AnswerEntity": [
+   34857
+  ],
+  "AnswerEntityName": "Teacher",
+  "AnswerEntityID": 7717,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1554",
+  "RawQuestion": "what is the official language of brazil now?",
+  "TopicEntityID": 449,
+  "TopicEntityName": "brazil",
+  "AnswerEntity": [
+   36840
+  ],
+  "AnswerEntityName": "Portuguese Language",
+  "AnswerEntityID": 6473,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1565",
+  "RawQuestion": "where does houston dynamo play?",
+  "TopicEntityID": 7035,
+  "TopicEntityName": "houston dynamo",
+  "AnswerEntity": [
+   31298
+  ],
+  "AnswerEntityName": "Houston",
+  "AnswerEntityID": 4464,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1567",
+  "RawQuestion": "what cancer did patrick swayze?",
+  "TopicEntityID": 7640,
+  "TopicEntityName": "patrick swayze",
+  "AnswerEntity": [
+   39435
+  ],
+  "AnswerEntityName": "Pancreatic cancer",
+  "AnswerEntityID": 6980,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1568",
+  "RawQuestion": "what university did obama graduated from?",
+  "TopicEntityID": 2433,
+  "TopicEntityName": "obama",
+  "AnswerEntity": [
+   36414
+  ],
+  "AnswerEntityName": "Columbia University",
+  "AnswerEntityID": 3169,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1570",
+  "RawQuestion": "where is the arizona cardinals stadium located?",
+  "TopicEntityID": 6798,
+  "TopicEntityName": "arizona cardinals",
+  "AnswerEntity": [
+   44766
+  ],
+  "AnswerEntityName": "Arizona",
+  "AnswerEntityID": 773,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1580",
+  "RawQuestion": "what type of democracy is the united states?",
+  "TopicEntityID": 32,
+  "TopicEntityName": "united states",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1590",
+  "RawQuestion": "what are the most popular religions in israel?",
+  "TopicEntityID": 4474,
+  "TopicEntityName": "israel",
+  "AnswerEntity": [
+   44817
+  ],
+  "AnswerEntityName": "Judaism",
+  "AnswerEntityID": 6851,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1591",
+  "RawQuestion": "what was obama's former occupation?",
+  "TopicEntityID": 2433,
+  "TopicEntityName": "obama",
+  "AnswerEntity": [
+   35159
+  ],
+  "AnswerEntityName": "Lawyer",
+  "AnswerEntityID": 3091,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1596",
+  "RawQuestion": "what language do they use in pakistan?",
+  "TopicEntityID": 2015,
+  "TopicEntityName": "pakistan",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1604",
+  "RawQuestion": "what countries speak english natively?",
+  "TopicEntityID": 160,
+  "TopicEntityName": "english",
+  "AnswerEntity": [
+   35500
+  ],
+  "AnswerEntityName": "Kingdom of Great Britain",
+  "AnswerEntityID": 6093,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1612",
+  "RawQuestion": "what type of art did raphael sanzio create?",
+  "TopicEntityID": 9111,
+  "TopicEntityName": "raphael sanzio",
+  "AnswerEntity": [
+   30835
+  ],
+  "AnswerEntityName": "Drawing",
+  "AnswerEntityID": 13751,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1613",
+  "RawQuestion": "what language do they speak in malta?",
+  "TopicEntityID": 890,
+  "TopicEntityName": "malta",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1614",
+  "RawQuestion": "what religion was king louis xiv?",
+  "TopicEntityID": 10741,
+  "TopicEntityName": "king louis xiv",
+  "AnswerEntity": [
+   32194
+  ],
+  "AnswerEntityName": "Catholicism",
+  "AnswerEntityID": 1771,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1619",
+  "RawQuestion": "where do the appalachian mountains run?",
+  "TopicEntityID": 10671,
+  "TopicEntityName": "appalachian mountains",
+  "AnswerEntity": [
+   32745
+  ],
+  "AnswerEntityName": "North America",
+  "AnswerEntityID": 8202,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1622",
+  "RawQuestion": "what ocean is around hawaii?",
+  "TopicEntityID": 5949,
+  "TopicEntityName": "hawaii",
+  "AnswerEntity": [
+   30706
+  ],
+  "AnswerEntityName": "Pacific Ocean",
+  "AnswerEntityID": 1669,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1623",
+  "RawQuestion": "what is the most common language spoken in argentina?",
+  "TopicEntityID": 68,
+  "TopicEntityName": "argentina",
+  "AnswerEntity": [
+   39381
+  ],
+  "AnswerEntityName": "Spanish Language",
+  "AnswerEntityID": 2272,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1624",
+  "RawQuestion": "what language tunisia?",
+  "TopicEntityID": 4253,
+  "TopicEntityName": "tunisia",
+  "AnswerEntity": [
+   37468
+  ],
+  "AnswerEntityName": "French",
+  "AnswerEntityID": 5334,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1628",
+  "RawQuestion": "what type government does mexico have?",
+  "TopicEntityID": 75,
+  "TopicEntityName": "mexico",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1638",
+  "RawQuestion": "what language is most commonly spoken in belgium?",
+  "TopicEntityID": 92,
+  "TopicEntityName": "belgium",
+  "AnswerEntity": [
+   43195
+  ],
+  "AnswerEntityName": "Dutch Language",
+  "AnswerEntityID": 7378,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1639",
+  "RawQuestion": "where did frank baum die?",
+  "TopicEntityID": 9186,
+  "TopicEntityName": "frank baum",
+  "AnswerEntity": [
+   36690
+  ],
+  "AnswerEntityName": "Hollywood",
+  "AnswerEntityID": 540,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1640",
+  "RawQuestion": "where is tunis on a map?",
+  "TopicEntityID": 4253,
+  "TopicEntityName": "tunis",
+  "AnswerEntity": [
+   40965
+  ],
+  "AnswerEntityName": "Africa",
+  "AnswerEntityID": 2238,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1652",
+  "RawQuestion": "what language they speak in scotland?",
+  "TopicEntityID": 6123,
+  "TopicEntityName": "scotland",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1658",
+  "RawQuestion": "where do they speak turkish?",
+  "TopicEntityID": 10297,
+  "TopicEntityName": "turkish",
+  "AnswerEntity": [
+   36809
+  ],
+  "AnswerEntityName": "Cyprus",
+  "AnswerEntityID": 8677,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1662",
+  "RawQuestion": "where is english spoken around the world?",
+  "TopicEntityID": 160,
+  "TopicEntityName": "english",
+  "AnswerEntity": [
+   38246
+  ],
+  "AnswerEntityName": "Bahamas",
+  "AnswerEntityID": 56,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1663",
+  "RawQuestion": "what music did louis armstrong play?",
+  "TopicEntityID": 9086,
+  "TopicEntityName": "louis armstrong",
+  "AnswerEntity": [
+   44478
+  ],
+  "AnswerEntityName": "Swing music",
+  "AnswerEntityID": 12230,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1664",
+  "RawQuestion": "what form of currency does germany use?",
+  "TopicEntityID": 1080,
+  "TopicEntityName": "germany",
+  "AnswerEntity": [
+   38372
+  ],
+  "AnswerEntityName": "Euro",
+  "AnswerEntityID": 5422,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1669",
+  "RawQuestion": "where is auburn university located?",
+  "TopicEntityID": 2588,
+  "TopicEntityName": "auburn university",
+  "AnswerEntity": [
+   33925
+  ],
+  "AnswerEntityName": "Alabama",
+  "AnswerEntityID": 2589,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1673",
+  "RawQuestion": "what political party was hitler in?",
+  "TopicEntityID": 4467,
+  "TopicEntityName": "hitler",
+  "AnswerEntity": [
+   31252
+  ],
+  "AnswerEntityName": "Nazi Party",
+  "AnswerEntityID": 13358,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1675",
+  "RawQuestion": "where do the appalachian mountains run through?",
+  "TopicEntityID": 10671,
+  "TopicEntityName": "appalachian mountains",
+  "AnswerEntity": [
+   45179
+  ],
+  "AnswerEntityName": "Connecticut",
+  "AnswerEntityID": 1551,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1676",
+  "RawQuestion": "what money does spain use?",
+  "TopicEntityID": 1934,
+  "TopicEntityName": "spain",
+  "AnswerEntity": [
+   38372
+  ],
+  "AnswerEntityName": "Euro",
+  "AnswerEntityID": 5422,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1679",
+  "RawQuestion": "what kind of government does the united states have currently?",
+  "TopicEntityID": 32,
+  "TopicEntityName": "united states",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1682",
+  "RawQuestion": "who did ben stiller date?",
+  "TopicEntityID": 642,
+  "TopicEntityName": "ben stiller",
+  "AnswerEntity": [
+   34224
+  ],
+  "AnswerEntityName": "Janeane Garofalo",
+  "AnswerEntityID": 10636,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1685",
+  "RawQuestion": "where did benjamin franklin went to school?",
+  "TopicEntityID": 11975,
+  "TopicEntityName": "benjamin franklin",
+  "AnswerEntity": [
+   42382
+  ],
+  "AnswerEntityName": "Boston Latin School",
+  "AnswerEntityID": 13327,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1691",
+  "RawQuestion": "what is houston timezone?",
+  "TopicEntityID": 4464,
+  "TopicEntityName": "houston",
+  "AnswerEntity": [
+   34812
+  ],
+  "AnswerEntityName": "Central Time Zone",
+  "AnswerEntityID": 1437,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1701",
+  "RawQuestion": "what county is st paul minnesota in?",
+  "TopicEntityID": 7048,
+  "TopicEntityName": "st paul minnesota",
+  "AnswerEntity": [
+   38879
+  ],
+  "AnswerEntityName": "Ramsey County",
+  "AnswerEntityID": 10283,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1707",
+  "RawQuestion": "who plays lex luthor on smallville?",
+  "TopicEntityID": 9367,
+  "TopicEntityName": "smallville",
+  "AnswerEntity": [
+   34047
+  ],
+  "AnswerEntityName": "Michael Rosenbaum",
+  "AnswerEntityID": 9368,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1708",
+  "RawQuestion": "what are dallas cowboys colors?",
+  "TopicEntityID": 272,
+  "TopicEntityName": "dallas cowboys",
+  "AnswerEntity": [
+   36364
+  ],
+  "AnswerEntityName": "Blue",
+  "AnswerEntityID": 2940,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1715",
+  "RawQuestion": "where did cs lewis wrote?",
+  "TopicEntityID": 6516,
+  "TopicEntityName": "cs lewis",
+  "AnswerEntity": [
+   33881
+  ],
+  "AnswerEntityName": "Belfast",
+  "AnswerEntityID": 11907,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1723",
+  "RawQuestion": "where is english spoken in the world map?",
+  "TopicEntityID": 160,
+  "TopicEntityName": "english",
+  "AnswerEntity": [
+   38246
+  ],
+  "AnswerEntityName": "Bahamas",
+  "AnswerEntityID": 56,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1725",
+  "RawQuestion": "what timezone is phoenix az in right now?",
+  "TopicEntityID": 4152,
+  "TopicEntityName": "phoenix az",
+  "AnswerEntity": [
+   34022
+  ],
+  "AnswerEntityName": "Mountain Time Zone",
+  "AnswerEntityID": 1874,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1727",
+  "RawQuestion": "what countries speak french as a first language?",
+  "TopicEntityID": 5334,
+  "TopicEntityName": "french",
+  "AnswerEntity": [
+   39144
+  ],
+  "AnswerEntityName": "Belgium",
+  "AnswerEntityID": 92,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1736",
+  "RawQuestion": "where is holy roman empire located?",
+  "TopicEntityID": 1573,
+  "TopicEntityName": "holy roman empire",
+  "AnswerEntity": [
+   37273
+  ],
+  "AnswerEntityName": "Europe",
+  "AnswerEntityID": 330,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1739",
+  "RawQuestion": "who is the voice of eric cartman on south park?",
+  "TopicEntityID": 9505,
+  "TopicEntityName": "south park",
+  "AnswerEntity": [
+   37516
+  ],
+  "AnswerEntityName": "Trey Parker",
+  "AnswerEntityID": 2164,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1741",
+  "RawQuestion": "where is the headquarters of bank of america?",
+  "TopicEntityID": 10354,
+  "TopicEntityName": "bank of america",
+  "AnswerEntity": [
+   33337
+  ],
+  "AnswerEntityName": "Charlotte",
+  "AnswerEntityID": 8712,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1742",
+  "RawQuestion": "what type of government japan have?",
+  "TopicEntityID": 158,
+  "TopicEntityName": "japan",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1746",
+  "RawQuestion": "where is burundi country?",
+  "TopicEntityID": 1379,
+  "TopicEntityName": "burundi",
+  "AnswerEntity": [
+   40965
+  ],
+  "AnswerEntityName": "Africa",
+  "AnswerEntityID": 2238,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1754",
+  "RawQuestion": "what is the national language of iran?",
+  "TopicEntityID": 3466,
+  "TopicEntityName": "iran",
+  "AnswerEntity": [
+   39262
+  ],
+  "AnswerEntityName": "Persian Language",
+  "AnswerEntityID": 13027,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1756",
+  "RawQuestion": "what languages do people speak in spain?",
+  "TopicEntityID": 1934,
+  "TopicEntityName": "spain",
+  "AnswerEntity": [
+   39381
+  ],
+  "AnswerEntityName": "Spanish Language",
+  "AnswerEntityID": 2272,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1758",
+  "RawQuestion": "where do they speak afrikaans?",
+  "TopicEntityID": 12980,
+  "TopicEntityName": "afrikaans",
+  "AnswerEntity": [
+   34205
+  ],
+  "AnswerEntityName": "Botswana",
+  "AnswerEntityID": 4154,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1759",
+  "RawQuestion": "what 3 states border florida?",
+  "TopicEntityID": 2388,
+  "TopicEntityName": "florida",
+  "AnswerEntity": [
+   43282
+  ],
+  "AnswerEntityName": "Georgia",
+  "AnswerEntityID": 2792,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1765",
+  "RawQuestion": "what region is turkey considered?",
+  "TopicEntityID": 1304,
+  "TopicEntityName": "turkey",
+  "AnswerEntity": [
+   31577
+  ],
+  "AnswerEntityName": "Eurasia",
+  "AnswerEntityID": 6026,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1766",
+  "RawQuestion": "what language do russians speak?",
+  "TopicEntityID": 1405,
+  "TopicEntityName": "russians",
+  "AnswerEntity": [
+   42209
+  ],
+  "AnswerEntityName": "Russian Language",
+  "AnswerEntityID": 5397,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1768",
+  "RawQuestion": "what are the official languages of argentina?",
+  "TopicEntityID": 68,
+  "TopicEntityName": "argentina",
+  "AnswerEntity": [
+   39381
+  ],
+  "AnswerEntityName": "Spanish Language",
+  "AnswerEntityID": 2272,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1769",
+  "RawQuestion": "where is the city wales?",
+  "TopicEntityID": 3955,
+  "TopicEntityName": "wales",
+  "AnswerEntity": [
+   37361
+  ],
+  "AnswerEntityName": "United Kingdom",
+  "AnswerEntityID": 382,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1770",
+  "RawQuestion": "what country does rafael nadal play for?",
+  "TopicEntityID": 13275,
+  "TopicEntityName": "rafael nadal",
+  "AnswerEntity": [
+   35778
+  ],
+  "AnswerEntityName": "Spain",
+  "AnswerEntityID": 1934,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1782",
+  "RawQuestion": "where does egypt export to?",
+  "TopicEntityID": 474,
+  "TopicEntityName": "egypt",
+  "AnswerEntity": [
+   44683
+  ],
+  "AnswerEntityName": "Sudan",
+  "AnswerEntityID": 5184,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1784",
+  "RawQuestion": "where is the seat of the african union?",
+  "TopicEntityID": 4484,
+  "TopicEntityName": "african union",
+  "AnswerEntity": [
+   38329
+  ],
+  "AnswerEntityName": "Addis Ababa",
+  "AnswerEntityID": 9683,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1796",
+  "RawQuestion": "what city was michael jackson born in?",
+  "TopicEntityID": 4688,
+  "TopicEntityName": "michael jackson",
+  "AnswerEntity": [
+   39928
+  ],
+  "AnswerEntityName": "Gary",
+  "AnswerEntityID": 10301,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1799",
+  "RawQuestion": "what kind of writing is nikolai gogol famous for?",
+  "TopicEntityID": 10792,
+  "TopicEntityName": "nikolai gogol",
+  "AnswerEntity": [
+   39194
+  ],
+  "AnswerEntityName": "Playwright",
+  "AnswerEntityID": 6143,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1804",
+  "RawQuestion": "what do people speak in uk?",
+  "TopicEntityID": 382,
+  "TopicEntityName": "uk",
+  "AnswerEntity": [
+   31255
+  ],
+  "AnswerEntityName": "English Language",
+  "AnswerEntityID": 160,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1806",
+  "RawQuestion": "what position did lebron james play?",
+  "TopicEntityID": 12639,
+  "TopicEntityName": "lebron james",
+  "AnswerEntity": [
+   37704
+  ],
+  "AnswerEntityName": "Power forward",
+  "AnswerEntityID": 1159,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1810",
+  "RawQuestion": "what type of art leonardo da vinci do?",
+  "TopicEntityID": 9112,
+  "TopicEntityName": "leonardo da vinci",
+  "AnswerEntity": [
+   30835
+  ],
+  "AnswerEntityName": "Drawing",
+  "AnswerEntityID": 13751,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1813",
+  "RawQuestion": "what team does messi play for 2011?",
+  "TopicEntityID": 9457,
+  "TopicEntityName": "messi",
+  "AnswerEntity": [
+   41126
+  ],
+  "AnswerEntityName": "Argentina national football team",
+  "AnswerEntityID": 9458,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1818",
+  "RawQuestion": "what state is saint louis university in?",
+  "TopicEntityID": 11844,
+  "TopicEntityName": "saint louis university",
+  "AnswerEntity": [
+   43045
+  ],
+  "AnswerEntityName": "Missouri",
+  "AnswerEntityID": 855,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1819",
+  "RawQuestion": "what religion does canada follow?",
+  "TopicEntityID": 181,
+  "TopicEntityName": "canada",
+  "AnswerEntity": [
+   36306
+  ],
+  "AnswerEntityName": "Protestantism",
+  "AnswerEntityID": 795,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1821",
+  "RawQuestion": "which countries have spanish as their main language?",
+  "TopicEntityID": 2272,
+  "TopicEntityName": "spanish",
+  "AnswerEntity": [
+   44993
+  ],
+  "AnswerEntityName": "Bolivia",
+  "AnswerEntityID": 9534,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1823",
+  "RawQuestion": "what government does iraq use?",
+  "TopicEntityID": 3827,
+  "TopicEntityName": "iraq",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1824",
+  "RawQuestion": "what type of currency do they use in spain?",
+  "TopicEntityID": 1934,
+  "TopicEntityName": "spain",
+  "AnswerEntity": [
+   38372
+  ],
+  "AnswerEntityName": "Euro",
+  "AnswerEntityID": 5422,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1829",
+  "RawQuestion": "what type of religion did massachusetts have?",
+  "TopicEntityID": 1806,
+  "TopicEntityName": "massachusetts",
+  "AnswerEntity": [
+   36096
+  ],
+  "AnswerEntityName": "Baptists",
+  "AnswerEntityID": 2528,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1830",
+  "RawQuestion": "what language do they speak in colombia south america?",
+  "TopicEntityID": 293,
+  "TopicEntityName": "colombia",
+  "AnswerEntity": [
+   39381
+  ],
+  "AnswerEntityName": "Spanish Language",
+  "AnswerEntityID": 2272,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1833",
+  "RawQuestion": "what kind of government does brazil has?",
+  "TopicEntityID": 449,
+  "TopicEntityName": "brazil",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1838",
+  "RawQuestion": "what sports are popular in germany?",
+  "TopicEntityID": 1080,
+  "TopicEntityName": "germany",
+  "AnswerEntity": [
+   44941
+  ],
+  "AnswerEntityName": "Germany national football team",
+  "AnswerEntityID": 10505,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1839",
+  "RawQuestion": "what's my timezone in oklahoma?",
+  "TopicEntityID": 6243,
+  "TopicEntityName": "oklahoma",
+  "AnswerEntity": [
+   34812
+  ],
+  "AnswerEntityName": "Central Time Zone",
+  "AnswerEntityID": 1437,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1844",
+  "RawQuestion": "who plays robin hood in prince of thieves?",
+  "TopicEntityID": 4354,
+  "TopicEntityName": "prince of thieves",
+  "AnswerEntity": [
+   33328
+  ],
+  "AnswerEntityName": "Kevin Costner",
+  "AnswerEntityID": 2222,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1845",
+  "RawQuestion": "what standard time is texas?",
+  "TopicEntityID": 3373,
+  "TopicEntityName": "texas",
+  "AnswerEntity": [
+   34812
+  ],
+  "AnswerEntityName": "Central Time Zone",
+  "AnswerEntityID": 1437,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1848",
+  "RawQuestion": "what instrument does louis armstrong?",
+  "TopicEntityID": 9086,
+  "TopicEntityName": "louis armstrong",
+  "AnswerEntity": [
+   35828
+  ],
+  "AnswerEntityName": "Cornet",
+  "AnswerEntityID": 2439,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1851",
+  "RawQuestion": "what countries are located near egypt?",
+  "TopicEntityID": 474,
+  "TopicEntityName": "egypt",
+  "AnswerEntity": [
+   41490
+  ],
+  "AnswerEntityName": "Israel",
+  "AnswerEntityID": 4474,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1853",
+  "RawQuestion": "what made richard hammond famous?",
+  "TopicEntityID": 5150,
+  "TopicEntityName": "richard hammond",
+  "AnswerEntity": [
+   43601
+  ],
+  "AnswerEntityName": "Presenter",
+  "AnswerEntityID": 4456,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1861",
+  "RawQuestion": "what is the government system of saudi arabia?",
+  "TopicEntityID": 1576,
+  "TopicEntityName": "saudi arabia",
+  "AnswerEntity": [
+   44295
+  ],
+  "AnswerEntityName": "Unitary state",
+  "AnswerEntityID": 4494,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1865",
+  "RawQuestion": "what did jesus do for living?",
+  "TopicEntityID": 7604,
+  "TopicEntityName": "jesus",
+  "AnswerEntity": [
+   35399
+  ],
+  "AnswerEntityName": "Carpentry",
+  "AnswerEntityID": 12760,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1866",
+  "RawQuestion": "what is the state name of new york city?",
+  "TopicEntityID": 592,
+  "TopicEntityName": "new york city",
+  "AnswerEntity": [
+   44693
+  ],
+  "AnswerEntityName": "New York",
+  "AnswerEntityID": 226,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1873",
+  "RawQuestion": "where is traditional chinese used?",
+  "TopicEntityID": 5698,
+  "TopicEntityName": "chinese",
+  "AnswerEntity": [
+   32665
+  ],
+  "AnswerEntityName": "China",
+  "AnswerEntityID": 2121,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1874",
+  "RawQuestion": "who does portugal trade with?",
+  "TopicEntityID": 27,
+  "TopicEntityName": "portugal",
+  "AnswerEntity": [
+   39126
+  ],
+  "AnswerEntityName": "Saudi Arabia",
+  "AnswerEntityID": 1576,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1875",
+  "RawQuestion": "what type of political system is brazil?",
+  "TopicEntityID": 449,
+  "TopicEntityName": "brazil",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1878",
+  "RawQuestion": "what form of government does the united states use?",
+  "TopicEntityID": 32,
+  "TopicEntityName": "united states",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1881",
+  "RawQuestion": "what timezone is sweden gmt?",
+  "TopicEntityID": 202,
+  "TopicEntityName": "sweden",
+  "AnswerEntity": [
+   36418
+  ],
+  "AnswerEntityName": "Central European Time Zone",
+  "AnswerEntityID": 2620,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1884",
+  "RawQuestion": "what degrees did barack obama get?",
+  "TopicEntityID": 2433,
+  "TopicEntityName": "barack obama",
+  "AnswerEntity": [
+   35672
+  ],
+  "AnswerEntityName": "Juris Doctor",
+  "AnswerEntityID": 1323,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1889",
+  "RawQuestion": "who was vice president with bill clinton?",
+  "TopicEntityID": 1420,
+  "TopicEntityName": "bill clinton",
+  "AnswerEntity": [
+   35657
+  ],
+  "AnswerEntityName": "Al Gore",
+  "AnswerEntityID": 4212,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1896",
+  "RawQuestion": "what form of government does the united states have?",
+  "TopicEntityID": 32,
+  "TopicEntityName": "united states",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1909",
+  "RawQuestion": "what is spoken in czech republic?",
+  "TopicEntityID": 1361,
+  "TopicEntityName": "czech republic",
+  "AnswerEntity": [
+   44609
+  ],
+  "AnswerEntityName": "Czech Language",
+  "AnswerEntityID": 10146,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1910",
+  "RawQuestion": "where was shakespeare born at?",
+  "TopicEntityID": 4732,
+  "TopicEntityName": "shakespeare",
+  "AnswerEntity": [
+   31050
+  ],
+  "AnswerEntityName": "Stratford-upon-Avon",
+  "AnswerEntityID": 8547,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1911",
+  "RawQuestion": "where did scott fitzgerald go to college?",
+  "TopicEntityID": 5887,
+  "TopicEntityName": "scott fitzgerald",
+  "AnswerEntity": [
+   35240
+  ],
+  "AnswerEntityName": "Princeton University",
+  "AnswerEntityID": 5780,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1912",
+  "RawQuestion": "what did joan crawford died of?",
+  "TopicEntityID": 6654,
+  "TopicEntityName": "joan crawford",
+  "AnswerEntity": [
+   39435
+  ],
+  "AnswerEntityName": "Pancreatic cancer",
+  "AnswerEntityID": 6980,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1916",
+  "RawQuestion": "what county is utica ny in?",
+  "TopicEntityID": 8629,
+  "TopicEntityName": "utica ny",
+  "AnswerEntity": [
+   42289
+  ],
+  "AnswerEntityName": "Oneida County",
+  "AnswerEntityID": 9631,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1919",
+  "RawQuestion": "who plays king julian madagascar?",
+  "TopicEntityID": 9910,
+  "TopicEntityName": "madagascar",
+  "AnswerEntity": [
+   44680
+  ],
+  "AnswerEntityName": "Sacha Baron Cohen",
+  "AnswerEntityID": 2549,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1922",
+  "RawQuestion": "what offices did theodore roosevelt hold?",
+  "TopicEntityID": 10605,
+  "TopicEntityName": "theodore roosevelt",
+  "AnswerEntity": [
+   44177
+  ],
+  "AnswerEntityName": "President",
+  "AnswerEntityID": 236,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1932",
+  "RawQuestion": "who made the laws in canada?",
+  "TopicEntityID": 181,
+  "TopicEntityName": "canada",
+  "AnswerEntity": [
+   31438
+  ],
+  "AnswerEntityName": "House of Commons of Canada",
+  "AnswerEntityID": 12513,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1934",
+  "RawQuestion": "where michael jackson from?",
+  "TopicEntityID": 4688,
+  "TopicEntityName": "michael jackson",
+  "AnswerEntity": [
+   39928
+  ],
+  "AnswerEntityName": "Gary",
+  "AnswerEntityID": 10301,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1939",
+  "RawQuestion": "what form of government does canada?",
+  "TopicEntityID": 181,
+  "TopicEntityName": "canada",
+  "AnswerEntity": [
+   40198
+  ],
+  "AnswerEntityName": "Parliamentary system",
+  "AnswerEntityID": 1713,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1941",
+  "RawQuestion": "what kind of government does peru?",
+  "TopicEntityID": 2600,
+  "TopicEntityName": "peru",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1950",
+  "RawQuestion": "where is president kennedy buried?",
+  "TopicEntityID": 10805,
+  "TopicEntityName": "president kennedy",
+  "AnswerEntity": [
+   44762
+  ],
+  "AnswerEntityName": "Arlington National Cemetery",
+  "AnswerEntityID": 7216,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1952",
+  "RawQuestion": "where was the prophet mohammed from?",
+  "TopicEntityID": 10405,
+  "TopicEntityName": "mohammed",
+  "AnswerEntity": [
+   30675
+  ],
+  "AnswerEntityName": "Mecca",
+  "AnswerEntityID": 6302,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1954",
+  "RawQuestion": "what language do ukrainian people speak?",
+  "TopicEntityID": 1276,
+  "TopicEntityName": "ukrainian",
+  "AnswerEntity": [
+   39064
+  ],
+  "AnswerEntityName": "Albanian language",
+  "AnswerEntityID": 12000,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1956",
+  "RawQuestion": "which country in europe has the largest land area?",
+  "TopicEntityID": 330,
+  "TopicEntityName": "europe",
+  "AnswerEntity": [
+   39217
+  ],
+  "AnswerEntityName": "Russia",
+  "AnswerEntityID": 1405,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1962",
+  "RawQuestion": "what language do brazilians use?",
+  "TopicEntityID": 449,
+  "TopicEntityName": "brazilians",
+  "AnswerEntity": [
+   45401
+  ],
+  "AnswerEntityName": "Italian Language",
+  "AnswerEntityID": 29,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1964",
+  "RawQuestion": "who played stanley kowalski in a streetcar named desire movie?",
+  "TopicEntityID": 4013,
+  "TopicEntityName": "a streetcar named desire movie",
+  "AnswerEntity": [
+   39402
+  ],
+  "AnswerEntityName": "Marlon Brando",
+  "AnswerEntityID": 7677,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1967",
+  "RawQuestion": "what language do serbs speak?",
+  "TopicEntityID": 3794,
+  "TopicEntityName": "serbs",
+  "AnswerEntity": [
+   32235
+  ],
+  "AnswerEntityName": "Serbian language",
+  "AnswerEntityID": 13190,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1981",
+  "RawQuestion": "what state did john adams live in?",
+  "TopicEntityID": 8710,
+  "TopicEntityName": "john adams",
+  "AnswerEntity": [
+   32350
+  ],
+  "AnswerEntityName": "Massachusetts",
+  "AnswerEntityID": 1806,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1986",
+  "RawQuestion": "what films has daniel craig been in?",
+  "TopicEntityID": 848,
+  "TopicEntityName": "daniel craig",
+  "AnswerEntity": [
+   39952
+  ],
+  "AnswerEntityName": "Elizabeth",
+  "AnswerEntityID": 3893,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1988",
+  "RawQuestion": "what did joe biden study in college?",
+  "TopicEntityID": 5528,
+  "TopicEntityName": "joe biden",
+  "AnswerEntity": [
+   44486
+  ],
+  "AnswerEntityName": "History",
+  "AnswerEntityID": 2370,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1990",
+  "RawQuestion": "who plays timon's voice in the lion king?",
+  "TopicEntityID": 7413,
+  "TopicEntityName": "the lion king",
+  "AnswerEntity": [
+   40735
+  ],
+  "AnswerEntityName": "Nathan Lane",
+  "AnswerEntityID": 11525,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1993",
+  "RawQuestion": "what language do speak in argentina?",
+  "TopicEntityID": 68,
+  "TopicEntityName": "argentina",
+  "AnswerEntity": [
+   45401
+  ],
+  "AnswerEntityName": "Italian Language",
+  "AnswerEntityID": 29,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1994",
+  "RawQuestion": "what did whoopi goldberg won a grammy for?",
+  "TopicEntityID": 2934,
+  "TopicEntityName": "whoopi goldberg",
+  "AnswerEntity": [
+   45260
+  ],
+  "AnswerEntityName": "Grammy Award for Best Comedy Album",
+  "AnswerEntityID": 6459,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1998",
+  "RawQuestion": "what party was thomas jefferson affiliated with?",
+  "TopicEntityID": 4981,
+  "TopicEntityName": "thomas jefferson",
+  "AnswerEntity": [
+   37995
+  ],
+  "AnswerEntityName": "Democratic-Republican Party",
+  "AnswerEntityID": 10227,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-1999",
+  "RawQuestion": "what religions are popular in france?",
+  "TopicEntityID": 637,
+  "TopicEntityName": "france",
+  "AnswerEntity": [
+   32194
+  ],
+  "AnswerEntityName": "Catholicism",
+  "AnswerEntityID": 1771,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-2008",
+  "RawQuestion": "which countries speak arabic language?",
+  "TopicEntityID": 5086,
+  "TopicEntityName": "arabic",
+  "AnswerEntity": [
+   31121
+  ],
+  "AnswerEntityName": "Bahrain",
+  "AnswerEntityID": 3420,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-2012",
+  "RawQuestion": "what is london uk time zone?",
+  "TopicEntityID": 249,
+  "TopicEntityName": "london",
+  "AnswerEntity": [
+   30970
+  ],
+  "AnswerEntityName": "Greenwich Mean Time Zone",
+  "AnswerEntityID": 5054,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-2015",
+  "RawQuestion": "what type of government does argentina have today?",
+  "TopicEntityID": 68,
+  "TopicEntityName": "argentina",
+  "AnswerEntity": [
+   36412
+  ],
+  "AnswerEntityName": "Presidential system",
+  "AnswerEntityID": 6099,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-2017",
+  "RawQuestion": "what party was abe lincoln part of?",
+  "TopicEntityID": 13415,
+  "TopicEntityName": "abe lincoln",
+  "AnswerEntity": [
+   39009
+  ],
+  "AnswerEntityName": "Republican Party",
+  "AnswerEntityID": 1700,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-2018",
+  "RawQuestion": "what did jack london do for a living?",
+  "TopicEntityID": 10809,
+  "TopicEntityName": "jack london",
+  "AnswerEntity": [
+   40943
+  ],
+  "AnswerEntityName": "Sailor",
+  "AnswerEntityID": 13767,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-2023",
+  "RawQuestion": "where are the nato headquarters located?",
+  "TopicEntityID": 8587,
+  "TopicEntityName": "nato",
+  "AnswerEntity": [
+   32430
+  ],
+  "AnswerEntityName": "Brussels",
+  "AnswerEntityID": 4557,
+  "RelationID": 0
+ },
+ {
+  "QuestionID": "WebQTest-2027",
+  "RawQuestion": "what team did david beckham play for before la galaxy?",
+  "TopicEntityID": 1687,
+  "TopicEntityName": "david beckham",
+  "AnswerEntity": [
+   44343
+  ],
+  "AnswerEntityName": "Manchester United F.C.",
+  "AnswerEntityID": 5436,
+  "RelationID": 0
+ }
+]
