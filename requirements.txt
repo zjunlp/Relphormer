@@ -1,0 +1,5 @@
+transformers==4.15.0
+torch==1.10.1+cu113
+tokenizers==0.10.3
+tensorboard==2.8.0
+faiss-gpu==1.7.2
