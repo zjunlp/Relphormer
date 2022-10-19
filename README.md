@@ -71,28 +71,3 @@ The expected structure of files is:
     ```shell
         bash scripts/fb15k.sh
     ```
-# Papers for the Project & How to Cite
-If you use or extend our work, please cite the paper as follows:
-
-```bibtex
-@article{DBLP:journals/corr/abs-2205-10852,
-  author    = {Zhen Bi and
-               Siyuan Cheng and
-               Jing Chen and
-               Xiaozhuan Liang and
-               Ningyu Zhang and
-               Feiyu Xiong and
-               Huajun Chen},
-  title     = {Relphormer: Relational Graph Transformer for Knowledge Graph Representation},
-  journal   = {CoRR},
-  volume    = {abs/2205.10852},
-  year      = {2022},
-  url       = {https://doi.org/10.48550/arXiv.2205.10852},
-  doi       = {10.48550/arXiv.2205.10852},
-  eprinttype = {arXiv},
-  eprint    = {2205.10852},
-  timestamp = {Mon, 30 May 2022 15:47:29 +0200},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2205-10852.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-```
