@@ -81,6 +81,7 @@ The expected structure of files is:
 
 ```shell
 >> cd pretrain
+>> mkdir logs
 >> bash scripts/pretrain_umls.sh
 >> tail -f -n 2000 logs/pretrain_umls.log
 ```
@@ -93,6 +94,7 @@ The pretrained models are saved in the `Relphormer/pretrain/output` directory.
 
 ```shell
 >> cd Relphormer
+>> mkdir logs
 >> bash scripts/umls/umls.sh
 >> tail -f -n 2000 logs/train_umls.log
 ```
