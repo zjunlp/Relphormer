@@ -495,10 +495,17 @@ class KGProcessor(DataProcessor):
             ent_lines = f.readlines()
             for line in ent_lines:
                 temp = line.strip().split('\t')
-                end = temp[1]  # .find(',')
-                if "wiki" in data_dir:
-                    assert "Q" in temp[0]
-                ent2text[temp[0]] = temp[1].replace("\\n", " ").replace("\\", "")  # [:end]
+                try:
+                    end = temp[1]#.find(',')
+                    if "wiki" in data_dir:
+                        assert "Q" in temp[0]
+                    ent2text[temp[0]] = temp[1].replace("\\n", " ").replace("\\", "") #[:end]
+                except IndexError:
+                    # continue
+                    end = " "#.find(',')
+                    if "wiki" in data_dir:
+                        assert "Q" in temp[0]
+                    ent2text[temp[0]] = end #[:end]
 
         entities = list(ent2text.keys())
         ent2token = {ent: f"[ENTITY_{i}]" for i, ent in enumerate(entities)}

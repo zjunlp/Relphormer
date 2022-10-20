@@ -113,8 +113,8 @@ def main():
         filename=args.data_dir.split("/")[-1] + '/{epoch}-{Eval/hits10:.2f}-{Eval/hits1:.2f}' if not args.pretrain else args.data_dir.split("/")[-1] + '/{epoch}-{step}-{Eval/hits10:.2f}',
         dirpath="output",
         save_weights_only=True,
-        # every_n_train_steps=100 if args.pretrain else None,
-        every_n_train_steps=100,
+        every_n_train_steps=100 if args.pretrain else None,
+        # every_n_train_steps=100,
         save_top_k=5 if args.pretrain else 1
     )
     callbacks = [early_callback, model_checkpoint]
@@ -125,16 +125,15 @@ def main():
     if "EntityEmbedding" not in lit_model.__class__.__name__:
         trainer.fit(lit_model, datamodule=data)
         path = model_checkpoint.best_model_path
-        # path = "/home/chenjing/Relphormer/output2/FB15k-237/epoch=9-Eval/hits10=Eval/hits1=0.48-Eval/hits1=0.32.ckpt"
         lit_model.load_state_dict(torch.load(path)["state_dict"], strict=False)
 
-    # result = trainer.test(lit_model, datamodule=data)
-    # print(result)
+    result = trainer.test(lit_model, datamodule=data)
+    print(result)
 
     # _saved_pretrain(lit_model, tokenizer, path)
-    # if "EntityEmbedding" not in lit_model.__class__.__name__:
-    #     print("*path"*30)
-    #     print(path)
+    if "EntityEmbedding" not in lit_model.__class__.__name__:
+        print("*path"*30)
+        print(path)
 
 if __name__ == "__main__":
     main()
