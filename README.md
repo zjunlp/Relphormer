@@ -39,8 +39,8 @@ The expected structure of files is:
     ├── dataset
     │   ├── FB15k-237
     │   ├── WN18RR
-    │		├── umls
-    │		└── create_neighbor.py
+    │		 ├── umls
+    │		 └── create_neighbor.py
     ├── lit_models
     │   ├── _init_.py
     │   ├── base.py
