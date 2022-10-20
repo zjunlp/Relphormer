@@ -30,10 +30,8 @@ import pyximport
 pyximport.install(setup_args={'include_dirs': np.get_include()})
 import data.algos as algos
 
-
 def lmap(a, b):
-    return list(map(a, b))
-
+    return list(map(a,b))  # a是个函数，b是个值列表，返回函数值列表
 
 def cache_results(_cache_fp, _refresh=False, _verbose=1):
     r"""
@@ -42,21 +40,21 @@ def cache_results(_cache_fp, _refresh=False, _verbose=1):
         import time
         import numpy as np
         from fastNLP import cache_results
-
+        
         @cache_results('cache.pkl')
         def process_data():
             # 一些比较耗时的工作，比如读取数据，预处理数据等，这里用time.sleep()代替耗时
             time.sleep(1)
             return np.random.randint(10, size=(5,))
-
+        
         start_time = time.time()
         print("res =",process_data())
         print(time.time() - start_time)
-
+        
         start_time = time.time()
         print("res =",process_data())
         print(time.time() - start_time)
-
+        
         # 输出内容如下，可以看到两次结果相同，且第二次几乎没有花费时间
         # Save cache to cache.pkl.
         # res = [5 4 9 1 8]
@@ -109,11 +107,10 @@ def cache_results(_cache_fp, _refresh=False, _verbose=1):
             else:
                 verbose = _verbose
             refresh_flag = True
-
+            
             model_name = my_args.model_name_or_path.split("/")[-1]
             is_pretrain = my_args.pretrain
-            cache_filepath = os.path.join(my_args.data_dir,
-                                          f"cached_{mode}_features{model_name}_pretrain{is_pretrain}_faiss{my_args.faiss_init}_seqlength{my_args.max_seq_length}_{my_args.litmodel_class}.pkl")
+            cache_filepath = os.path.join(my_args.data_dir, f"cached_{mode}_features{model_name}_pretrain{is_pretrain}_faiss{my_args.faiss_init}_seqlength{my_args.max_seq_length}_{my_args.litmodel_class}.pkl")
             refresh = my_args.overwrite_cache
 
             if cache_filepath is not None and refresh is False:
@@ -157,17 +154,16 @@ from tqdm import tqdm, trange
 
 # from torch.nn import CrossEntropyLoss, MSELoss
 # from scipy.stats import pearsonr, spearmanr
-# from sklearn.metrics import matthews_corrcoef, f1_scoreclass
+# from sklearn.metrics import matthews_corrcoef, f1_scoreclass 
+
 
 
 logger = logging.getLogger(__name__)
 
-
 class InputExample(object):
     """A single training/test example for simple sequence classification."""
 
-    def __init__(self, guid, text_a, text_b=None, text_c=None, text_d=None, label=None, real_label=None, en=None,
-                 en_id=None, rel=None, text_d_id=None, graph_inf=None):
+    def __init__(self, guid, text_a, text_b=None, text_c=None, text_d=None, label=None, real_label=None, en=None, en_id=None, rel=None, text_d_id=None, graph_inf=None):
         """Constructs a InputExample.
 
         Args:
@@ -188,7 +184,7 @@ class InputExample(object):
         self.label = label
         self.real_label = real_label
         self.en = en
-        self.rel = rel  # rel id
+        self.rel = rel # rel id
         self.text_d_id = text_d_id
         self.graph_inf = graph_inf
         self.en_id = en_id
@@ -237,7 +233,6 @@ class DataProcessor(object):
                 lines.append(line)
             return lines
 
-
 import copy
 
 
@@ -246,67 +241,61 @@ def solve_get_knowledge_store(line, set_type="train", pretrain=1):
     use the LM to get the entity embedding.
     Transductive: triples + text description
     Inductive: text description
-
+    
     """
     examples = []
-
+        
     head_ent_text = ent2text[line[0]]
     tail_ent_text = ent2text[line[2]]
     relation_text = rel2text[line[1]]
-
-    i = 0
-
-    a = tail_filter_entities["\t".join([line[0], line[1]])]
-    b = head_filter_entities["\t".join([line[2], line[1]])]
-
+    
+    i=0
+    
+    a = tail_filter_entities["\t".join([line[0],line[1]])]
+    b = head_filter_entities["\t".join([line[2],line[1]])]
+    
     guid = "%s-%s" % (set_type, i)
     text_a = head_ent_text
     text_b = relation_text
-    text_c = tail_ent_text
+    text_c = tail_ent_text 
 
     # use the description of c to predict A
     examples.append(
-        InputExample(guid=guid, text_a="[PAD]", text_b=text_b + "[PAD]", text_c="[PAD]" + " " + text_c,
-                     label=lmap(lambda x: ent2id[x], b), real_label=ent2id[line[0]],
-                     en=[ent2id[line[0]], rel2id[line[1]], ent2id[line[2]]], rel=0)
+        InputExample(guid=guid, text_a="[PAD]", text_b=text_b + "[PAD]", text_c = "[PAD]" + " " + text_c, label=lmap(lambda x: ent2id[x], b), real_label=ent2id[line[0]], en=[ent2id[line[0]], rel2id[line[1]], ent2id[line[2]]], rel=0)
     )
     examples.append(
-        InputExample(guid=guid, text_a="[PAD]", text_b=text_b + "[PAD]", text_c="[PAD]" + " " + text_a,
-                     label=lmap(lambda x: ent2id[x], b), real_label=ent2id[line[2]],
-                     en=[ent2id[line[0]], rel2id[line[1]], ent2id[line[2]]], rel=0)
+        InputExample(guid=guid, text_a="[PAD]", text_b=text_b + "[PAD]", text_c = "[PAD]" + " " + text_a, label=lmap(lambda x: ent2id[x], b), real_label=ent2id[line[2]], en=[ent2id[line[0]], rel2id[line[1]], ent2id[line[2]]], rel=0)
     )
     return examples
 
 
-def solve(line, set_type="train", pretrain=1, max_triplet=32):
+def solve(line,  set_type="train", pretrain=1, max_triplet=32):
     examples = []
-
+        
     head_ent_text = ent2text[line[0]]
     tail_ent_text = ent2text[line[2]]
     relation_text = rel2text[line[1]]
-
-    i = 0
-
-    a = tail_filter_entities["\t".join([line[0], line[1]])]
-    b = head_filter_entities["\t".join([line[2], line[1]])]
-
+    
+    i=0
+    
+    a = tail_filter_entities["\t".join([line[0],line[1]])]
+    b = head_filter_entities["\t".join([line[2],line[1]])]
+    
     guid = "%s-%s" % (set_type, i)
     text_a = head_ent_text
     text_b = relation_text
     text_c = tail_ent_text
 
+    
     if pretrain:
         text_a_tokens = text_a.split()
         for i in range(10):
             st = random.randint(0, len(text_a_tokens))
             examples.append(
-                InputExample(guid=guid, text_a="[MASK]",
-                             text_b=" ".join(text_a_tokens[st:min(st + 64, len(text_a_tokens))]), text_c="",
-                             label=ent2id[line[0]], real_label=ent2id[line[0]], en=0, rel=0)
+                InputExample(guid=guid, text_a="[MASK]", text_b=" ".join(text_a_tokens[st:min(st+64, len(text_a_tokens))]), text_c = "", label=ent2id[line[0]], real_label=ent2id[line[0]], en=0, rel=0)
             )
         examples.append(
-            InputExample(guid=guid, text_a="[MASK]", text_b=text_a, text_c="", label=ent2id[line[0]],
-                         real_label=ent2id[line[0]], en=0, rel=0)
+            InputExample(guid=guid, text_a="[MASK]", text_b=text_a, text_c = "", label=ent2id[line[0]], real_label=ent2id[line[0]], en=0, rel=0)
         )
         # examples.append(
         #     InputExample(guid=guid, text_a="[MASK]", text_b=text_c, text_c = "", label=ent2id[line[2]], real_label=ent2id[line[2]], en=0, rel=0)
@@ -332,12 +321,10 @@ def solve(line, set_type="train", pretrain=1, max_triplet=32):
         masked_tail_seq = set()
         masked_tail_seq_id = set()
 
-        masked_tail_graph_list = masked_tail_neighbor["\t".join([line[0], line[1]])] if len(
-            masked_tail_neighbor["\t".join([line[0], line[1]])]) < max_triplet else \
-            random.sample(masked_tail_neighbor["\t".join([line[0], line[1]])], max_triplet)
-        masked_head_graph_list = masked_head_neighbor["\t".join([line[2], line[1]])] if len(
-            masked_head_neighbor["\t".join([line[2], line[1]])]) < max_triplet else \
-            random.sample(masked_head_neighbor["\t".join([line[2], line[1]])], max_triplet)
+        masked_tail_graph_list = masked_tail_neighbor["\t".join([line[0],line[1]])] if len(masked_tail_neighbor["\t".join([line[0],line[1]])]) < max_triplet else \
+            random.sample(masked_tail_neighbor["\t".join([line[0],line[1]])], max_triplet)
+        masked_head_graph_list = masked_head_neighbor["\t".join([line[2],line[1]])] if len(masked_head_neighbor["\t".join([line[2],line[1]])]) < max_triplet else \
+            random.sample(masked_head_neighbor["\t".join([line[2],line[1]])], max_triplet)
         # masked_tail_graph_list = masked_tail_neighbor["\t".join([line[0],line[1]])][:16]
         # masked_head_graph_list = masked_head_neighbor["\t".join([line[2],line[1]])][:16]
         for item in masked_head_graph_list:
@@ -374,20 +361,12 @@ def solve(line, set_type="train", pretrain=1, max_triplet=32):
         # examples.append(
         #     InputExample(guid=guid, text_a="[PAD] ", text_b=' '.join(text_b.split(' ')[:16]) + " [PAD]", text_c = "[MASK]" +" " + ' '.join(text_a.split(' ')[:16]), text_d = masked_tail_seq, label=lmap(lambda x: ent2id[x], a), real_label=ent2id[line[2]], en=[ent2id[line[0]], rel2id[line[1]]], rel=rel2id[line[1]]))
         examples.append(
-            InputExample(guid=guid, text_a="[MASK]", text_b="[PAD]", text_c="[PAD]", text_d=list(masked_head_seq),
-                         label=lmap(lambda x: ent2id[x], b), real_label=ent2id[line[0]], en=[line[1], line[2]],
-                         en_id=[rel2id[line[1]], ent2id[line[2]]], rel=rel2id[line[1]],
-                         text_d_id=list(masked_head_seq_id), graph_inf=masked_head_graph_list))
+            InputExample(guid=guid, text_a="[MASK]", text_b="[PAD]", text_c = "[PAD]", text_d = list(masked_head_seq), label=lmap(lambda x: ent2id[x], b), real_label=ent2id[line[0]], en=[line[1], line[2]], en_id = [rel2id[line[1]], ent2id[line[2]]], rel=rel2id[line[1]], text_d_id = list(masked_head_seq_id), graph_inf = masked_head_graph_list))
         examples.append(
-            InputExample(guid=guid, text_a="[PAD]", text_b="[PAD]", text_c="[MASK]", text_d=list(masked_tail_seq),
-                         label=lmap(lambda x: ent2id[x], a), real_label=ent2id[line[2]], en=[line[0], line[1]],
-                         en_id=[ent2id[line[0]], rel2id[line[1]]], rel=rel2id[line[1]],
-                         text_d_id=list(masked_tail_seq_id), graph_inf=masked_tail_graph_list))
+            InputExample(guid=guid, text_a="[PAD]", text_b="[PAD]", text_c = "[MASK]", text_d = list(masked_tail_seq), label=lmap(lambda x: ent2id[x], a), real_label=ent2id[line[2]], en=[line[0], line[1]], en_id = [ent2id[line[0]], rel2id[line[1]]], rel=rel2id[line[1]], text_d_id = list(masked_tail_seq_id), graph_inf = masked_tail_graph_list))
     return examples
 
-
-def filter_init(head, tail, t1, t2, ent2id_, ent2token_, rel2id_, masked_head_neighbor_, masked_tail_neighbor_,
-                rel2token_):
+def filter_init(head, tail, t1,t2, ent2id_, ent2token_, rel2id_, masked_head_neighbor_, masked_tail_neighbor_, rel2token_):
     global head_filter_entities
     global tail_filter_entities
     global ent2text
@@ -401,15 +380,14 @@ def filter_init(head, tail, t1, t2, ent2id_, ent2token_, rel2id_, masked_head_ne
 
     head_filter_entities = head
     tail_filter_entities = tail
-    ent2text = t1
-    rel2text = t2
+    ent2text =t1
+    rel2text =t2
     ent2id = ent2id_
     ent2token = ent2token_
     rel2id = rel2id_
     masked_head_neighbor = masked_head_neighbor_
     masked_tail_neighbor = masked_tail_neighbor_
     rel2token = rel2token_
-
 
 def delete_init(ent2text_):
     global ent2text
@@ -418,15 +396,13 @@ def delete_init(ent2text_):
 
 class KGProcessor(DataProcessor):
     """Processor for knowledge graph data set."""
-
     def __init__(self, tokenizer, args):
         self.labels = set()
         self.tokenizer = tokenizer
         self.args = args
-        self.entity_path = os.path.join(args.data_dir, "entity2textlong.txt") if os.path.exists(
-            os.path.join(args.data_dir, 'entity2textlong.txt')) \
-            else os.path.join(args.data_dir, "entity2text.txt")
-
+        self.entity_path = os.path.join(args.data_dir, "entity2textlong.txt") if os.path.exists(os.path.join(args.data_dir, 'entity2textlong.txt')) \
+        else os.path.join(args.data_dir, "entity2text.txt")
+    
     def get_train_examples(self, data_dir):
         """See base class."""
         return self._create_examples(
@@ -438,9 +414,9 @@ class KGProcessor(DataProcessor):
             self._read_tsv(os.path.join(data_dir, "dev.tsv")), "dev", data_dir, self.args)
 
     def get_test_examples(self, data_dir, chunk=""):
-        """See base class."""
-        return self._create_examples(
-            self._read_tsv(os.path.join(data_dir, f"test{chunk}.tsv")), "test", data_dir, self.args)
+      """See base class."""
+      return self._create_examples(
+          self._read_tsv(os.path.join(data_dir, f"test{chunk}.tsv")), "test", data_dir, self.args)
 
     def get_relations(self, data_dir):
         """Gets all labels (relations) in the knowledge graph."""
@@ -450,7 +426,7 @@ class KGProcessor(DataProcessor):
             relations = []
             for line in lines:
                 relations.append(line.strip().split('\t')[0])
-        rel2token = {ent: f"[RELATION_{i}]" for i, ent in enumerate(relations)}
+        rel2token = {ent : f"[RELATION_{i}]" for i, ent in enumerate(relations)}
         return list(rel2token.values())
 
     def get_labels(self, data_dir):
@@ -470,8 +446,8 @@ class KGProcessor(DataProcessor):
             entities = []
             for line in lines:
                 entities.append(line.strip().split("\t")[0])
-
-        ent2token = {ent: f"[ENTITY_{i}]" for i, ent in enumerate(entities)}
+        
+        ent2token = {ent : f"[ENTITY_{i}]" for i, ent in enumerate(entities)}
         return list(ent2token.values())
 
     def get_train_triples(self, data_dir):
@@ -506,17 +482,17 @@ class KGProcessor(DataProcessor):
                     if "wiki" in data_dir:
                         assert "Q" in temp[0]
                     ent2text[temp[0]] = end #[:end]
-
+  
         entities = list(ent2text.keys())
-        ent2token = {ent: f"[ENTITY_{i}]" for i, ent in enumerate(entities)}
-        ent2id = {ent: i for i, ent in enumerate(entities)}
-
+        ent2token = {ent : f"[ENTITY_{i}]" for i, ent in enumerate(entities)}
+        ent2id = {ent : i for i, ent in enumerate(entities)}
+        
         rel2text = {}
         with open(os.path.join(data_dir, "relation2text.txt"), 'r') as f:
             rel_lines = f.readlines()
             for line in rel_lines:
                 temp = line.strip().split('\t')
-                rel2text[temp[0]] = temp[1]
+                rel2text[temp[0]] = temp[1]      
 
         relation_names = {}
         with open(os.path.join(data_dir, "relations.txt"), "r") as file:
@@ -535,17 +511,18 @@ class KGProcessor(DataProcessor):
         print(f"total entity not in text : {not_in_text} ")
 
         relations = list(rel2text.keys())
-        rel2token = {rel: f"[RELATION_{i}]" for i, rel in enumerate(relations)}
+        rel2token = {rel : f"[RELATION_{i}]" for i, rel in enumerate(relations)}
         # rel id -> relation token id
         num_entities = len(self.get_entities(args.data_dir))
-        rel2id = {w: i + num_entities for i, w in enumerate(relation_names.keys())}
+        rel2id = {w:i+num_entities for i,w in enumerate(relation_names.keys())}
+
 
         with open(os.path.join(data_dir, "masked_head_neighbor.txt"), 'r') as file:
             masked_head_neighbor = json.load(file)
 
         with open(os.path.join(data_dir, "masked_tail_neighbor.txt"), 'r') as file:
             masked_tail_neighbor = json.load(file)
-
+        
         examples = []
         # head filter head entity
         head_filter_entities = defaultdict(list)
@@ -563,7 +540,7 @@ class KGProcessor(DataProcessor):
             for line in train_lines:
                 tail_filter_entities["\t".join([line[0], line[1]])].append(line[2])
                 head_filter_entities["\t".join([line[2], line[1]])].append(line[0])
-
+        
         max_head_entities = max(len(_) for _ in head_filter_entities.values())
         max_tail_entities = max(len(_) for _ in tail_filter_entities.values())
 
@@ -578,6 +555,7 @@ class KGProcessor(DataProcessor):
                 t, r = k.split('\t')
                 h = v[0]
                 lines.append([h, r, t])
+        
 
         # for training , select each entity as for get mask embedding.
         if args.pretrain:
@@ -585,15 +563,14 @@ class KGProcessor(DataProcessor):
             lines = []
             for k in ent2text.keys():
                 lines.append([k, rel, k])
-
+        
         print(f"max number of filter entities : {max_head_entities} {max_tail_entities}")
         # 把子图信息加入到filter_init中（初始化为文件夹，及固定子图），设置为全局变量，solve中调用
         from os import cpu_count
         threads = min(1, cpu_count())
-        filter_init(head_filter_entities, tail_filter_entities, ent2text, rel2text, ent2id, ent2token, rel2id,
-                    masked_head_neighbor, masked_tail_neighbor, rel2token
-                    )
-
+        filter_init(head_filter_entities, tail_filter_entities,ent2text, rel2text, ent2id, ent2token, rel2id, masked_head_neighbor, masked_tail_neighbor, rel2token
+            )
+        
         if hasattr(args, "faiss_init") and args.faiss_init:
             annotate_ = partial(
                 solve_get_knowledge_store,
@@ -622,7 +599,6 @@ class KGProcessor(DataProcessor):
         del head_filter_entities, tail_filter_entities, ent2text, rel2text, ent2id, ent2token, rel2id
         return examples
 
-
 class Verbalizer(object):
     def __init__(self, args):
         if "WN18RR" in args.data_dir:
@@ -631,11 +607,18 @@ class Verbalizer(object):
             self.mode = "FB15k"
         elif "umls" in args.data_dir:
             self.mode = "umls"
-
+        elif "codexs" in args.data_dir:
+            self.mode = "codexs"
+        elif "FB13" in args.data_dir:
+            self.mode = "FB13"
+        elif "WN11" in args.data_dir:
+            self.mode = "WN11"
+        
+    
     def _convert(self, head, relation, tail):
         if self.mode == "umls":
             return f"The {relation} {head} is "
-
+        
         return f"{head} {relation}"
 
 
@@ -645,28 +628,27 @@ class KGCDataset(Dataset):
 
     def __getitem__(self, index):
         return self.features[index]
-
+    
     def __len__(self):
         return len(self.features)
-
 
 def convert_examples_to_features_init(tokenizer_for_convert):
     global tokenizer
     tokenizer = tokenizer_for_convert
-
 
 def convert_examples_to_features(example, max_seq_length, mode, pretrain=1):
     """Loads a data file into a list of `InputBatch`s."""
     text_a = " ".join(example.text_a.split()[:128])
     text_b = " ".join(example.text_b.split()[:128])
     text_c = " ".join(example.text_c.split()[:128])
-
+    
     if pretrain:
         input_text_a = text_a
         input_text_b = text_b
     else:
         input_text_a = " ".join([text_a, text_b])
         input_text_b = text_c
+    
 
     inputs = tokenizer(
         input_text_a,
@@ -679,11 +661,11 @@ def convert_examples_to_features(example, max_seq_length, mode, pretrain=1):
     # assert tokenizer.mask_token_id in inputs.input_ids, "mask token must in input"
 
     features = asdict(InputFeatures(input_ids=inputs["input_ids"],
-                                    attention_mask=inputs['attention_mask'],
-                                    labels=torch.tensor(example.label),
-                                    label=torch.tensor(example.real_label)
-                                    )
-                      )
+                            attention_mask=inputs['attention_mask'],
+                            labels=torch.tensor(example.label),
+                            label=torch.tensor(example.real_label)
+        )
+    )
     return features
 
 
@@ -702,7 +684,6 @@ def _truncate_seq_pair(tokens_a, tokens_b, max_length):
             tokens_a.pop()
         else:
             tokens_b.pop()
-
 
 def _truncate_seq_triple(tokens_a, tokens_b, tokens_c, max_length):
     """Truncates a sequence triple in place to the maximum length."""
@@ -727,6 +708,7 @@ def _truncate_seq_triple(tokens_a, tokens_b, tokens_c, max_length):
 
 @cache_results(_cache_fp="./dataset")
 def get_dataset(args, processor, label_list, tokenizer, mode):
+
     assert mode in ["train", "dev", "test"], "mode must be in train dev test!"
 
     # use training data to construct the entity embedding
@@ -737,114 +719,98 @@ def get_dataset(args, processor, label_list, tokenizer, mode):
     else:
         pass
 
-    if os.path.exists(os.path.join(args.data_dir, f"examples_{mode}.txt")) is False:
-        print('\n---------------- process examples ----------------\n')
-        if mode == "train":
-            train_examples = processor.get_train_examples(args.data_dir)
-        elif mode == "dev":
-            train_examples = processor.get_dev_examples(args.data_dir)
-        else:
-            train_examples = processor.get_test_examples(args.data_dir)
-
-        if combine_train_and_test:
-            logger.info("use all the dataset for getting the entity mask embedding in pretraining pretraining")
-            logger.info("use all the dataset for getting the entity mask embedding in pretraining pretraining")
-            train_examples = processor.get_test_examples(args.data_dir) + processor.get_train_examples(
-                args.data_dir) + processor.get_dev_examples(args.data_dir)
-
-        from os import cpu_count
-        with open(os.path.join(args.data_dir, f"examples_{mode}.txt"), 'w') as file:
-            for line in train_examples:
-                d = {}
-                d.update(line.__dict__)
-                file.write(json.dumps(d) + '\n')
+    if mode == "train":
+        train_examples = processor.get_train_examples(args.data_dir)
+    elif mode == "dev":
+        train_examples = processor.get_dev_examples(args.data_dir)
     else:
-        print('\n---------------- load examples ----------------\n')
-        with open(os.path.join(args.data_dir, f"examples_{mode}.txt"), 'r') as file:
-            content = file.readlines()
-        train_examples = [json.loads(item) for item in content]
+        train_examples = processor.get_test_examples(args.data_dir)
+    
+    if combine_train_and_test:
+        logger.info("use all the dataset for getting the entity mask embedding in pretraining pretraining")
+        logger.info("use all the dataset for getting the entity mask embedding in pretraining pretraining")
+        train_examples = processor.get_test_examples(args.data_dir) + processor.get_train_examples(args.data_dir) + processor.get_dev_examples(args.data_dir)
 
-        # 这里应该不需要重新from_pretrain，必须沿用加入token的
+    from os import cpu_count
+    with open(os.path.join(args.data_dir, f"examples_{mode}.txt"), 'w') as file:
+        for line in train_examples:
+            d = {}
+            d.update(line.__dict__)
+            file.write(json.dumps(d) + '\n')
+
+    # 这里应该不需要重新from_pretrain，必须沿用加入token的
     tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=False)
 
     features = []
 
-    if os.path.exists(os.path.join(args.data_dir, f"features_{mode}.pt")):
-        print('\n---------------- load features ----------------\n')
-        features = torch.load(os.path.join(args.data_dir, f"features_{mode}.pt"))
-    else:
-        print('\n---------------- processing features ----------------\n')
-        file_inputs = [os.path.join(args.data_dir, f"examples_{mode}.txt")]
-        file_outputs = [os.path.join(args.data_dir, f"features_{mode}.txt")]
+    file_inputs = [os.path.join(args.data_dir, f"examples_{mode}.txt")]
+    file_outputs = [os.path.join(args.data_dir, f"features_{mode}.txt")]
 
-        print('\t\tlen(train_examples)\t', len(train_examples))
-        print('\t\ttrain_examples[0]\t', train_examples[0])
+    with contextlib.ExitStack() as stack:
+        inputs = [
+            stack.enter_context(open(input, "r", encoding="utf-8"))
+            if input != "-" else sys.stdin
+            for input in file_inputs
+        ]
+        outputs = [
+            stack.enter_context(open(output, "w", encoding="utf-8"))
+            if output != "-" else sys.stdout
+            for output in file_outputs
+        ]
 
-        with contextlib.ExitStack() as stack:
-            inputs = [
-                stack.enter_context(open(input, "r", encoding="utf-8"))
-                if input != "-" else sys.stdin
-                for input in file_inputs
-            ]
-            outputs = [
-                stack.enter_context(open(output, "w", encoding="utf-8"))
-                if output != "-" else sys.stdout
-                for output in file_outputs
-            ]
+        encoder = MultiprocessingEncoder(tokenizer, args)
+        pool = Pool(16, initializer=encoder.initializer)
+        encoder.initializer()
+        encoded_lines = pool.imap(encoder.encode_lines, zip(*inputs), 1000)
+        # encoded_lines = map(encoder.encode_lines, zip(*inputs))
 
-            encoder = MultiprocessingEncoder(tokenizer, args)
-            pool = Pool(12, initializer=encoder.initializer)
-            encoder.initializer()
-            encoded_lines = pool.imap(encoder.encode_lines, zip(*inputs), 1000)
-            # encoded_lines = map(encoder.encode_lines, zip(*inputs))
+        stats = Counter()
+        for i, (filt, enc_lines) in tqdm(enumerate(encoded_lines, start=1), total=len(train_examples)):
+            if filt == "PASS":
+                for enc_line, output_h in zip(enc_lines, outputs):
+                    features.append(eval(enc_line))
+                    # features.append(enc_line)
+                    # print(enc_line, file=output_h)
+            else:
+                stats["num_filtered_" + filt] += 1
 
-            stats = Counter()
-            for i, (filt, enc_lines) in tqdm(enumerate(encoded_lines, start=1), total=len(train_examples)):
-                # print('\t\t xxxxxxxxx', enc_lines)
-                if filt == "PASS":
-                    for enc_line, output_h in zip(enc_lines, outputs):
-                        features.append(eval(enc_line))
-                        # features.append(enc_line)
-                        # print(enc_line, file=output_h)
-                else:
-                    stats["num_filtered_" + filt] += 1
+        for k, v in stats.most_common():
+            print("[{}] filtered {} lines".format(k, v), file=sys.stderr)
 
-            for k, v in stats.most_common():
-                print("[{}] filtered {} lines".format(k, v), file=sys.stderr)
+    for f_id, f in enumerate(features):
+        en = features[f_id].pop("en")
+        rel = features[f_id].pop("rel")
+        graph = features[f_id].pop("graph")
+        real_label = f['label']
+        features[f_id]['distance_attention'] = torch.Tensor(features[f_id]['distance_attention'])
+        
+        cnt = 0
+        cnt_2 = 0
+        if not isinstance(en, list): break
 
-        for f_id, f in enumerate(features):
-            en = features[f_id].pop("en")
-            rel = features[f_id].pop("rel")
-            graph = features[f_id].pop("graph")
-            real_label = f['label']
-            features[f_id]['distance_attention'] = torch.Tensor(features[f_id]['distance_attention'])
+        pos = 0
+        for i,t in enumerate(f['input_ids']):
+            if t == tokenizer.pad_token_id:
+                features[f_id]['input_ids'][i] = en[cnt] + len(tokenizer)
+                cnt += 1
+            if t == tokenizer.unk_token_id:
+                features[f_id]['input_ids'][i] = graph[cnt_2] + len(tokenizer)
+                cnt_2 += 1
+            if features[f_id]['input_ids'][i] == real_label + len(tokenizer):
+                pos = i
+            if cnt_2 == len(graph) and cnt == len(en): break
+            # 如果等于UNK， pop出图节点list，然后替换
+        assert not (args.faiss_init and pos == 0)
+        features[f_id]['pos'] = pos
 
-            cnt = 0
-            cnt_2 = 0
-            if not isinstance(en, list): break
+        # for i,t in enumerate(f['input_ids']):
+        #     if t == tokenizer.pad_token_id:
+        #         features[f_id]['input_ids'][i] = rel + len(tokenizer) + num_entities
+        #         break
 
-            pos = 0
-            for i, t in enumerate(f['input_ids']):
-                if t == tokenizer.pad_token_id:
-                    features[f_id]['input_ids'][i] = en[cnt] + len(tokenizer)
-                    cnt += 1
-                if t == tokenizer.unk_token_id:
-                    features[f_id]['input_ids'][i] = graph[cnt_2] + len(tokenizer)
-                    cnt_2 += 1
-                if features[f_id]['input_ids'][i] == real_label + len(tokenizer):
-                    pos = i
-                if cnt_2 == len(graph) and cnt == len(en): break
-                # 如果等于UNK， pop出图节点list，然后替换
-            assert not (args.faiss_init and pos == 0)
-            features[f_id]['pos'] = pos
+        
 
-            # for i,t in enumerate(f['input_ids']):
-            #     if t == tokenizer.pad_token_id:
-            #         features[f_id]['input_ids'][i] = rel + len(tokenizer) + num_entities
-            #         break
-
-        torch.save(features, os.path.join(args.data_dir, f"features_{mode}.pt"))
-        features = KGCDataset(features)
+    features = KGCDataset(features)
     return features
 
 
@@ -902,7 +868,7 @@ class MultiprocessingEncoder(object):
         # text_a = " ".join(example['text_a'].split()[:128])
         # text_b = " ".join(example['text_b'].split()[:128])
         # text_c = " ".join(example['text_c'].split()[:128])
-
+        
         text_a = example['text_a']
         text_b = example['text_b']
         text_c = example['text_c']
@@ -953,8 +919,7 @@ class MultiprocessingEncoder(object):
         new_rel.add(tuple((origin_triplet[1], origin_triplet[2])))
         new_rel.add(tuple((origin_triplet[2], origin_triplet[1])))
         for triplet in graph_list:
-            rel1, rel2, rel3, rel4 = tuple((triplet[0], triplet[1])), tuple((triplet[1], triplet[2])), tuple(
-                (triplet[1], triplet[0])), tuple((triplet[2], triplet[1]))
+            rel1, rel2, rel3, rel4 = tuple((triplet[0], triplet[1])), tuple((triplet[1], triplet[2])), tuple((triplet[1], triplet[0])), tuple((triplet[2], triplet[1]))
             new_rel.add(rel1)
             new_rel.add(rel2)
             new_rel.add(rel3)
@@ -972,18 +937,18 @@ class MultiprocessingEncoder(object):
         max_dist = np.amax(shortest_path_result)
         # [PAD]部分， [CLS]部分补全， [SEP]额外引入也当作[PAD]处理
         # 加上一个attention_bias, PAD部分设置为-inf，在送入model前，对其进行处理, 将其相加（让模型无法关注PAD）
-
+        
         # 加入attention到huggingface的BertForMaskedLM（这个可能需要再去查查）
         # attention_bias = torch.zero(N, N, dtype=torch.float)
         # attention_bias[torch.tensor(shortest_path_result == )]
         features = asdict(InputFeatures(input_ids=inputs["input_ids"],
-                                        attention_mask=inputs['attention_mask'],
-                                        labels=example['label'],
-                                        label=example['real_label'],
-                                        en=example['en_id'],
-                                        rel=example['rel'],
-                                        graph=example['text_d_id'],
-                                        distance_attention=shortest_path_result.tolist(),
-                                        )
-                          )
+                                attention_mask=inputs['attention_mask'],
+                                labels=example['label'],
+                                label=example['real_label'],
+                                en=example['en_id'],
+                                rel=example['rel'],
+                                graph=example['text_d_id'],
+                                distance_attention = shortest_path_result.tolist(),
+            )
+        )
         return features
