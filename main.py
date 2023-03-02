@@ -125,15 +125,16 @@ def main():
     if "EntityEmbedding" not in lit_model.__class__.__name__:
         trainer.fit(lit_model, datamodule=data)
         path = model_checkpoint.best_model_path
+        print(f'best model path {path}')
         lit_model.load_state_dict(torch.load(path)["state_dict"], strict=False)
 
     result = trainer.test(lit_model, datamodule=data)
     print(result)
 
     # _saved_pretrain(lit_model, tokenizer, path)
-    if "EntityEmbedding" not in lit_model.__class__.__name__:
-        print("*path"*30)
-        print(path)
+    # if "EntityEmbedding" not in lit_model.__class__.__name__:
+    #     print("*path"*30)
+    #     print(path)
 
 if __name__ == "__main__":
     main()

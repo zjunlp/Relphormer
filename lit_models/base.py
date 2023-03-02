@@ -3,8 +3,10 @@ import pytorch_lightning as pl
 import torch
 from typing import Dict, Any
 
-
+# edited by bizhen
+# OPTIMIZER = "SGD"
 OPTIMIZER = "AdamW"
+
 LR = 5e-5
 LOSS = "cross_entropy"
 ONE_CYCLE_TOTAL_STEPS = 100
@@ -40,6 +42,8 @@ class BaseLitModel(pl.LightningModule):
         return parser
 
     def configure_optimizers(self):
+        # edited by bizhen
+        # optimizer = self.optimizer_class(self.parameters(), lr=self.lr, capturable=True)
         optimizer = self.optimizer_class(self.parameters(), lr=self.lr)
         if self.one_cycle_max_lr is None:
             return optimizer

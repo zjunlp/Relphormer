@@ -9,7 +9,7 @@ args = parser.parse_args()
 
 # dataset_name = 'FB15k-237'
 
-with open('./' + args.dataset + '/get_neighbor/entity2id.txt', 'r') as file:
+with open('dataset/' + args.dataset + '/get_neighbor/entity2id.txt', 'r') as file:
     entity_lines = file.readlines()
     for line in entity_lines:
         _name, _id = line.strip().split("\t")
@@ -17,7 +17,7 @@ with open('./' + args.dataset + '/get_neighbor/entity2id.txt', 'r') as file:
 
 id2relation_name = defaultdict(str)
 
-with open('./' + args.dataset + '/get_neighbor/relation2id.txt', 'r') as file:
+with open('dataset/' + args.dataset + '/get_neighbor/relation2id.txt', 'r') as file:
     relation_lines = file.readlines()
     for line in relation_lines:
         _name, _id = line.strip().split("\t")
@@ -26,15 +26,15 @@ with open('./' + args.dataset + '/get_neighbor/relation2id.txt', 'r') as file:
 train_triplet = []
 
 
-for line in open('./' + args.dataset + '/get_neighbor/train2id.txt', 'r'):
+for line in open('dataset/' + args.dataset + '/get_neighbor/train2id.txt', 'r'):
     head, relation, tail = line.strip('\n').split()
     train_triplet.append(list((int(head), int(relation), int(tail))))
 
-for line in open('./' + args.dataset + '/get_neighbor/test2id.txt', 'r'):
+for line in open('dataset/' + args.dataset + '/get_neighbor/test2id.txt', 'r'):
     head, relation, tail = line.strip('\n').split()
     train_triplet.append(list((int(head), int(relation), int(tail))))
 
-for line in open('./'+args.dataset+'/get_neighbor/valid2id.txt', 'r'):
+for line in open('dataset/'+args.dataset+'/get_neighbor/valid2id.txt', 'r'):
     head, relation, tail = line.strip('\n').split()
     train_triplet.append(list((int(head), int(relation), int(tail))))
 
@@ -139,10 +139,10 @@ for triplet in train_triplet:
 
 import json
 
-with open("./" + args.dataset + "/masked_tail_neighbor.txt", "w") as file:
+with open("dataset/" + args.dataset + "/masked_tail_neighbor.txt", "w") as file:
     file.write(json.dumps(masked_tail_neighbor, indent=1))
 
-with open("./" + args.dataset + "/masked_head_neighbor.txt", "w") as file:
+with open("dataset/" + args.dataset + "/masked_head_neighbor.txt", "w") as file:
     file.write(json.dumps(masked_head_neighbor, indent=1))
 
 

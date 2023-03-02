@@ -14,6 +14,8 @@ from .processor import KGProcessor, get_dataset
 import transformers
 transformers.logging.set_verbosity_error()
 
+import torch.nn as nn
+
 class ExplicitEnum(Enum):
     """
     Enum with more explicit error message for missing values.
@@ -36,6 +38,11 @@ class PaddingStrategy(ExplicitEnum):
     DO_NOT_PAD = "do_not_pad"
 
 import numpy as np
+
+def pad_distance(pad_length, distance):
+    pad = nn.ConstantPad2d(padding=(0, pad_length, 0, pad_length), value=float('-inf'))
+    distance = pad(distance)
+    return distance
 
 @dataclass
 class DataCollatorForSeq2Seq:
@@ -90,11 +97,14 @@ class DataCollatorForSeq2Seq:
         name_keys = list(features[0].keys())
         for k in name_keys:
             # ignore the padding arguments
-            if k in ["input_ids", "attention_mask", "token_type_ids"]: continue
+            if k in ["input_ids", "attention_mask", "token_type_ids"]: 
+                continue
             try:
                 features_keys[k] = [feature.pop(k) for feature in features]
             except KeyError:
+                print('error!')
                 continue
+                
 
         # We have to pad the labels before calling `tokenizer.pad` as this method won't pad them and needs them of the
         # same length to return tensors.
@@ -119,6 +129,9 @@ class DataCollatorForSeq2Seq:
         features['labels'] = labels
         features['label'] = torch.tensor(label)
         features.update(features_keys)
+        
+        # editted by bizhen
+        features['distance_attention'] = torch.stack([pad_distance(len(features['input_ids'][i]) - len(distance) - 1, distance) for i, distance in enumerate(features['distance_attention'])])
 
         return features
 
@@ -185,11 +198,10 @@ class KGC(BaseDataModule):
         return self.tokenizer
 
     def train_dataloader(self):
-        return DataLoader(self.data_train, num_workers=self.num_workers, pin_memory=True, collate_fn=self.sampler, batch_size=self.args.batch_size, shuffle=not self.args.faiss_init)
+        return DataLoader(self.data_train, num_workers=self.num_workers,  collate_fn=self.sampler, batch_size=self.args.batch_size, shuffle=not self.args.faiss_init)
 
     def val_dataloader(self):
-        return DataLoader(self.data_val, num_workers=self.num_workers, pin_memory=True, collate_fn=self.sampler, batch_size=self.args.eval_batch_size)
+        return DataLoader(self.data_val, num_workers=self.num_workers, collate_fn=self.sampler, batch_size=self.args.eval_batch_size)
 
     def test_dataloader(self):
-        return DataLoader(self.data_test, num_workers=self.num_workers, pin_memory=True, collate_fn=self.sampler, batch_size=self.args.eval_batch_size)
-
+        return DataLoader(self.data_test, num_workers=self.num_workers, collate_fn=self.sampler, batch_size=self.args.eval_batch_size)

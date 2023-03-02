@@ -117,7 +117,10 @@ def main():
 
 
     # args.weights_summary = "full"  # Print full summary of the model
-    trainer = pl.Trainer.from_argparse_args(args, callbacks=callbacks, logger=logger, default_root_dir="training/logs")
+    trainer = pl.Trainer.from_argparse_args(args,
+                                            callbacks=callbacks,
+                                            logger=logger, 
+                                            default_root_dir="training/logs")
     
     if "EntityEmbedding" not in lit_model.__class__.__name__:
         trainer.fit(lit_model, datamodule=data)

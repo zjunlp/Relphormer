@@ -69,7 +69,10 @@ class TransformerLitModel(BaseLitModel):
         # print(self.optimizers().param_groups[1]['lr'])
         labels = batch.pop("labels")
         label = batch.pop("label")
-        pos = batch.pop("pos")
+        
+        # edited by bizhen
+        # pos = batch.pop("pos")
+        
         try:
             en = batch.pop("en")
             rel = batch.pop("rel")
@@ -99,7 +102,10 @@ class TransformerLitModel(BaseLitModel):
         input_ids = batch['input_ids']
         # single label
         label = batch.pop('label')
-        pos = batch.pop('pos')
+        
+        # edited by bizhen
+        # pos = batch.pop('pos')
+        
         my_keys = list(batch.keys())
         for k in my_keys:
             if k not in ["input_ids", "attention_mask", "token_type_ids"]:

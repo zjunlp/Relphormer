@@ -307,7 +307,7 @@ class BertSelfAttention(nn.Module):
                 relative_position_scores_key = torch.einsum("bhrd,lrd->bhlr", key_layer, positional_embedding)
                 attention_scores = attention_scores + relative_position_scores_query + relative_position_scores_key
 
-        attention_scores = attention_scores / math.sqrt(self.attention_head_size)
+        
         if attention_mask is not None:
             # Apply the attention mask is (precomputed for all layers in BertModel forward() function)
             # attention_score(bs, head_num, length, length)， attention_mask->extended_attention_mask, (bs, 1, 1, length)
@@ -318,8 +318,10 @@ class BertSelfAttention(nn.Module):
             # attention_mask = torch.sigmoid(attention_mask)
             # attention_mask = attention_mask.unsqueeze(1).repeat(1, self.num_attention_heads, 1, 1)
             # attention_bias = attention_bias.unsqueeze(1).repeat(1, self.num_attention_heads, 1, 1)
-            attention_scores = attention_scores + attention_mask
+            attention_scores = attention_scores + nn.Softmax(dim=-1)(attention_mask)
             # attention_scores = attention_scores + attention_mask + attention_bias
+            
+        attention_scores = attention_scores / math.sqrt(self.attention_head_size)
 
         # print("*attention_right"*30)
         # print(attention_scores)
@@ -921,7 +923,8 @@ class BertModel(BertPreTrainedModel):
         # We can provide a self-attention mask of dimensions [batch_size, from_seq_length, to_seq_length]
         # ourselves in which case we just need to make it broadcastable to all heads.
         extended_attention_mask: torch.Tensor = self.get_extended_attention_mask(attention_mask, input_shape, device)
-        extended_attention_mask = distance_attention
+        if distance_attention is not None:
+            extended_attention_mask = distance_attention
 
         # If a 2D or 3D attention mask is provided for the cross-attention
         # we need to make broadcastable to [batch_size, num_heads, seq_length, seq_length]

@@ -80,7 +80,7 @@ The expected structure of files is:
 - Then use the command below to add entities to BERT and initialize the entity embedding layer to be used in the later training. For other datasets `FB15k-237`  and `WN18RR` ,  just replace the dataset name with  `fb15k-237` and  `wn18rr` will be fine.
 
 ```shell
->> cd pretrain
+>> cd Relphormer-github/pretrain/
 >> mkdir logs
 >> bash scripts/pretrain_umls.sh
 >> tail -f -n 2000 logs/pretrain_umls.log
@@ -94,6 +94,7 @@ The pretrained models are saved in the `Relphormer/pretrain/output` directory.
 
 ```shell
 >> cd Relphormer
+>> python dataset/create_neighbor.py --dataset umls
 >> mkdir logs
 >> bash scripts/umls/umls.sh
 >> tail -f -n 2000 logs/train_umls.log

@@ -821,6 +821,7 @@ def get_dataset(args, processor, label_list, tokenizer, mode):
                 pos = i
             if cnt == len(en): break
         assert not (args.faiss_init and pos == 0)
+        
         features[f_id]['pos'] = pos
 
         
@@ -829,10 +830,21 @@ def get_dataset(args, processor, label_list, tokenizer, mode):
         #         features[f_id]['input_ids'][i] = rel + len(tokenizer) + num_entities
         #         break
 
-        
 
-    features = KGCDataset(features)
-    return features
+    # edited by bizhen
+    new_features = []
+    for item in features:
+        new_features.append(
+            {
+                'input_ids': item['input_ids'], 
+                'attention_mask': item['attention_mask'], 
+                'labels': item['labels'], 
+                'label': item['label']
+                # 'distance_attention': item['distance_attention'],
+            }
+        )
+    new_features = KGCDataset(new_features)
+    return new_features
 
 
 class MultiprocessingEncoder(object):
