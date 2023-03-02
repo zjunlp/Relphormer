@@ -1,3 +1,4 @@
+CHECK_POINT="/home/bz/output/umls/epoch=16-step=199-Eval/hits10=0.97.ckpt"
 nohup python -u main.py \
    --gpus "1" \
    --max_epochs=30 \
@@ -6,7 +7,7 @@ nohup python -u main.py \
    --accumulate_grad_batches 1 \
    --model_class BertKGC \
    --batch_size 256 \
-   --checkpoint "/home/bz/output/umls/epoch=16-step=199-Eval/hits10=0.97.ckpt" \
+   --checkpoint ${CHECK_POINT} \
    --pretrain 0 \
    --bce 0 \
    --check_val_every_n_epoch 1 \
