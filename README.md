@@ -37,8 +37,8 @@ The expected structure of files is:
  ── Relphormer
     ├── data
     ├── dataset
-    │   ├── FB15k-237
-    │   ├── WN18RR
+    │   ├── fb15k-237
+    │   ├── wn18rr
     │   ├── umls
     │   ├── create_neighbor.py
     ├── lit_models
@@ -77,7 +77,7 @@ The expected structure of files is:
 
 ### Entity Embedding Initialization
 
-- Then use the command below to add entities to BERT and initialize the entity embedding layer to be used in the later training. For other datasets `FB15k-237`  and `WN18RR` ,  just replace the dataset name with  `fb15k-237` and  `wn18rr` will be fine.
+- Then use the command below to add entities to BERT and initialize the entity embedding layer to be used in the later training. For other datasets `fb15k-237`  and `wn18rr` ,  just replace the dataset name with  `fb15k-237` and  `wn18rr` will be fine.
 
 ```shell
 >> cd Relphormer/pretrain/
@@ -87,6 +87,8 @@ The expected structure of files is:
 ```
 
 The pretrained models are saved in the `Relphormer/pretrain/output` directory.
+
+For convenience, we provide users with our processed masked files and pre-trained checkpoints, you can download from [here](https://drive.google.com/drive/folders/1siVVMNJYdYWcFby3PhEZv-UiLxbOYHnx?usp=share_link).
 
 ### Entity Prediction
 
