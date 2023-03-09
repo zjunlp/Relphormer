@@ -72,7 +72,7 @@ class BaseLitModel(pl.LightningModule):
         self.test_acc(logits, y)
         self.log("test_acc", self.test_acc, on_step=False, on_epoch=True)
 
-    @property
+    # @property
     def num_training_steps(self) -> int:
         """Total training steps inferred from datamodule and devices."""
         if isinstance(self.trainer.limit_train_batches, int) and self.trainer.limit_train_batches != 0:
@@ -84,9 +84,11 @@ class BaseLitModel(pl.LightningModule):
         else:
             dataset_size = len(self.trainer.datamodule.train_dataloader())
 
-        num_devices = max(1, self.trainer.num_gpus, self.trainer.num_processes)
-        if self.trainer.tpu_cores:
-            num_devices = max(num_devices, self.trainer.tpu_cores)
+        # num_devices = max(1, self.trainer.num_gpus, self.trainer.num_processes) 
+        num_devices  = max(1, 1, 1) 
+        
+        # if self.trainer.tpu_cores:
+        #     num_devices = max(num_devices, self.trainer.tpu_cores)
 
         effective_batch_size = self.trainer.accumulate_grad_batches * num_devices
         max_estimated_steps = (dataset_size // effective_batch_size) * self.trainer.max_epochs

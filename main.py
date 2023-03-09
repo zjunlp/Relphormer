@@ -37,7 +37,7 @@ def _setup_parser():
     parser.add_argument("--add_attn_bias", type=bool, default=True)
     # parser.add_argument("--wandb", action="store_true", default=False)
     parser.add_argument("--litmodel_class", type=str, default="TransformerLitModel")
-    parser.add_argument("--seed", type=int, default=5)
+    parser.add_argument("--seed", type=int, default=7)
     parser.add_argument("--data_class", type=str, default="KGC")
     parser.add_argument("--chunk", type=str, default="")
     parser.add_argument("--model_class", type=str, default="RobertaUseLabelWord")
@@ -124,8 +124,7 @@ def main():
     
     if "EntityEmbedding" not in lit_model.__class__.__name__:
         trainer.fit(lit_model, datamodule=data)
-        path = model_checkpoint.best_model_path
-        print(f'best model path {path}')
+        path = model_checkpoint.best_model_path        
         lit_model.load_state_dict(torch.load(path)["state_dict"], strict=False)
 
     result = trainer.test(lit_model, datamodule=data)

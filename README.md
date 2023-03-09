@@ -71,8 +71,8 @@ The expected structure of files is:
 
 - Use the command below to generate the masked neighbors.
 ```shell
->> cd dataset
->> python create_neighbor.py --dataset xxx  # like python create_neighbor.py --dataset umls
+>> cd Relphormer
+>> python dataset/create_neighbor.py --dataset xxx  # like python create_neighbor.py --dataset umls
 ```
 
 ### Entity Embedding Initialization
@@ -80,7 +80,7 @@ The expected structure of files is:
 - Then use the command below to add entities to BERT and initialize the entity embedding layer to be used in the later training. For other datasets `FB15k-237`  and `WN18RR` ,  just replace the dataset name with  `fb15k-237` and  `wn18rr` will be fine.
 
 ```shell
->> cd Relphormer-github/pretrain/
+>> cd Relphormer/pretrain/
 >> mkdir logs
 >> bash scripts/pretrain_umls.sh
 >> tail -f -n 2000 logs/pretrain_umls.log

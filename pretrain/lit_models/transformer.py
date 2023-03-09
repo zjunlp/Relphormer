@@ -193,7 +193,7 @@ class TransformerLitModel(BaseLitModel):
         ]
 
         optimizer = self.optimizer_class(optimizer_group_parameters, lr=self.lr, eps=1e-8)
-        scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=self.num_training_steps * self.args.warm_up_radio, num_training_steps=self.num_training_steps)
+        scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=self.num_training_steps() * self.args.warm_up_radio, num_training_steps=self.num_training_steps())
         return {
             "optimizer": optimizer, 
             "lr_scheduler":{

@@ -83,8 +83,9 @@ class TransformerLitModel(BaseLitModel):
 
         # edited by bizhen
         distance_attention = batch.pop("distance_attention")
+        distance_attention = distance_attention
         
-        graph_attn_bias = torch.zeros(input_ids.size(0), input_ids.size(1), input_ids.size(1), device='cuda')
+        graph_attn_bias = torch.zeros(input_ids.size(0), input_ids.size(1), input_ids.size(1)).cuda()
         graph_attn_bias[:, 1:, 1:][distance_attention == float('-inf')] = float('-inf')
         graph_attn_bias = graph_attn_bias.unsqueeze(1).repeat(1, self.num_heads, 1, 1)
         graph_attn_bias[:, :, 1:, 1:] = graph_attn_bias[:, :, 1:, 1:] + distance_attention.unsqueeze(1)
@@ -95,13 +96,12 @@ class TransformerLitModel(BaseLitModel):
             graph_attn_bias[:, :, 0, :] = graph_attn_bias[:, :, 0, :] + t
         
         # edited by bizhen
-        try:
-            if self.args.add_attn_bias:
-                logits = self.model(**batch, return_dict=True, distance_attention=graph_attn_bias).logits
-            else:
-                logits = self.model(**batch, return_dict=True, distance_attention=None).logits
-        except:
-            print('error')
+
+        if self.args.add_attn_bias:
+            logits = self.model(**batch, return_dict=True, distance_attention=graph_attn_bias).logits
+        else:
+            logits = self.model(**batch, return_dict=True, distance_attention=None).logits
+
 
         _, mask_idx = (input_ids == self.tokenizer.mask_token_id).nonzero(as_tuple=True)
         bs = input_ids.shape[0]
@@ -124,8 +124,9 @@ class TransformerLitModel(BaseLitModel):
         
         # edited by bizhen
         distance_attention = batch.pop("distance_attention")
+        distance_attention = distance_attention
         
-        graph_attn_bias = torch.zeros(input_ids.size(0), input_ids.size(1), input_ids.size(1), device='cuda')
+        graph_attn_bias = torch.zeros(input_ids.size(0), input_ids.size(1), input_ids.size(1)).cuda()
         graph_attn_bias[:, 1:, 1:][distance_attention == float('-inf')] = float('-inf')
         graph_attn_bias = graph_attn_bias.unsqueeze(1).repeat(1, self.num_heads, 1, 1)
         graph_attn_bias[:, :, 1:, 1:] = graph_attn_bias[:, :, 1:, 1:] + distance_attention.unsqueeze(1)

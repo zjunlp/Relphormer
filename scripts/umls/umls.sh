@@ -1,4 +1,4 @@
-CHECK_POINT="/home/bz/output/umls/epoch=16-step=199-Eval/hits10=0.97.ckpt"
+CHECK_POINT="./pretrain/output/umls/epoch=33-step=199-Eval/hits10=0.98.ckpt"
 nohup python -u main.py \
    --gpus "1" \
    --max_epochs=30 \
