@@ -88,7 +88,7 @@ The expected structure of files is:
 
 The pretrained models are saved in the `Relphormer/pretrain/output` directory.
 
-For convenience, we provide users with our processed masked files and pre-trained checkpoints, you can download from [here](https://drive.google.com/drive/folders/1siVVMNJYdYWcFby3PhEZv-UiLxbOYHnx?usp=share_link).
+For convenience, we provide users with our processed masked files and **pre-trained checkpoints**, you can download from [here](https://drive.google.com/drive/folders/1siVVMNJYdYWcFby3PhEZv-UiLxbOYHnx?usp=share_link).
 
 ### Entity Prediction
 
