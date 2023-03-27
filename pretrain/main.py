@@ -102,16 +102,15 @@ def main():
 
     metric_name = "Eval/mrr" if not args.pretrain else "Eval/hits1"
 
-
-    early_callback = pl.callbacks.EarlyStopping(monitor="Eval/mrr", mode="max", patience=10)
+    # early_callback = pl.callbacks.EarlyStopping(monitor="Eval/mrr", mode="max", patience=10)
     model_checkpoint = pl.callbacks.ModelCheckpoint(monitor=metric_name, mode="max",
-        filename=args.data_dir.split("/")[-1] + '/{epoch}-{Eval/hits10:.2f}-{Eval/hits1:.2f}' if not args.pretrain else args.data_dir.split("/")[-1] + '/{epoch}-{step}-{Eval/hits10:.2f}',
-        dirpath="./output",
+        filename='{epoch}-{Eval/hits10:.2f}-{Eval/hits1:.2f}',
+        dirpath="output",
         save_weights_only=True, # to be modified
         every_n_train_steps=100 if args.pretrain else None,
         save_top_k=5 if args.pretrain else 1
     )
-    callbacks = [early_callback, model_checkpoint]
+    callbacks = [model_checkpoint]
 
     # args.weights_summary = "full"  # Print full summary of the model
     trainer = pl.Trainer.from_argparse_args(args,
@@ -122,15 +121,7 @@ def main():
     if "EntityEmbedding" not in lit_model.__class__.__name__:
         trainer.fit(lit_model, datamodule=data)
         path = model_checkpoint.best_model_path
-        
-        print(f'\n\tbest pre-trained model path {path}\t\n')
-        
-        # lit_model.load_state_dict(torch.load(path)["state_dict"])
-
-        # result = trainer.test(lit_model, datamodule=data)
-        # print(result)
-    
-        # _saved_pretrain(lit_model, tokenizer, path)
+        print(f'best pre-trained model path {path}')
 
 if __name__ == "__main__":
 

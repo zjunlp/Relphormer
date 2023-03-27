@@ -1,5 +1,5 @@
 DATA_DIR="/home/bz/Relphormer-github/dataset/umls"
-nohup python -u main.py --gpus "1" --max_epochs=40  --num_workers=32 \
+nohup python -u main.py --gpus "1" --max_epochs=30  --num_workers=32 \
    --model_name_or_path  bert-base-uncased \
    --accumulate_grad_batches 1 \
    --model_class BertKGC \

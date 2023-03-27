@@ -661,7 +661,7 @@ def _truncate_seq_triple(tokens_a, tokens_b, tokens_c, max_length):
             tokens_c.pop()
 
 
-@cache_results(_cache_fp="./dataset")
+# @cache_results(_cache_fp="./dataset")
 def get_dataset(args, processor, label_list, tokenizer, mode):
 
     assert mode in ["train", "dev", "test"], "mode must be in train dev test!"
@@ -687,7 +687,7 @@ def get_dataset(args, processor, label_list, tokenizer, mode):
         train_examples = processor.get_test_examples(args.data_dir) + processor.get_train_examples(args.data_dir) + processor.get_dev_examples(args.data_dir)
 
     from os import cpu_count
-    with open(os.path.join(args.data_dir, f"examples_{mode}.txt"), 'w') as file:
+    with open(os.path.join(args.data_dir, f"examples_{mode}_pretrain.txt"), 'w') as file:
         for line in train_examples:
             d = {}
             d.update(line.__dict__)
@@ -696,65 +696,9 @@ def get_dataset(args, processor, label_list, tokenizer, mode):
     tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=False)
 
     features = []
-    # # with open(os.path.join(args.data_dir, "cached_relation_pattern.pkl"), "rb") as file:
-    # #     pattern = pickle.load(file)
-    # pattern = None
-    # convert_examples_to_features_init(tokenizer)
-    # annotate_ = partial(
-    #     convert_examples_to_features,
-    #     max_seq_length=args.max_seq_length,
-    #     mode = mode,
-    #     pretrain = args.pretrain
-    # )
-    # features = list(
-    #     tqdm(
-    #         map(annotate_, train_examples),
-    #         total=len(train_examples)
-    #     )
-    # )
-    # encoder = MultiprocessingEncoder(tokenizer, args)
-    # encoder.initializer()
-    # for t in tqdm(train_examples):
-    #     features.append(encoder.encode_lines([json.dumps(t.__dict__)]))
-    
-    # for example in tqdm(train_examples):
-    #     text_a = example.text_a
-    #     text_b = example.text_b
-    #     text_c = example.text_c
 
-    #     bpe = tokenizer
-    #     if 0:
-    #         input_text_a = text_a
-    #         input_text_b = text_b
-    #     else:
-    #         if text_a == "[MASK]":
-    #             input_text_a = bpe.sep_token.join([text_a, text_b])
-    #             input_text_b = text_c
-    #         else:
-    #             input_text_a = text_a
-    #             input_text_b = bpe.sep_token.join([text_b, text_c])
-        
-
-    #     inputs = tokenizer(
-    #         input_text_a,
-    #         # input_text_b,
-    #         truncation="longest_first",
-    #         max_length=128,
-    #         padding="longest",
-    #         add_special_tokens=True,
-    #     )
-    #     # assert tokenizer.mask_token_id in inputs.input_ids, "mask token must in input"
-
-    #     # features.append(asdict(InputFeatures(input_ids=inputs["input_ids"],
-    #     #                         attention_mask=inputs['attention_mask'],
-    #     #                         labels=example.label,
-    #     #                         label=example.real_label
-    #     #     )
-    #     # ))
-
-
-    file_inputs = [os.path.join(args.data_dir, f"examples_{mode}.txt")]
-    file_outputs = [os.path.join(args.data_dir, f"features_{mode}.txt")]
+    file_inputs = [os.path.join(args.data_dir, f"examples_{mode}_pretrain.txt")]
+    file_outputs = [os.path.join(args.data_dir, f"features_{mode}_pretrain.txt")]
 
     with contextlib.ExitStack() as stack:
         inputs = [
@@ -788,23 +732,7 @@ def get_dataset(args, processor, label_list, tokenizer, mode):
 
         for k, v in stats.most_common():
             print("[{}] filtered {} lines".format(k, v), file=sys.stderr)
-    # threads = min(16, cpu_count())
-    # with Pool(threads, initializer=convert_examples_to_features_init, initargs=(tokenizer,)) as pool:
-    #     annotate_ = partial(
-    #         convert_examples_to_features,
-    #         max_seq_length=args.max_seq_length,
-    #         mode = mode,
-    #         pretrain = args.pretrain
-    #     )
-    #     features = list(
-    #         tqdm(
-    #             pool.imap_unordered(annotate_, train_examples),
-    #             total=len(train_examples),
-    #             desc="convert examples to features",
-    #         )
-    #     )
 
-    # num_entities = len(processor.get_entities(args.data_dir))
     for f_id, f in enumerate(features):
         en = features[f_id].pop("en")
         rel = features[f_id].pop("rel")
@@ -824,12 +752,10 @@ def get_dataset(args, processor, label_list, tokenizer, mode):
         
         features[f_id]['pos'] = pos
 
-        
         # for i,t in enumerate(f['input_ids']):
         #     if t == tokenizer.pad_token_id:
         #         features[f_id]['input_ids'][i] = rel + len(tokenizer) + num_entities
         #         break
-
 
     # edited by bizhen
     new_features = []
@@ -840,12 +766,15 @@ def get_dataset(args, processor, label_list, tokenizer, mode):
                 'attention_mask': item['attention_mask'], 
                 'labels': item['labels'], 
                 'label': item['label']
-                # 'distance_attention': item['distance_attention'],
             }
         )
+
+    print('\t-----------')
+    print(new_features[0])
+    print('\t-----------')
+    
     new_features = KGCDataset(new_features)
     return new_features
-
 
 class MultiprocessingEncoder(object):
     def __init__(self, tokenizer, args):
