@@ -30,14 +30,6 @@ for line in open('dataset/' + args.dataset + '/get_neighbor/train2id.txt', 'r'):
     head, relation, tail = line.strip('\n').split()
     train_triplet.append(list((int(head), int(relation), int(tail))))
 
-for line in open('dataset/' + args.dataset + '/get_neighbor/test2id.txt', 'r'):
-    head, relation, tail = line.strip('\n').split()
-    train_triplet.append(list((int(head), int(relation), int(tail))))
-
-for line in open('dataset/'+args.dataset+'/get_neighbor/valid2id.txt', 'r'):
-    head, relation, tail = line.strip('\n').split()
-    train_triplet.append(list((int(head), int(relation), int(tail))))
-
 
 graph = {}
 reverse_graph = {}
