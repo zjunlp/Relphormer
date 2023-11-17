@@ -116,3 +116,15 @@ The experimental settings in QA follow the [Hitter](https://arxiv.org/pdf/2008.1
 >> sh scripts/relphormer_webqsp.sh
 >> sh scripts/relphormer_webqsp_filtered.sh
 ```
+
+# Citation
+If you use the code, please cite the following paper:
+
+```bibtex
+@article{bi2022relphormer,
+  title={Relphormer: relational graph transformer for knowledge graph representation},
+  author={Bi, Zhen and Cheng, Siyuan and Zhang, Ningyu and Liang, Xiaozhuan and Xiong, Feiyu and Chen, Huajun},
+  journal={arXiv preprint arXiv:2205.10852},
+  year={2022}
+}
+```
