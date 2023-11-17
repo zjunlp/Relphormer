@@ -123,8 +123,7 @@ If you use the code, please cite the following paper:
 ```bibtex
 @article{bi2022relphormer,
   title={Relphormer: relational graph transformer for knowledge graph representation},
-  author={Bi, Zhen and Cheng, Siyuan and Zhang, Ningyu and Liang, Xiaozhuan and Xiong, Feiyu and Chen, Huajun},
-  journal={arXiv preprint arXiv:2205.10852},
-  year={2022}
+  author={Bi, Zhen and Cheng, Siyuan and Jing, Chen and Liang, Xiaozhuan and Xiong, Feiyu and Zhang, Ningyu},
+  journal={Neurocomputing},
 }
 ```
