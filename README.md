@@ -121,9 +121,15 @@ The experimental settings in QA follow the [Hitter](https://arxiv.org/pdf/2008.1
 If you use the code, please cite the following paper:
 
 ```bibtex
-@article{bi2022relphormer,
-  title={Relphormer: relational graph transformer for knowledge graph representation},
-  author={Bi, Zhen and Cheng, Siyuan and Jing, Chen and Liang, Xiaozhuan and Xiong, Feiyu and Zhang, Ningyu},
-  journal={Neurocomputing},
+@article{BI2023127044,
+title = {Relphormer: Relational Graph Transformer for knowledge graph representations},
+journal = {Neurocomputing},
+pages = {127044},
+year = {2023},
+issn = {0925-2312},
+doi = {https://doi.org/10.1016/j.neucom.2023.127044},
+url = {https://www.sciencedirect.com/science/article/pii/S0925231223011670},
+author = {Zhen Bi and Siyuan Cheng and Jing Chen and Xiaozhuan Liang and Feiyu Xiong and Ningyu Zhang},
+keywords = {Knowledge graph, Knowledge graph representation, Transformer},
 }
 ```
