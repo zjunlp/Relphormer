@@ -127,8 +127,6 @@ journal = {Neurocomputing},
 pages = {127044},
 year = {2023},
 issn = {0925-2312},
-doi = {https://doi.org/10.1016/j.neucom.2023.127044},
-url = {https://www.sciencedirect.com/science/article/pii/S0925231223011670},
 author = {Zhen Bi and Siyuan Cheng and Jing Chen and Xiaozhuan Liang and Feiyu Xiong and Ningyu Zhang},
 keywords = {Knowledge graph, Knowledge graph representation, Transformer},
 }
