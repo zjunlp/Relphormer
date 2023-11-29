@@ -69,7 +69,7 @@ The expected structure of files is:
 
 ###  Generate Masked Neighbors 
 
--  ~~Use the command below to generate the masked neighbors.~~ (<u>There are some bugs here, we will upload the new version soon</u>)
+-  ~~Use the command below to generate the masked neighbors.~~ (**There are some bugs here, we will upload the new version soon**)
 ```shell
 >> cd Relphormer
 >> python dataset/create_neighbor.py --dataset xxx   # like python create_neighbor.py --dataset umls
