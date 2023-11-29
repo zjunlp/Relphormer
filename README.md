@@ -67,12 +67,12 @@ The expected structure of files is:
 
 ## KGC Task
 
-### Generate Masked Neighbors
+###   ~~  Generate Masked Neighbors ~~
 
 - Use the command below to generate the masked neighbors.
 ```shell
 >> cd Relphormer
->> ~~ python dataset/create_neighbor.py --dataset xxx ~~  # like python create_neighbor.py --dataset umls
+>> python dataset/create_neighbor.py --dataset xxx   # like python create_neighbor.py --dataset umls
 ```
 
 ### Entity Embedding Initialization
