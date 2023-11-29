@@ -67,9 +67,9 @@ The expected structure of files is:
 
 ## KGC Task
 
-###   ~~  Generate Masked Neighbors ~~
+###  Generate Masked Neighbors 
 
-- Use the command below to generate the masked neighbors.
+-  ~~Use the command below to generate the masked neighbors.~~ (There are some bugs here, we will upload the new version soon)
 ```shell
 >> cd Relphormer
 >> python dataset/create_neighbor.py --dataset xxx   # like python create_neighbor.py --dataset umls
