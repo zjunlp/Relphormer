@@ -25,10 +25,11 @@ import inspect
 from transformers.models.auto.tokenization_auto import AutoTokenizer
 
 from models.utils import get_entity_spans_pre_processing
-import pyximport
 
+import pyximport
 pyximport.install(setup_args={'include_dirs': np.get_include()})
 import data.algos as algos
+# import algos
 
 def lmap(a, b):
     return list(map(a,b))  # a是个函数，b是个值列表，返回函数值列表
@@ -210,10 +211,18 @@ def solve(line,  set_type="train", pretrain=1, max_triplet=32):
         masked_tail_seq = set()
         masked_tail_seq_id = set()
 
-        masked_tail_graph_list = masked_tail_neighbor["\t".join([line[0],line[1]])] if len(masked_tail_neighbor["\t".join([line[0],line[1]])]) < max_triplet else \
-            random.sample(masked_tail_neighbor["\t".join([line[0],line[1]])], max_triplet)
-        masked_head_graph_list = masked_head_neighbor["\t".join([line[2],line[1]])] if len(masked_head_neighbor["\t".join([line[2],line[1]])]) < max_triplet else \
+        try:
+            masked_tail_graph_list = masked_tail_neighbor["\t".join([line[0],line[1]])] if len(masked_tail_neighbor["\t".join([line[0],line[1]])]) < max_triplet else \
+                random.sample(masked_tail_neighbor["\t".join([line[0],line[1]])], max_triplet)
+        except:
+            masked_tail_graph_list = []
+        
+        try:
+            masked_head_graph_list = masked_head_neighbor["\t".join([line[2],line[1]])] if len(masked_head_neighbor["\t".join([line[2],line[1]])]) < max_triplet else \
             random.sample(masked_head_neighbor["\t".join([line[2],line[1]])], max_triplet)
+        except:
+            masked_head_graph_list = []
+
         # masked_tail_graph_list = masked_tail_neighbor["\t".join([line[0],line[1]])][:16]
         # masked_head_graph_list = masked_head_neighbor["\t".join([line[2],line[1]])][:16]
         for item in masked_head_graph_list:
@@ -644,121 +653,94 @@ def get_dataset(args, processor, label_list, tokenizer, mode):
         print(f'\n------ load {mode} example ------')
         train_examples = []
         with open(os.path.join(args.data_dir, f"examples_{mode}.txt"), 'r') as file:
-            for line in file:  
+            for line in tqdm(file):  
                 train_examples.append(json.loads(line))   
 
     # 这里应该不需要重新from_pretrain，必须沿用加入token的
     tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=False)
     
-    if os.path.exists(os.path.join(args.data_dir, f"features_{mode}.pt")) is False:
+    # if os.path.exists(os.path.join(args.data_dir, f"features_{mode}.pt")) is False:
         
-        print(f'\n------ process {mode} feature ------')
+    print(f'\n------ process {mode} feature ------')
 
-        features = []
+    features = []
 
-        file_inputs = [os.path.join(args.data_dir, f"examples_{mode}.txt")]
-        # file_outputs = [os.path.join(args.data_dir, f"features_{mode}.txt")]
+    file_inputs = [os.path.join(args.data_dir, f"examples_{mode}.txt")]
+    # file_outputs = [os.path.join(args.data_dir, f"features_{mode}.txt")]
 
-        with contextlib.ExitStack() as stack:
-            inputs = [
-                stack.enter_context(open(input, "r", encoding="utf-8"))
-                if input != "-" else sys.stdin
-                for input in file_inputs
-            ]
-            # outputs = [
-            #     stack.enter_context(open(output, "w", encoding="utf-8"))
-            #     if output != "-" else sys.stdout
-            #     for output in file_outputs
-            # ]
+    with contextlib.ExitStack() as stack:
+        inputs = [
+            stack.enter_context(open(input, "r", encoding="utf-8"))
+            if input != "-" else sys.stdin
+            for input in file_inputs
+        ]
 
-            encoder = MultiprocessingEncoder(tokenizer, args)
-            pool = Pool(4, initializer=encoder.initializer)
-            encoder.initializer()
-            encoded_lines = pool.imap(encoder.encode_lines, zip(*inputs), 1000)
-            # encoded_lines = map(encoder.encode_lines, zip(*inputs))
+        encoder = MultiprocessingEncoder(tokenizer, args)
+        pool = Pool(4, initializer=encoder.initializer)
+        encoder.initializer()
+        encoded_lines = pool.imap(encoder.encode_lines, zip(*inputs), 1000)
 
-            stats = Counter()
-            for i, (filt, enc_lines) in tqdm(enumerate(encoded_lines, start=1), total=len(train_examples)):
-                if filt == "PASS":
-                    # for enc_line, output_h in zip(enc_lines, outputs):
-                    #     features.append(eval(enc_line))
-                    #     # features.append(enc_line) 
-                    #     print(enc_line, file=output_h)
-                    for enc_line in enc_lines:
-                        features.append(eval(enc_line))
-                        # features.append(enc_line) 
-                else:
-                    stats["num_filtered_" + filt] += 1
+        stats = Counter()
+        for i, (filt, enc_lines) in tqdm(enumerate(encoded_lines, start=1), total=len(train_examples)):
+            if filt == "PASS":
+                for enc_line in enc_lines:
+                    features.append(eval(enc_line))
+            else:
+                stats["num_filtered_" + filt] += 1
 
-            for k, v in stats.most_common():
-                print("[{}] filtered {} lines".format(k, v), file=sys.stderr)
+        for k, v in stats.most_common():
+            print("[{}] filtered {} lines".format(k, v), file=sys.stderr)
 
-        for f_id, f in enumerate(features):
-            en = features[f_id].pop("en")
-            rel = features[f_id].pop("rel")
-            graph = features[f_id].pop("graph")
-            real_label = f['label']
-            features[f_id]['distance_attention'] = torch.Tensor(features[f_id]['distance_attention'])
-            
-            cnt = 0
-            cnt_2 = 0
-            if not isinstance(en, list): break
-
-            pos = 0
-            for i,t in enumerate(f['input_ids']):
-                if t == tokenizer.pad_token_id:
-                    features[f_id]['input_ids'][i] = en[cnt] + len(tokenizer)
-                    cnt += 1
-                if t == tokenizer.unk_token_id:
-                    features[f_id]['input_ids'][i] = graph[cnt_2] + len(tokenizer)
-                    cnt_2 += 1
-                if features[f_id]['input_ids'][i] == real_label + len(tokenizer):
-                    pos = i
-                if cnt_2 == len(graph) and cnt == len(en): break
-                # 如果等于UNK， pop出图节点list，然后替换
-            assert not (args.faiss_init and pos == 0)
-            features[f_id]['pos'] = pos
-
-        #     # for i,t in enumerate(f['input_ids']):
-        #     #     if t == tokenizer.pad_token_id:
-        #     #         features[f_id]['input_ids'][i] = rel + len(tokenizer) + num_entities
-        #     #         break
-
-        # features = KGCDataset(features)
-        # return features
-
-        # edited by bizhen
-        new_features = []
-        for item in features:
-            new_features.append(
-                {
-                    'input_ids': item['input_ids'], 
-                    'attention_mask': item['attention_mask'], 
-                    'labels': item['labels'], 
-                    'label': item['label'],
-                    'distance_attention': item['distance_attention']
-                }
-            )
+    for f_id, f in enumerate(features):
+        en = features[f_id].pop("en")
+        rel = features[f_id].pop("rel")
+        graph = features[f_id].pop("graph")
+        real_label = f['label']
+        features[f_id]['distance_attention'] = torch.Tensor(features[f_id]['distance_attention'])
         
-        # with open(os.path.join(args.data_dir, f"features_{mode}.pt"), 'w') as f:
-            # for line in new_features:
-            #     f.write(str(line))
-        torch.save(new_features, os.path.join(args.data_dir, f"features_{mode}.pt"))
-        
-        new_features = KGCDataset(new_features)
+        cnt = 0
+        cnt_2 = 0
+        if not isinstance(en, list): break
+
+        pos = 0
+        for i,t in enumerate(f['input_ids']):
+            if t == tokenizer.pad_token_id:
+                features[f_id]['input_ids'][i] = en[cnt] + len(tokenizer)
+                cnt += 1
+            if t == tokenizer.unk_token_id:
+                features[f_id]['input_ids'][i] = graph[cnt_2] + len(tokenizer)
+                cnt_2 += 1
+            if features[f_id]['input_ids'][i] == real_label + len(tokenizer):
+                pos = i
+            if cnt_2 == len(graph) and cnt == len(en): break
+            # 如果等于UNK， pop出图节点list，然后替换
+        assert not (args.faiss_init and pos == 0)
+        features[f_id]['pos'] = pos
     
-    else:
+    # edited by bizhen
+    new_features = []
+    for item in features:
+        new_features.append(
+            {
+                'input_ids': item['input_ids'], 
+                'attention_mask': item['attention_mask'], 
+                'labels': item['labels'], 
+                'label': item['label'],
+                'distance_attention': item['distance_attention']
+            }
+        )
+    
+    # torch.save(new_features, os.path.join(args.data_dir, f"features_{mode}.pt"))
+    
+    new_features = KGCDataset(new_features)
+    
+    # else:
 
-        print(f'\n------ load {mode} feature ------')
-
-        # new_features = []
-        # with open(os.path.join(args.data_dir, f"features_{mode}.txt"), 'r') as f:
-        #     for line in f:
-        #         new_features.append(eval(line))
+    #     print(f'\n------ load {mode} feature ------')
         
-        new_features = torch.load(os.path.join(args.data_dir, f"features_{mode}.pt"))
+    #     new_features = torch.load(os.path.join(args.data_dir, f"features_{mode}.pt"))
                 
-        new_features = KGCDataset(new_features)
+    #     new_features = KGCDataset(new_features)
     
     return new_features
 
