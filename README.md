@@ -67,12 +67,7 @@ The expected structure of files is:
 
 ## KGC Task
 
-###  Generate Masked Neighbors 
-
-```shell
->> cd Relphormer
->> python dataset/create_neighbor.py --dataset xxx   # like python create_neighbor.py --dataset umls
-```
+###  Pre-trained Model Preparation 
 
 - First download the pre-trained model.
 ```shell
