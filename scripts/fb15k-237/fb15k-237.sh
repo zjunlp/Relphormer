@@ -1,19 +1,20 @@
-CHECK_POINT="/home/bz/Relphormer-github/pretrain/output/FB15k-237/epoch=15-step=19299-Eval/hits10=0.96.ckpt"
-nohup python -u main.py \
+CHECK_POINT="pretrain/output/epoch=15-Eval/hits10=0.96-Eval/hits1=0.92.ckpt"
+PRETRAINED_MODEL_PATH="./Pre-trained_models/bert-base-uncased"
+CUDA_VISIBLE_DEVICES=0 nohup python main.py \
    --gpus "1" \
-   --max_epochs=16  \
+   --max_epochs=5  \
    --num_workers=32 \
-   --model_name_or_path  bert-base-uncased \
+   --model_name_or_path  ${PRETRAINED_MODEL_PATH} \
    --accumulate_grad_batches 1 \
    --model_class BertKGC \
-   --batch_size 200 \
+   --batch_size 64 \
    --checkpoint ${CHECK_POINT} \
    --pretrain 0 \
    --bce 0 \
    --check_val_every_n_epoch 1 \
    --overwrite_cache \
    --data_dir dataset/fb15k-237 \
-   --eval_batch_size 200 \
+   --eval_batch_size 256 \
    --max_seq_length 128 \
    --lr 3e-5 \
    --max_triplet 64 \
