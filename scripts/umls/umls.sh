@@ -1,9 +1,10 @@
-CHECK_POINT="./pretrain/output/umls/epoch=33-step=199-Eval/hits10=0.98.ckpt"
+CHECK_POINT="pretrain/output/umls/epoch=33-step=199-Eval/hits10=0.98.ckpt"
+PRETRAINED_MODEL_PATH="./Pre-trained_models/bert-base-uncased"
 nohup python -u main.py \
    --gpus "1" \
    --max_epochs=30 \
    --num_workers=32 \
-   --model_name_or_path  bert-base-uncased \
+   --model_name_or_path  ${PRETRAINED_MODEL_PATH}$ \
    --accumulate_grad_batches 1 \
    --model_class BertKGC \
    --batch_size 256 \
