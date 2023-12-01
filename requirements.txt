@@ -6,3 +6,5 @@ transformers==4.26.1
 faiss-gpu==1.7.2
 tensorboard==2.12.0
 tensorboardx==2.6
+algos==0.0.5
+Cython==3.0.6
