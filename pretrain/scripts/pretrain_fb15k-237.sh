@@ -1,6 +1,7 @@
-DATA_DIR="/home/bz/Relphormer-github/dataset/fb15k-237"
-nohup python -u main.py --gpus "1" --max_epochs=16  --num_workers=32 \
-   --model_name_or_path  bert-base-uncased \
+DATA_DIR="../dataset/fb15k-237"
+PRETRAINED_MODEL_PATH="../Pre-trained_models/bert-base-uncased"
+CUDA_VISIBLE_DEVICES=0 nohup python -u main.py --gpus "1" --max_epochs=16  --num_workers=32 \
+   --model_name_or_path  ${PRETRAINED_MODEL_PATH} \
    --accumulate_grad_batches 1 \
    --model_class BertKGC \
    --batch_size 256 \
