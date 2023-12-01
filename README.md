@@ -69,10 +69,17 @@ The expected structure of files is:
 
 ###  Generate Masked Neighbors 
 
--  ~~Use the command below to generate the masked neighbors.~~ (**There are some bugs here, we will upload the new version soon**)
 ```shell
 >> cd Relphormer
 >> python dataset/create_neighbor.py --dataset xxx   # like python create_neighbor.py --dataset umls
+```
+
+- First download the pre-trained model.
+```shell
+>> cd Relphormer
+>> mkdir -p Pre-trained_models/bert-base-uncased
+>> cd Pre-trained_models/bert-base-uncased
+>> sh download.sh
 ```
 
 ### Entity Embedding Initialization
@@ -80,26 +87,28 @@ The expected structure of files is:
 - Then use the command below to add entities to BERT and initialize the entity embedding layer to be used in the later training. For other datasets `fb15k-237`  and `wn18rr` ,  just replace the dataset name with  `fb15k-237` and  `wn18rr` will be fine.
 
 ```shell
->> cd Relphormer/pretrain/
+>> cd Relphormer/
+>> cd pretrain/
 >> mkdir logs
->> bash scripts/pretrain_umls.sh
->> tail -f -n 2000 logs/pretrain_umls.log
+>> bash scripts/pretrain_fb15k-237.sh
+>> tail -f -n 2000 logs/pretrain_fb15k-237.log
 ```
 
 The pretrained models are saved in the `Relphormer/pretrain/output` directory.
 
-For convenience, we provide users with our processed masked files and **pre-trained checkpoints**, you can download from [here](https://drive.google.com/drive/folders/1siVVMNJYdYWcFby3PhEZv-UiLxbOYHnx?usp=share_link).
+~~For convenience, we provide users with our processed masked files and **pre-trained checkpoints**, you can download from [here]~~(https://drive.google.com/drive/folders/1siVVMNJYdYWcFby3PhEZv-UiLxbOYHnx?usp=share_link).
 
 ### Entity Prediction
 
 - Next use the command below to train the model to predict the correct entity in the masked position. Same as above for other datasets.
 
+
 ```shell
 >> cd Relphormer
->> python dataset/create_neighbor.py --dataset umls
+>> python dataset/create_neighbor.py --dataset "fb15k-237"  # or python create_neighbor.py --dataset "umls"
 >> mkdir logs
->> bash scripts/umls/umls.sh
->> tail -f -n 2000 logs/train_umls.log
+>> bash scripts/fb15k-237/fb15k-237.sh
+>> tail -f -n 2000 logs/train_fb15k-237.log
 ```
 
 The trained models are saved in the `Relphormer/output` directory.
