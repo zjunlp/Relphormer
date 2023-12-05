@@ -74,7 +74,6 @@ The expected structure of files is:
 >> cd Relphormer
 >> mkdir -p Pre-trained_models/bert-base-uncased
 >> cd Pre-trained_models/bert-base-uncased
->> sh download.sh  # You can copy the following script in this file
 ```
 To download the pre-training model,
 ```
