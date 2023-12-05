@@ -74,7 +74,15 @@ The expected structure of files is:
 >> cd Relphormer
 >> mkdir -p Pre-trained_models/bert-base-uncased
 >> cd Pre-trained_models/bert-base-uncased
->> sh download.sh
+>> sh download.sh  # You can copy the following script in this file
+```
+To download the pre-training model,
+```
+wget https://hf-mirror.com/bert-base-uncased/resolve/main/config.json
+wget https://hf-mirror.com/bert-base-uncased/resolve/main/pytorch_model.bin
+wget https://hf-mirror.com/bert-base-uncased/resolve/main/tokenizer.json
+wget https://hf-mirror.com/bert-base-uncased/resolve/main/tokenizer_config.json
+wget https://hf-mirror.com/bert-base-uncased/resolve/main/vocab.txt
 ```
 
 ### Entity Embedding Initialization
