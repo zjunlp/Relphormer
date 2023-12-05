@@ -75,7 +75,7 @@ The expected structure of files is:
 >> mkdir -p Pre-trained_models/bert-base-uncased
 >> cd Pre-trained_models/bert-base-uncased
 ```
-To download the pre-training model,
+To download the pre-training model, run the following commands.
 ```
 wget https://hf-mirror.com/bert-base-uncased/resolve/main/config.json
 wget https://hf-mirror.com/bert-base-uncased/resolve/main/pytorch_model.bin
