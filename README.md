@@ -2,7 +2,7 @@
 
 Code for the Neurocomputing 2023 paper: "[Relphormer: Relational Graph Transformer for Knowledge Graph Representations](https://arxiv.org/abs/2205.10852)".
 
-## Note: <u>Sorry for the inconvenience, this project is re-organizing now and we will upload the new version soon!</u>
+**Sorry for the inconvenience, this project is re-organizing now and we will upload the new version soon!**
 
 > Transformers have achieved remarkable performance in widespread fields, including natural language processing, computer vision and graph mining. However, vanilla Transformer architectures have not yielded promising improvements in the Knowledge Graph (KG) representations, where the translational distance paradigm dominates this area. Note that vanilla Transformer architectures struggle to capture the intrinsically heterogeneous semantic and structural information of knowledge graphs. To this end, we propose a new variant of Transformer for knowledge graph representations dubbed Relphormer. Specifically, we introduce Triple2Seq which can dynamically sample contextualized sub-graph sequences as the input to alleviate the heterogeneity issue. We propose a novel structure-enhanced self-attention mechanism to encode the relational information and keep the globally semantic information among sub-graphs. Moreover, we propose masked knowledge modeling as a new paradigm for knowledge graph representation learning. We apply Relphormer to three tasks, namely, knowledge graph completion, KG-based question answering and KG-based recommendation for evaluation. Experimental results show that Relphormer can obtain better performance on benchmark datasets compared with baselines.
 
