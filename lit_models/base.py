@@ -3,10 +3,8 @@ import pytorch_lightning as pl
 import torch
 from typing import Dict, Any
 
-# edited by bizhen
-# OPTIMIZER = "SGD"
-OPTIMIZER = "AdamW"
 
+OPTIMIZER = "AdamW"
 LR = 5e-5
 LOSS = "cross_entropy"
 ONE_CYCLE_TOTAL_STEPS = 100
@@ -42,8 +40,6 @@ class BaseLitModel(pl.LightningModule):
         return parser
 
     def configure_optimizers(self):
-        # edited by bizhen
-        # optimizer = self.optimizer_class(self.parameters(), lr=self.lr, capturable=True)
         optimizer = self.optimizer_class(self.parameters(), lr=self.lr)
         if self.one_cycle_max_lr is None:
             return optimizer
@@ -76,7 +72,7 @@ class BaseLitModel(pl.LightningModule):
         self.test_acc(logits, y)
         self.log("test_acc", self.test_acc, on_step=False, on_epoch=True)
 
-    @property
+    # @property
     def num_training_steps(self) -> int:
         """Total training steps inferred from datamodule and devices."""
         if isinstance(self.trainer.limit_train_batches, int) and self.trainer.limit_train_batches != 0:
@@ -88,7 +84,9 @@ class BaseLitModel(pl.LightningModule):
         else:
             dataset_size = len(self.trainer.datamodule.train_dataloader())
 
-        num_devices = max(1, self.trainer.num_gpus, self.trainer.num_processes)
+        # num_devices = max(1, self.trainer.num_devices, self.trainer.num_processes)
+        num_devices = max(1, 1, self.trainer.num_processes)
+        
         if self.trainer.tpu_cores:
             num_devices = max(num_devices, self.trainer.tpu_cores)
 

@@ -1,6 +1,5 @@
 from logging import debug
 import random
-from turtle import distance
 import pytorch_lightning as pl
 import torch
 import pickle
@@ -17,11 +16,6 @@ from functools import partial
 from .utils import rank_score, acc, LabelSmoothSoftmaxCEV1
 
 from typing import Callable, Iterable, List
-
-def pad_distance(pad_length, distance):
-    pad = nn.ConstantPad2d(padding=(0, pad_length, 0, pad_length), value=float('-inf'))
-    distance = pad(distance)
-    return distance
 
 def lmap(f: Callable, x: Iterable) -> List:
     """list(map(f, x))"""
@@ -55,7 +49,7 @@ class TransformerLitModel(BaseLitModel):
         self.first = True
         
         self.tokenizer = tokenizer
-        self.num_heads = 12
+
         self.__dict__.update(data_config)
         # resize the word embedding layer
         self.model.resize_token_embeddings(len(self.tokenizer))
@@ -65,43 +59,32 @@ class TransformerLitModel(BaseLitModel):
         elif "ind" in args.data_dir:
             # for inductive setting, use feeaze the word embedding
             self._freaze_word_embedding()
-        
-        self.graph_token_virtual_distance = nn.Embedding(1, self.num_heads)
-        
+
+        '''
+            edit by bizhen
+        '''
+        self.num_heads = 12
+
+
 
     def forward(self, x):
         return self.model(x)
 
-    def training_step(self, batch, batch_idx):  # pylint: disable=unused-argument
-        # if batch_idx == 0:
-        #     print('\n'.join(self.decode(batch['input_ids'][:1])))
-
+    def training_step(self, batch, batch_idx):
         labels = batch.pop("labels")
         label = batch.pop("label")
-        
         input_ids = batch['input_ids']
 
-        # edited by bizhen
-        distance_attention = batch.pop("distance_attention")
-        distance_attention = distance_attention
-        
-        graph_attn_bias = torch.zeros(input_ids.size(0), input_ids.size(1), input_ids.size(1)).cuda()
-        graph_attn_bias[:, 1:, 1:][distance_attention == float('-inf')] = float('-inf')
-        graph_attn_bias = graph_attn_bias.unsqueeze(1).repeat(1, self.num_heads, 1, 1)
-        graph_attn_bias[:, :, 1:, 1:] = graph_attn_bias[:, :, 1:, 1:] + distance_attention.unsqueeze(1)
-        
-        if self.args.use_global_node:
-            t = self.graph_token_virtual_distance.weight.view(1, self.num_heads, 1)
-            graph_attn_bias[:, :, 1:, 0] = graph_attn_bias[:, :, 1:, 0] + t
-            graph_attn_bias[:, :, 0, :] = graph_attn_bias[:, :, 0, :] + t
-        
-        # edited by bizhen
-
-        if self.args.add_attn_bias:
-            logits = self.model(**batch, return_dict=True, distance_attention=graph_attn_bias).logits
+        # logits = self.model(**batch, return_dict=True).logits
+        if self.args.pretrain:
+            logits = self.model(**batch, return_dict=True).logits
         else:
-            logits = self.model(**batch, return_dict=True, distance_attention=None).logits
-
+            distance_attention = batch.pop("distance_attention")
+            graph_attn_bias = distance_attention
+            graph_attn_bias = graph_attn_bias.unsqueeze(1).repeat(1, self.num_heads, 1, 1)
+            graph_attn_bias[:, :, 0, :] = 0
+            graph_attn_bias[:, :, :, 0] = 0
+            logits = self.model(**batch, return_dict=True, distance_attention=graph_attn_bias).logits
 
         _, mask_idx = (input_ids == self.tokenizer.mask_token_id).nonzero(as_tuple=True)
         bs = input_ids.shape[0]
@@ -113,34 +96,34 @@ class TransformerLitModel(BaseLitModel):
         else:
             loss = self.loss_fn(mask_logits, label)
 
+        if batch_idx == 0:
+            print('\n'.join(self.decode(batch['input_ids'][:8])))     
+
         return loss
 
-    def _eval(self, batch, batch_idx):
-        # single label
-        labels = batch.pop("labels")    
-        label = batch.pop('label')
-        
+    def _eval(self, batch, batch_idx, ):
+        labels = batch.pop("labels")
         input_ids = batch['input_ids']
-        
-        # edited by bizhen
-        distance_attention = batch.pop("distance_attention")
-        distance_attention = distance_attention
-        
-        graph_attn_bias = torch.zeros(input_ids.size(0), input_ids.size(1), input_ids.size(1)).cuda()
-        graph_attn_bias[:, 1:, 1:][distance_attention == float('-inf')] = float('-inf')
-        graph_attn_bias = graph_attn_bias.unsqueeze(1).repeat(1, self.num_heads, 1, 1)
-        graph_attn_bias[:, :, 1:, 1:] = graph_attn_bias[:, :, 1:, 1:] + distance_attention.unsqueeze(1)
-        
-        if self.args.use_global_node:
-            t = self.graph_token_virtual_distance.weight.view(1, self.num_heads, 1)
-            graph_attn_bias[:, :, 1:, 0] = graph_attn_bias[:, :, 1:, 0] + t
-            graph_attn_bias[:, :, 0, :] = graph_attn_bias[:, :, 0, :] + t
-        
-        if self.args.add_attn_bias:
-            logits = self.model(**batch, return_dict=True, distance_attention=graph_attn_bias).logits[:, :, self.entity_id_st:self.entity_id_ed]
+        # single label
+        label = batch.pop('label')
+
+
+        my_keys = list(batch.keys())
+        for k in my_keys:
+            if k not in ["input_ids", "attention_mask", "token_type_ids", "distance_attention"]:
+                batch.pop(k)
+
+        # logits = self.model(**batch, return_dict=True).logits[:, :, self.entity_id_st:self.entity_id_ed]
+        if self.args.pretrain:
+            logits = self.model(**batch, return_dict=True).logits[:, :, self.entity_id_st:self.entity_id_ed]
         else:
-            logits = self.model(**batch, return_dict=True, distance_attention=None).logits[:, :, self.entity_id_st:self.entity_id_ed]
-            
+            distance_attention = batch.pop("distance_attention")
+            graph_attn_bias = distance_attention
+            graph_attn_bias = graph_attn_bias.unsqueeze(1).repeat(1, self.num_heads, 1, 1)
+            graph_attn_bias[:, :, 0, :] = 0
+            graph_attn_bias[:, :, :, 0] = 0
+            logits = self.model(**batch, return_dict=True, distance_attention=graph_attn_bias).logits[:, :, self.entity_id_st:self.entity_id_ed]
+
         _, mask_idx = (input_ids == self.tokenizer.mask_token_id).nonzero(as_tuple=True)
         bsz = input_ids.shape[0]
         logits = logits[torch.arange(bsz), mask_idx]
@@ -153,10 +136,11 @@ class TransformerLitModel(BaseLitModel):
         # for i in range(bsz):
         #     logits[i][labels]
 
-        _, outputs = torch.sort(logits, dim=1, descending=True)
-        _, outputs = torch.sort(outputs, dim=1)
-        ranks = outputs[torch.arange(bsz), label].detach().cpu() + 1
-        
+        # label.shape  torch.Size([256])
+        # labels.shape  torch.Size([256, 40943])
+        _, outputs = torch.sort(logits, dim=1, descending=True)  # logits.shape torch.Size([256, 40943])
+        _, outputs = torch.sort(outputs, dim=1)  # outputs.shape  torch.Size([256, 40943])
+        ranks = outputs[torch.arange(bsz), label].detach().cpu() + 1  # ranks.shape  torch.Size([256])
 
         return dict(ranks = np.array(ranks))
 
@@ -180,14 +164,14 @@ class TransformerLitModel(BaseLitModel):
         hits1 = (ranks<=1).mean()
 
         self.log("Eval/hits10", hits10)
-        self.log("Eval/hits20", hits20)
-        self.log("Eval/hits3", hits3)
+        # self.log("Eval/hits20", hits20)
+        # self.log("Eval/hits3", hits3)
         self.log("Eval/hits1", hits1)
-        self.log("Eval/mean_rank", ranks.mean())
+        # self.log("Eval/mean_rank", ranks.mean())
         self.log("Eval/mrr", (1. / ranks).mean())
         self.log("hits10", hits10, prog_bar=True)
         self.log("hits1", hits1, prog_bar=True)
-   
+
 
     def test_step(self, batch, batch_idx):  # pylint: disable=unused-argument
         # ranks = self._eval(batch, batch_idx)
@@ -204,16 +188,36 @@ class TransformerLitModel(BaseLitModel):
         hits3 = (ranks<=3).mean()
         hits1 = (ranks<=1).mean()
 
+       
         self.log("Test/hits10", hits10)
-        self.log("Test/hits20", hits20)
-        self.log("Test/hits3", hits3)
+        # self.log("Test/hits20", hits20)
+        # self.log("Test/hits3", hits3)
         self.log("Test/hits1", hits1)
-        self.log("Test/mean_rank", ranks.mean())
+        # self.log("Test/mean_rank", ranks.mean())
         self.log("Test/mrr", (1. / ranks).mean())
 
     def configure_optimizers(self):
+        no_decay_param = ["bias", "LayerNorm.weight"]
+
+        optimizer_group_parameters = [
+            {"params": [p for n, p in self.model.named_parameters() if p.requires_grad and not any(nd in n for nd in no_decay_param)], "weight_decay": self.args.weight_decay},
+            {"params": [p for n, p in self.model.named_parameters() if p.requires_grad and any(nd in n for nd in no_decay_param)], "weight_decay": 0}
+        ]
+
+        optimizer = self.optimizer_class(optimizer_group_parameters, lr=self.lr, eps=1e-8)
+        scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=self.num_training_steps() * self.args.warm_up_radio, num_training_steps=self.num_training_steps())
+
+
+        print(f'\n \t num_training_steps: {self.num_training_steps()}')
+        print(f'\n \t num_warmup_steps: {self.num_training_steps() * self.args.warm_up_radio}')
+
         return {
-            "optimizer": self.optimizer_class(self.parameters(), lr=self.lr, eps=1e-8)
+            "optimizer": optimizer, 
+            "lr_scheduler":{
+                'scheduler': scheduler,
+                'interval': 'step',  # or 'epoch'
+                'frequency': 1,
+            }
         }
     
     def _freaze_attention(self):

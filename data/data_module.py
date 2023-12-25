@@ -14,8 +14,6 @@ from .processor import KGProcessor, get_dataset
 import transformers
 transformers.logging.set_verbosity_error()
 
-import torch.nn as nn
-
 class ExplicitEnum(Enum):
     """
     Enum with more explicit error message for missing values.
@@ -38,6 +36,7 @@ class PaddingStrategy(ExplicitEnum):
     DO_NOT_PAD = "do_not_pad"
 
 import numpy as np
+import torch.nn as nn
 
 def pad_distance(pad_length, distance):
     pad = nn.ConstantPad2d(padding=(0, pad_length, 0, pad_length), value=float('-inf'))
@@ -46,38 +45,6 @@ def pad_distance(pad_length, distance):
 
 @dataclass
 class DataCollatorForSeq2Seq:
-    """
-    Data collator that will dynamically pad the inputs received, as well as the labels.
-
-    Args:
-        tokenizer (:class:`~transformers.PreTrainedTokenizer` or :class:`~transformers.PreTrainedTokenizerFast`):
-            The tokenizer used for encoding the data.
-        model (:class:`~transformers.PreTrainedModel`):
-            The model that is being trained. If set and has the `prepare_decoder_input_ids_from_labels`, use it to
-            prepare the `decoder_input_ids`
-
-            This is useful when using `label_smoothing` to avoid calculating loss twice.
-        padding (:obj:`bool`, :obj:`str` or :class:`~transformers.file_utils.PaddingStrategy`, `optional`, defaults to :obj:`True`):
-            Select a strategy to pad the returned sequences (according to the model's padding side and padding index)
-            among:
-
-            * :obj:`True` or :obj:`'longest'`: Pad to the longest sequence in the batch (or no padding if only a single
-              sequence is provided).
-            * :obj:`'max_length'`: Pad to a maximum length specified with the argument :obj:`max_length` or to the
-              maximum acceptable input length for the model if that argument is not provided.
-            * :obj:`False` or :obj:`'do_not_pad'` (default): No padding (i.e., can output a batch with sequences of
-              different lengths).
-        max_length (:obj:`int`, `optional`):
-            Maximum length of the returned list and optionally padding length (see above).
-        pad_to_multiple_of (:obj:`int`, `optional`):
-            If set will pad the sequence to a multiple of the provided value.
-
-            This is especially useful to enable the use of Tensor Cores on NVIDIA hardware with compute capability >=
-            7.5 (Volta).
-        label_pad_token_id (:obj:`int`, `optional`, defaults to -100):
-            The id to use when padding the labels (-100 will be automatically ignored by PyTorch loss functions).
-    """
-
     tokenizer: PreTrainedTokenizerBase
     model: Optional[Any] = None
     padding: Union[bool, str, PaddingStrategy] = True
@@ -97,14 +64,8 @@ class DataCollatorForSeq2Seq:
         name_keys = list(features[0].keys())
         for k in name_keys:
             # ignore the padding arguments
-            if k in ["input_ids", "attention_mask", "token_type_ids"]: 
-                continue
-            try:
-                features_keys[k] = [feature.pop(k) for feature in features]
-            except KeyError:
-                print('error!')
-                continue
-                
+            if k in ["input_ids", "attention_mask", "token_type_ids"]: continue
+            features_keys[k] = [feature.pop(k) for feature in features]
 
         # We have to pad the labels before calling `tokenizer.pad` as this method won't pad them and needs them of the
         # same length to return tensors.
@@ -126,12 +87,43 @@ class DataCollatorForSeq2Seq:
             pad_to_multiple_of=self.pad_to_multiple_of,
             return_tensors=return_tensors,
         )
-        features['labels'] = labels
+
+
+
+        features['labels'] = (labels).clone().detach()
         features['label'] = torch.tensor(label)
         features.update(features_keys)
-        
-        # editted by bizhen
-        features['distance_attention'] = torch.stack([pad_distance(len(features['input_ids'][i]) - len(distance) - 1, distance) for i, distance in enumerate(features['distance_attention'])])
+
+        '''
+            edit by bizhen
+        '''
+        # features['pos'] =  torch.tensor(features['pos'])
+
+
+        '''
+            editted by bizhen
+        '''
+
+        if sum(features['distance_attention']) == 0:
+            pretrain_stage = True
+        else:
+            pretrain_stage = False
+
+        if pretrain_stage is False:       
+            # features['distance_attention'] = torch.stack([pad_distance(len(features['input_ids'][i]) - len(distance) - 1, distance) for i, distance in enumerate(features['distance_attention'])])
+            features['distance_attention'] = torch.stack([pad_distance(len(features['input_ids'][i]) - len(distance), distance) for i, distance in enumerate(features['distance_attention'])])
+
+        # features['input_ids']
+        my_keys = list(features.keys())
+
+        if pretrain_stage is False: 
+            for k in my_keys:
+                if k not  in ["input_ids", "attention_mask", "token_type_ids", "labels", "label", 'distance_attention']:
+                    features.pop(k)
+        else:
+            for k in my_keys:
+                if k not  in ["input_ids", "attention_mask", "token_type_ids", "labels", "label"]:
+                    features.pop(k)
 
         return features
 
@@ -147,6 +139,9 @@ class KGC(BaseDataModule):
         entity_list = self.processor.get_entities(args.data_dir)
         
         num_added_tokens = self.tokenizer.add_special_tokens({'additional_special_tokens': entity_list})
+
+        print(f'\n \t Added entity size: {num_added_tokens}')
+
         self.sampler = DataCollatorForSeq2Seq(self.tokenizer,
             model=model,
             label_pad_token_id=self.tokenizer.pad_token_id,
@@ -159,11 +154,19 @@ class KGC(BaseDataModule):
         self.num_relations = len(relations_tokens)
         num_added_tokens = self.tokenizer.add_special_tokens({'additional_special_tokens': relations_tokens})
 
+        print(f'\n \t Added relation size: {num_added_tokens}')
+
         vocab = self.tokenizer.get_added_vocab()
         self.relation_id_st = vocab[relations_tokens[0]]
         self.relation_id_ed = vocab[relations_tokens[-1]] + 1
         self.entity_id_st = vocab[entity_list[0]]
         self.entity_id_ed = vocab[entity_list[-1]] + 1
+
+        print(f'\n \t Added entity id range: ({self.entity_id_st}, {self.entity_id_ed})')
+        print(f'\n \t Added relation id range: ({self.relation_id_st}, {self.relation_id_ed})')
+
+        print(f'\n \t the final vocab size: {len(vocab)}')
+        
 
 
     def setup(self, stage=None):
@@ -198,10 +201,11 @@ class KGC(BaseDataModule):
         return self.tokenizer
 
     def train_dataloader(self):
-        return DataLoader(self.data_train, num_workers=self.num_workers,  collate_fn=self.sampler, batch_size=self.args.batch_size, shuffle=not self.args.faiss_init)
+        return DataLoader(self.data_train, num_workers=self.num_workers, pin_memory=True, collate_fn=self.sampler, batch_size=self.args.batch_size, shuffle=not self.args.faiss_init)
 
     def val_dataloader(self):
-        return DataLoader(self.data_val, num_workers=self.num_workers, collate_fn=self.sampler, batch_size=self.args.eval_batch_size)
+        return DataLoader(self.data_val, num_workers=self.num_workers, pin_memory=True, collate_fn=self.sampler, batch_size=self.args.eval_batch_size)
 
     def test_dataloader(self):
-        return DataLoader(self.data_test, num_workers=self.num_workers, collate_fn=self.sampler, batch_size=self.args.eval_batch_size)
+        return DataLoader(self.data_test, num_workers=self.num_workers, pin_memory=True, collate_fn=self.sampler, batch_size=self.args.eval_batch_size)
+

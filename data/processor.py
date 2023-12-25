@@ -1,4 +1,3 @@
-from hashlib import new
 from re import DEBUG
 
 import contextlib
@@ -22,17 +21,74 @@ from tqdm import tqdm
 from dataclasses import dataclass, asdict, replace
 import inspect
 
+import pyximport
+pyximport.install(setup_args={'include_dirs': np.get_include()})
+import data.algos as algos
+
 from transformers.models.auto.tokenization_auto import AutoTokenizer
 
 from models.utils import get_entity_spans_pre_processing
 
-import pyximport
-pyximport.install(setup_args={'include_dirs': np.get_include()})
-import data.algos as algos
-# import algos
-
 def lmap(a, b):
-    return list(map(a,b))  # a是个函数，b是个值列表，返回函数值列表
+    return list(map(a,b))
+
+def cache_results(_cache_fp, _refresh=False, _verbose=1):
+ 
+    def wrapper_(func):
+        signature = inspect.signature(func)
+        for key, _ in signature.parameters.items():
+            if key in ('_cache_fp', '_refresh', '_verbose'):
+                raise RuntimeError("The function decorated by cache_results cannot have keyword `{}`.".format(key))
+
+        def wrapper(*args, **kwargs):
+            my_args = args[0]
+            mode = args[-1]
+            if '_cache_fp' in kwargs:
+                cache_filepath = kwargs.pop('_cache_fp')
+                assert isinstance(cache_filepath, str), "_cache_fp can only be str."
+            else:
+                cache_filepath = _cache_fp
+            if '_refresh' in kwargs:
+                refresh = kwargs.pop('_refresh')
+                assert isinstance(refresh, bool), "_refresh can only be bool."
+            else:
+                refresh = _refresh
+            if '_verbose' in kwargs:
+                verbose = kwargs.pop('_verbose')
+                assert isinstance(verbose, int), "_verbose can only be integer."
+            else:
+                verbose = _verbose
+            refresh_flag = True
+            
+            model_name = my_args.model_name_or_path.split("/")[-1]
+            is_pretrain = my_args.pretrain
+            cache_filepath = os.path.join(my_args.data_dir, f"cached_{mode}_features{model_name}_pretrain{is_pretrain}_faiss{my_args.faiss_init}_seqlength{my_args.max_seq_length}_{my_args.litmodel_class}.pkl")
+            refresh = my_args.overwrite_cache
+
+            if cache_filepath is not None and refresh is False:
+                # load data
+                if os.path.exists(cache_filepath):
+                    with open(cache_filepath, 'rb') as f:
+                        results = pickle.load(f)
+                    if verbose == 1:
+                        logger.info("Read cache from {}.".format(cache_filepath))
+                    refresh_flag = False
+
+            if refresh_flag:
+                results = func(*args, **kwargs)
+                if cache_filepath is not None:
+                    if results is None:
+                        raise RuntimeError("The return value is None. Delete the decorator.")
+                    with open(cache_filepath, 'wb') as f:
+                        pickle.dump(results, f)
+                    logger.info("Save cache to {}.".format(cache_filepath))
+
+            return results
+
+        return wrapper
+
+    return wrapper_
+
 
 import argparse
 import csv
@@ -50,40 +106,36 @@ from tqdm import tqdm, trange
 
 logger = logging.getLogger(__name__)
 
+'''
+    edit by bizhen
+'''
 class InputExample(object):
-    """A single training/test example for simple sequence classification."""
-
-    def __init__(self, guid, text_a, text_b=None, text_c=None, text_d=None, label=None, real_label=None, en=None, en_id=None, rel=None, text_d_id=None, graph_inf=None):
-        """Constructs a InputExample.
-
-        Args:
-            guid: Unique id for the example.
-            text_a: string. The untokenized text of the first sequence. For single
-            sequence tasks, only this sequence must be specified.
-            text_b: (Optional) string. The untokenized text of the second sequence.
-            Only must be specified for sequence pair tasks.
-            text_c: (Optional) string. The untokenized text of the third sequence.
-            Only must be specified for sequence triple tasks.
-            label: (Optional) string. list of entities
-        """
+    def __init__(self, guid, text_a, text_b=None, text_c=None, text_d="", label=None, real_label=None, en=None, en_id=0, rel=None, text_d_id=0, graph_inf=0, extra_info=0):
         self.guid = guid
         self.text_a = text_a
         self.text_b = text_b
         self.text_c = text_c
-        self.text_d = text_d
         self.label = label
         self.real_label = real_label
         self.en = en
         self.rel = rel # rel id
+
+        self.text_d = text_d
         self.text_d_id = text_d_id
         self.graph_inf = graph_inf
         self.en_id = en_id
+        
+        '''
+            extra info
+        '''
+        self.extra_info = extra_info
 
 
+'''
+    edit by bizhen
+'''
 @dataclass
 class InputFeatures:
-    """A single set of features of data."""
-
     input_ids: torch.Tensor
     attention_mask: torch.Tensor
     labels: torch.Tensor = None
@@ -93,7 +145,6 @@ class InputFeatures:
     pos: torch.Tensor = 0
     graph: torch.Tensor = 0
     distance_attention: torch.Tensor = 0
-    # attention_bias: torch.Tensor = 0
 
 
 class DataProcessor(object):
@@ -126,13 +177,7 @@ class DataProcessor(object):
 import copy
 
 
-def solve_get_knowledge_store(line, set_type="train", pretrain=1):
-    """
-    use the LM to get the entity embedding.
-    Transductive: triples + text description
-    Inductive: text description
-    
-    """
+def solve(line,  set_type="train", pretrain=1, max_triplet=0):
     examples = []
         
     head_ent_text = ent2text[line[0]]
@@ -149,33 +194,6 @@ def solve_get_knowledge_store(line, set_type="train", pretrain=1):
     text_b = relation_text
     text_c = tail_ent_text 
 
-    # use the description of c to predict A
-    examples.append(
-        InputExample(guid=guid, text_a="[PAD]", text_b=text_b + "[PAD]", text_c = "[PAD]" + " " + text_c, label=lmap(lambda x: ent2id[x], b), real_label=ent2id[line[0]], en=[ent2id[line[0]], rel2id[line[1]], ent2id[line[2]]], rel=0)
-    )
-    examples.append(
-        InputExample(guid=guid, text_a="[PAD]", text_b=text_b + "[PAD]", text_c = "[PAD]" + " " + text_a, label=lmap(lambda x: ent2id[x], b), real_label=ent2id[line[2]], en=[ent2id[line[0]], rel2id[line[1]], ent2id[line[2]]], rel=0)
-    )
-    return examples
-
-
-def solve(line,  set_type="train", pretrain=1, max_triplet=32):
-    examples = []
-        
-    head_ent_text = ent2text[line[0]]
-    tail_ent_text = ent2text[line[2]]
-    relation_text = rel2text[line[1]]
-    
-    i=0
-    
-    a = tail_filter_entities["\t".join([line[0],line[1]])]
-    b = head_filter_entities["\t".join([line[2],line[1]])]
-    
-    guid = "%s-%s" % (set_type, i)
-    text_a = head_ent_text
-    text_b = relation_text
-    text_c = tail_ent_text
-
     
     if pretrain:
         text_a_tokens = text_a.split()
@@ -187,25 +205,11 @@ def solve(line,  set_type="train", pretrain=1, max_triplet=32):
         examples.append(
             InputExample(guid=guid, text_a="[MASK]", text_b=text_a, text_c = "", label=ent2id[line[0]], real_label=ent2id[line[0]], en=0, rel=0)
         )
-        # examples.append(
-        #     InputExample(guid=guid, text_a="[MASK]", text_b=text_c, text_c = "", label=ent2id[line[2]], real_label=ent2id[line[2]], en=0, rel=0)
-        # )
-    else:
-        # 主要是对text_c进行包装，不再是原来的文本，而是对应子图的graph（变量graph_seq）。如果mask的是尾实体，那么就让text_c在后面加入graph_seq
-        # masked_head_seq = []
-        # masked_tail_seq = []
-        # masked_tail_graph_list = masked_tail_neighbor["\t".join([line[0],line[1]])]
-        # masked_head_graph_list = masked_head_neighbor["\t".join([line[2],line[1]])]
-        # for item in masked_head_graph_list:
-        #     masked_head_seq.append(ent2id[item[0]])
-        #     masked_head_seq.append(rel2id[item[1]])
-        #     masked_head_seq.append(ent2id[item[2]])
+    else:    
 
-        # for item in masked_tail_graph_list:
-        #     masked_tail_seq.append(ent2id[item[0]])
-        #     masked_tail_seq.append(rel2id[item[1]])
-        #     masked_tail_seq.append(ent2id[item[2]])
-
+        '''
+            edit by bizhen
+        '''
         masked_head_seq = set()
         masked_head_seq_id = set()
         masked_tail_seq = set()
@@ -223,8 +227,6 @@ def solve(line,  set_type="train", pretrain=1, max_triplet=32):
         except:
             masked_head_graph_list = []
 
-        # masked_tail_graph_list = masked_tail_neighbor["\t".join([line[0],line[1]])][:16]
-        # masked_head_graph_list = masked_head_neighbor["\t".join([line[2],line[1]])][:16]
         for item in masked_head_graph_list:
             masked_head_seq.add(item[0])
             masked_head_seq.add(item[1])
@@ -232,7 +234,7 @@ def solve(line,  set_type="train", pretrain=1, max_triplet=32):
             masked_head_seq_id.add(ent2id[item[0]])
             masked_head_seq_id.add(rel2id[item[1]])
             masked_head_seq_id.add(ent2id[item[2]])
-
+        
         for item in masked_tail_graph_list:
             masked_tail_seq.add(item[0])
             masked_tail_seq.add(item[1])
@@ -240,7 +242,7 @@ def solve(line,  set_type="train", pretrain=1, max_triplet=32):
             masked_tail_seq_id.add(ent2id[item[0]])
             masked_tail_seq_id.add(rel2id[item[1]])
             masked_tail_seq_id.add(ent2id[item[2]])
-        # print(masked_tail_seq)
+        
         masked_head_seq = masked_head_seq.difference({line[0]})
         masked_head_seq = masked_head_seq.difference({line[2]})
         masked_head_seq = masked_head_seq.difference({line[1]})
@@ -254,18 +256,25 @@ def solve(line,  set_type="train", pretrain=1, max_triplet=32):
         masked_tail_seq_id = masked_tail_seq_id.difference({ent2id[line[0]]})
         masked_tail_seq_id = masked_tail_seq_id.difference({rel2id[line[1]]})
         masked_tail_seq_id = masked_tail_seq_id.difference({ent2id[line[2]]})
-        # examples.append(
-        #     InputExample(guid=guid, text_a="[MASK]", text_b=' '.join(text_b.split(' ')[:16]) + " [PAD]", text_c = "[PAD]" + " " + ' '.join(text_c.split(' ')[:16]), text_d = masked_head_seq, label=lmap(lambda x: ent2id[x], b), real_label=ent2id[line[0]], en=[rel2id[line[1]], ent2id[line[2]]], rel=rel2id[line[1]]))
-        # examples.append(
-        #     InputExample(guid=guid, text_a="[PAD] ", text_b=' '.join(text_b.split(' ')[:16]) + " [PAD]", text_c = "[MASK]" +" " + ' '.join(text_a.split(' ')[:16]), text_d = masked_tail_seq, label=lmap(lambda x: ent2id[x], a), real_label=ent2id[line[2]], en=[ent2id[line[0]], rel2id[line[1]]], rel=rel2id[line[1]]))
+
+        #  head prediction
         examples.append(
-            InputExample(guid=guid, text_a="[MASK]", text_b="[PAD]", text_c = "[PAD]", text_d = list(masked_head_seq), label=lmap(lambda x: ent2id[x], b), real_label=ent2id[line[0]], en=[line[1], line[2]], en_id = [rel2id[line[1]], ent2id[line[2]]], rel=rel2id[line[1]], text_d_id = list(masked_head_seq_id), graph_inf = masked_head_graph_list))
+            InputExample(guid=guid, text_a="[MASK]", text_b= "[PAD]", text_c = "[PAD]", text_d = list(masked_head_seq), label=lmap(lambda x: ent2id[x], b),
+                          real_label=ent2id[line[0]], en=[line[1], line[2]], en_id = [rel2id[line[1]], ent2id[line[2]]], rel=rel2id[line[1]],
+                            text_d_id = list(masked_head_seq_id), graph_inf = masked_head_graph_list, extra_info=text_c))
+         #  tail prediction
         examples.append(
-            InputExample(guid=guid, text_a="[PAD]", text_b="[PAD]", text_c = "[MASK]", text_d = list(masked_tail_seq), label=lmap(lambda x: ent2id[x], a), real_label=ent2id[line[2]], en=[line[0], line[1]], en_id = [ent2id[line[0]], rel2id[line[1]]], rel=rel2id[line[1]], text_d_id = list(masked_tail_seq_id), graph_inf = masked_tail_graph_list))
+            InputExample(guid=guid, text_a="[PAD]", text_b= "[PAD]", text_c = "[MASK]", text_d = list(masked_tail_seq), label=lmap(lambda x: ent2id[x], a),
+                          real_label=ent2id[line[2]], en=[line[0], line[1]], en_id = [ent2id[line[0]], rel2id[line[1]]], rel=rel2id[line[1]],
+                            text_d_id = list(masked_tail_seq_id), graph_inf = masked_tail_graph_list, extra_info=text_a))
+
     return examples
 
-
-def filter_init(head, tail, t1,t2, ent2id_, ent2token_, rel2id_, masked_head_neighbor_, masked_tail_neighbor_, rel2token_):
+'''
+    edit by bizhen
+'''
+# def filter_init(head, tail, t1,t2, ent2id_, ent2token_, rel2id_):
+def filter_init(head, tail, t1,t2, ent2id_, ent2token_, rel2id_, masked_head_neighbor_=None, masked_tail_neighbor_=None, rel2token_=None):
     global head_filter_entities
     global tail_filter_entities
     global ent2text
@@ -273,6 +282,10 @@ def filter_init(head, tail, t1,t2, ent2id_, ent2token_, rel2id_, masked_head_nei
     global ent2id
     global ent2token
     global rel2id
+
+    '''
+        edit by bizhen
+    '''
     global masked_head_neighbor
     global masked_tail_neighbor
     global rel2token
@@ -284,15 +297,17 @@ def filter_init(head, tail, t1,t2, ent2id_, ent2token_, rel2id_, masked_head_nei
     ent2id = ent2id_
     ent2token = ent2token_
     rel2id = rel2id_
+
+    '''
+        edit by bizhen
+    '''
     masked_head_neighbor = masked_head_neighbor_
     masked_tail_neighbor = masked_tail_neighbor_
     rel2token = rel2token_
 
-
 def delete_init(ent2text_):
     global ent2text
     ent2text = ent2text_
-
 
 class KGProcessor(DataProcessor):
     """Processor for knowledge graph data set."""
@@ -307,15 +322,6 @@ class KGProcessor(DataProcessor):
         """See base class."""
         return self._create_examples(
             self._read_tsv(os.path.join(data_dir, "train.tsv")), "train", data_dir, self.args)
-        # if os.path.exists(os.path.join(data_dir, "train.cached")) is False:
-        #     examples = self._create_examples(
-        #         self._read_tsv(os.path.join(data_dir, "train.tsv")), "train", data_dir, self.args)
-        #     torch.save(examples, os.path.join(data_dir, "train.cached"))
-        #     print('feature saved.')
-        # else:
-        #     examples = torch.load( os.path.join(data_dir, "train.cached"))  
-        #     print('feature loaded.')
-        # return examples
 
     def get_dev_examples(self, data_dir):
         """See base class."""
@@ -323,9 +329,9 @@ class KGProcessor(DataProcessor):
             self._read_tsv(os.path.join(data_dir, "dev.tsv")), "dev", data_dir, self.args)
 
     def get_test_examples(self, data_dir, chunk=""):
-        """See base class."""
-        return self._create_examples(
-            self._read_tsv(os.path.join(data_dir, f"test{chunk}.tsv")), "test", data_dir, self.args)
+      """See base class."""
+      return self._create_examples(
+          self._read_tsv(os.path.join(data_dir, f"test{chunk}.tsv")), "test", data_dir, self.args)
 
     def get_relations(self, data_dir):
         """Gets all labels (relations) in the knowledge graph."""
@@ -380,17 +386,10 @@ class KGProcessor(DataProcessor):
             ent_lines = f.readlines()
             for line in ent_lines:
                 temp = line.strip().split('\t')
-                try:
-                    end = temp[1]#.find(',')
-                    if "wiki" in data_dir:
-                        assert "Q" in temp[0]
-                    ent2text[temp[0]] = temp[1].replace("\\n", " ").replace("\\", "") #[:end]
-                except IndexError:
-                    # continue
-                    end = " "#.find(',')
-                    if "wiki" in data_dir:
-                        assert "Q" in temp[0]
-                    ent2text[temp[0]] = end #[:end]
+                end = temp[1]#.find(',')
+                if "wiki" in data_dir:
+                    assert "Q" in temp[0]
+                ent2text[temp[0]] = temp[1].replace("\\n", " ").replace("\\", "") #[:end]
   
         entities = list(ent2text.keys())
         ent2token = {ent : f"[ENTITY_{i}]" for i, ent in enumerate(entities)}
@@ -402,7 +401,6 @@ class KGProcessor(DataProcessor):
             for line in rel_lines:
                 temp = line.strip().split('\t')
                 rel2text[temp[0]] = temp[1]      
-
         relation_names = {}
         with open(os.path.join(data_dir, "relations.txt"), "r") as file:
             for line in file.readlines():
@@ -419,19 +417,34 @@ class KGProcessor(DataProcessor):
         lines = tmp_lines
         print(f"total entity not in text : {not_in_text} ")
 
-        relations = list(rel2text.keys())
-        rel2token = {rel : f"[RELATION_{i}]" for i, rel in enumerate(relations)}
+        '''
+            edit by bizhen
+        '''
+        if not args.pretrain:
+            relations = list(rel2text.keys())
+            rel2token = {rel : f"[RELATION_{i}]" for i, rel in enumerate(relations)}
+        else:
+            rel2token = {}
+
         # rel id -> relation token id
         num_entities = len(self.get_entities(args.data_dir))
         rel2id = {w:i+num_entities for i,w in enumerate(relation_names.keys())}
 
 
-        with open(os.path.join(data_dir, "masked_head_neighbor.txt"), 'r') as file:
-            masked_head_neighbor = json.load(file)
+        '''
+            edit by bizhen
+        '''
+        if not args.pretrain:
+            with open(os.path.join(data_dir, "masked_head_neighbor.txt"), 'r') as file:
+                masked_head_neighbor = json.load(file)
+            with open(os.path.join(data_dir, "masked_tail_neighbor.txt"), 'r') as file:
+                masked_tail_neighbor = json.load(file)
+            print(f'\n \t Not pre-training stage, masked subgraphs loaded.')
+        else:
+            masked_head_neighbor = []
+            masked_tail_neighbor = []
 
-        with open(os.path.join(data_dir, "masked_tail_neighbor.txt"), 'r') as file:
-            masked_tail_neighbor = json.load(file)
-        
+
         examples = []
         # head filter head entity
         head_filter_entities = defaultdict(list)
@@ -449,9 +462,12 @@ class KGProcessor(DataProcessor):
             for line in train_lines:
                 tail_filter_entities["\t".join([line[0], line[1]])].append(line[2])
                 head_filter_entities["\t".join([line[2], line[1]])].append(line[0])
+
+        
         
         max_head_entities = max(len(_) for _ in head_filter_entities.values())
         max_tail_entities = max(len(_) for _ in tail_filter_entities.values())
+
 
         # use bce loss, ignore the mlm
         if set_type == "train" and args.bce:
@@ -474,24 +490,29 @@ class KGProcessor(DataProcessor):
                 lines.append([k, rel, k])
         
         print(f"max number of filter entities : {max_head_entities} {max_tail_entities}")
-        # 把子图信息加入到filter_init中（初始化为文件夹，及固定子图），设置为全局变量，solve中调用
+
         from os import cpu_count
         threads = min(1, cpu_count())
-        filter_init(head_filter_entities, tail_filter_entities,ent2text, rel2text, ent2id, ent2token, rel2id, masked_head_neighbor, masked_tail_neighbor, rel2token
-            )
-        
-        if hasattr(args, "faiss_init") and args.faiss_init:
-            annotate_ = partial(
-                solve_get_knowledge_store,
-                pretrain=self.args.pretrain
-            )
+
+        '''
+            edit by bizhen
+        '''
+        # filter_init(head_filter_entities, tail_filter_entities,ent2text, rel2text, ent2id, ent2token, rel2id)
+        if args.pretrain:
+            filter_init(head_filter_entities, tail_filter_entities,ent2text, rel2text, ent2id, ent2token, rel2id)
         else:
-            annotate_ = partial(
-                solve,
-                pretrain=self.args.pretrain,
-                max_triplet=self.args.max_triplet
-            )
+            filter_init(head_filter_entities, tail_filter_entities,ent2text, rel2text, ent2id, ent2token, rel2id,
+                         masked_head_neighbor, masked_tail_neighbor, rel2token)
         
+        '''
+            edit by bizhen
+        '''
+        annotate_ = partial(
+            solve,
+            pretrain=self.args.pretrain,
+            max_triplet=self.args.max_triplet
+        )
+
         examples = list(
             tqdm(
                 map(annotate_, lines),
@@ -505,8 +526,12 @@ class KGProcessor(DataProcessor):
             for ee in e:
                 tmp_examples.append(ee)
         examples = tmp_examples
-        # delete vars
-        del head_filter_entities, tail_filter_entities, ent2text, rel2text, ent2id, ent2token, rel2id
+        
+        '''
+            edit by bizhen
+        '''
+        # del head_filter_entities, tail_filter_entities, ent2text, rel2text, ent2id, ent2token, rel2id
+        del head_filter_entities, tail_filter_entities, ent2text, rel2text, ent2id, ent2token, rel2id, masked_head_neighbor, masked_tail_neighbor, rel2token
         return examples
 
 class Verbalizer(object):
@@ -517,12 +542,6 @@ class Verbalizer(object):
             self.mode = "FB15k"
         elif "umls" in args.data_dir:
             self.mode = "umls"
-        elif "codexs" in args.data_dir:
-            self.mode = "codexs"
-        elif "FB13" in args.data_dir:
-            self.mode = "FB13"
-        elif "WN11" in args.data_dir:
-            self.mode = "WN11"
         
     
     def _convert(self, head, relation, tail):
@@ -530,7 +549,6 @@ class Verbalizer(object):
             return f"The {relation} {head} is "
         
         return f"{head} {relation}"
-
 
 class KGCDataset(Dataset):
     def __init__(self, features):
@@ -546,7 +564,12 @@ def convert_examples_to_features_init(tokenizer_for_convert):
     global tokenizer
     tokenizer = tokenizer_for_convert
 
+'''
+    edit by bizhen
+'''
+# def convert_examples_to_features(example, max_seq_length, mode, pretrain=1):
 def convert_examples_to_features(example, max_seq_length, mode, pretrain=1):
+
     """Loads a data file into a list of `InputBatch`s."""
     text_a = " ".join(example.text_a.split()[:128])
     text_b = " ".join(example.text_b.split()[:128])
@@ -556,7 +579,7 @@ def convert_examples_to_features(example, max_seq_length, mode, pretrain=1):
         input_text_a = text_a
         input_text_b = text_b
     else:
-        input_text_a = " ".join([text_a, text_b])
+        input_text_a = tokenizer.sep_token.join([text_a, text_b])
         input_text_b = text_c
     
 
@@ -616,7 +639,7 @@ def _truncate_seq_triple(tokens_a, tokens_b, tokens_c, max_length):
             tokens_c.pop()
 
 
-# @cache_results(_cache_fp="./dataset")
+@cache_results(_cache_fp="./dataset")
 def get_dataset(args, processor, label_list, tokenizer, mode):
 
     assert mode in ["train", "dev", "test"], "mode must be in train dev test!"
@@ -628,45 +651,29 @@ def get_dataset(args, processor, label_list, tokenizer, mode):
         if "ind" in args.data_dir: combine_train_and_test = True
     else:
         pass
-    
-    if os.path.exists(os.path.join(args.data_dir, f"examples_{mode}.txt")) is False:
-        
-        print(f'\n------ prcocess {mode} example ------')
-        if mode == "train":
-            train_examples = processor.get_train_examples(args.data_dir)
-        elif mode == "dev":
-            train_examples = processor.get_dev_examples(args.data_dir)
-        else:
-            train_examples = processor.get_test_examples(args.data_dir)
-            
-        if combine_train_and_test:
-            logger.info("use all the dataset for getting the entity mask embedding in pretraining pretraining")
-            logger.info("use all the dataset for getting the entity mask embedding in pretraining pretraining")
-            train_examples = processor.get_test_examples(args.data_dir) + processor.get_train_examples(args.data_dir) + processor.get_dev_examples(args.data_dir)
 
-        with open(os.path.join(args.data_dir, f"examples_{mode}.txt"), 'w') as file:
-            for line in train_examples:
-                d = {}
-                d.update(line.__dict__)
-                file.write(json.dumps(d) + '\n')
+    if mode == "train":
+        train_examples = processor.get_train_examples(args.data_dir)
+    elif mode == "dev":
+        train_examples = processor.get_dev_examples(args.data_dir)
     else:
-        print(f'\n------ load {mode} example ------')
-        train_examples = []
-        with open(os.path.join(args.data_dir, f"examples_{mode}.txt"), 'r') as file:
-            for line in tqdm(file):  
-                train_examples.append(json.loads(line))   
-
-    # 这里应该不需要重新from_pretrain，必须沿用加入token的
-    tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=False)
+        train_examples = processor.get_test_examples(args.data_dir)
     
-    # if os.path.exists(os.path.join(args.data_dir, f"features_{mode}.pt")) is False:
-        
-    print(f'\n------ process {mode} feature ------')
+    with open(os.path.join(args.data_dir, f"examples_{mode}.txt"), 'w') as file:
+        for line in train_examples:
+            d = {}
+            d.update(line.__dict__)
+            file.write(json.dumps(d) + '\n')
+    
+    print(f"\n \t Mode: {mode}")
+    print(f"\t example: {(random.choice(train_examples)).__dict__}")
+
+    tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=False)
 
     features = []
 
     file_inputs = [os.path.join(args.data_dir, f"examples_{mode}.txt")]
-    # file_outputs = [os.path.join(args.data_dir, f"features_{mode}.txt")]
+    file_outputs = [os.path.join(args.data_dir, f"features_{mode}.txt")]
 
     with contextlib.ExitStack() as stack:
         inputs = [
@@ -674,75 +681,108 @@ def get_dataset(args, processor, label_list, tokenizer, mode):
             if input != "-" else sys.stdin
             for input in file_inputs
         ]
+        outputs = [
+            stack.enter_context(open(output, "w", encoding="utf-8"))
+            if output != "-" else sys.stdout
+            for output in file_outputs
+        ]
 
         encoder = MultiprocessingEncoder(tokenizer, args)
-        pool = Pool(4, initializer=encoder.initializer)
+        pool = Pool(16, initializer=encoder.initializer)
         encoder.initializer()
         encoded_lines = pool.imap(encoder.encode_lines, zip(*inputs), 1000)
+        # encoded_lines = map(encoder.encode_lines, zip(*inputs))
 
         stats = Counter()
         for i, (filt, enc_lines) in tqdm(enumerate(encoded_lines, start=1), total=len(train_examples)):
             if filt == "PASS":
-                for enc_line in enc_lines:
+                for enc_line, output_h in zip(enc_lines, outputs):
                     features.append(eval(enc_line))
+                    # features.append(enc_line)
+                    # print(enc_line, file=output_h)
             else:
                 stats["num_filtered_" + filt] += 1
+            # if i % 10000 == 0:
+            #     print("processed {} lines".format(i), file=sys.stderr)
 
         for k, v in stats.most_common():
             print("[{}] filtered {} lines".format(k, v), file=sys.stderr)
 
+    '''
+        edit by bizhen
+    '''
     for f_id, f in enumerate(features):
         en = features[f_id].pop("en")
         rel = features[f_id].pop("rel")
-        graph = features[f_id].pop("graph")
         real_label = f['label']
-        features[f_id]['distance_attention'] = torch.Tensor(features[f_id]['distance_attention'])
-        
         cnt = 0
-        cnt_2 = 0
-        if not isinstance(en, list): break
+        if not isinstance(en, list): continue
 
         pos = 0
-        for i,t in enumerate(f['input_ids']):
-            if t == tokenizer.pad_token_id:
-                features[f_id]['input_ids'][i] = en[cnt] + len(tokenizer)
-                cnt += 1
-            if t == tokenizer.unk_token_id:
-                features[f_id]['input_ids'][i] = graph[cnt_2] + len(tokenizer)
-                cnt_2 += 1
-            if features[f_id]['input_ids'][i] == real_label + len(tokenizer):
-                pos = i
-            if cnt_2 == len(graph) and cnt == len(en): break
-            # 如果等于UNK， pop出图节点list，然后替换
-        assert not (args.faiss_init and pos == 0)
-        features[f_id]['pos'] = pos
-    
-    # edited by bizhen
-    new_features = []
-    for item in features:
-        new_features.append(
-            {
-                'input_ids': item['input_ids'], 
-                'attention_mask': item['attention_mask'], 
-                'labels': item['labels'], 
-                'label': item['label'],
-                'distance_attention': item['distance_attention']
-            }
-        )
-    
-    # torch.save(new_features, os.path.join(args.data_dir, f"features_{mode}.pt"))
-    
-    new_features = KGCDataset(new_features)
-    
-    # else:
 
-    #     print(f'\n------ load {mode} feature ------')
-        
-    #     new_features = torch.load(os.path.join(args.data_dir, f"features_{mode}.pt"))
-                
-    #     new_features = KGCDataset(new_features)
-    
-    return new_features
+
+        '''
+            edit by bizhen
+        '''
+        if args.pretrain == 0:
+            features[f_id]['distance_attention'] = torch.Tensor(features[f_id]['distance_attention'])
+
+        if args.pretrain == 0:
+            '''
+                edit by bizhen
+            '''
+            cnt_2 = 0
+            graph = features[f_id].pop("graph")
+            for i,t in enumerate(f['input_ids']):
+                if t == tokenizer.pad_token_id:
+                    features[f_id]['input_ids'][i] = en[cnt] + len(tokenizer)
+                    cnt += 1
+                if t == tokenizer.unk_token_id:
+                    features[f_id]['input_ids'][i] = graph[cnt_2] + len(tokenizer)
+                    cnt_2 += 1
+                if features[f_id]['input_ids'][i] == real_label + len(tokenizer):
+                    pos = i
+                if cnt_2 == len(graph) and cnt == len(en): break
+                # 如果等于UNK， pop出图节点list，然后替换
+            assert not (args.faiss_init and pos == 0)
+            features[f_id]['pos'] = pos
+        else:
+            for i,t in enumerate(f['input_ids']):
+                if t == tokenizer.pad_token_id:
+                    features[f_id]['input_ids'][i] = en[cnt] + len(tokenizer)
+                    cnt += 1
+                if features[f_id]['input_ids'][i] == real_label + len(tokenizer):
+                    pos = i
+                if cnt == len(en): break
+            assert not (args.faiss_init and pos == 0)
+            features[f_id]['pos'] = pos           
+
+
+        if args.pretrain == 0:
+            '''
+                扩展distance矩阵
+            '''
+            #  features[f_id]['input_ids']
+            graph_tokens = features[f_id]['distance_attention'].shape[1]
+            new_distence_attention = torch.zeros(len(features[f_id]['input_ids']), len(features[f_id]['input_ids']))
+            graph_index = []
+            for i,t in enumerate(f['input_ids']):
+                if t == tokenizer.cls_token_id or t == tokenizer.sep_token_id or t == tokenizer.pad_token_id:
+                    continue
+                elif graph_tokens > 0:
+                    # new_feature_ids.append(features[f_id]['input_ids'][i])
+                    graph_tokens = graph_tokens - 1
+                    graph_index.append(i)
+            
+            graph_index = torch.tensor(graph_index)
+            new_distence_attention[torch.meshgrid(graph_index, graph_index)] = f['distance_attention']
+            features[f_id]['distance_attention'] = new_distence_attention
+
+
+    features = KGCDataset(features)
+    return features
+
+
 
 
 class MultiprocessingEncoder(object):
@@ -790,19 +830,14 @@ class MultiprocessingEncoder(object):
         pretrain = self.pretrain
         max_seq_length = self.max_seq_length
         global bpe
-        """Loads a data file into a list of `InputBatch`s."""
-        # tokens_a = tokenizer.tokenize(example.text_a)
-        # tokens_b = tokenizer.tokenize(example.text_b)
-        # tokens_c = tokenizer.tokenize(example.text_c)
-
-        # _truncate_seq_triple(tokens_a, tokens_b, tokens_c, max_length= max_seq_length)
-        # text_a = " ".join(example['text_a'].split()[:128])
-        # text_b = " ".join(example['text_b'].split()[:128])
-        # text_c = " ".join(example['text_c'].split()[:128])
         
         text_a = example['text_a']
         text_b = example['text_b']
         text_c = example['text_c']
+
+        '''
+            edit by bizhen
+        '''
         text_d = example['text_d']
         graph_list = example['graph_inf']
 
@@ -818,68 +853,76 @@ class MultiprocessingEncoder(object):
             )
         else:
             if text_a == "[MASK]":
-                input_text_a = " ".join([text_a, text_b])
+                input_text_a = bpe.sep_token.join([text_a, text_b])
                 input_text_b = text_c
-                origin_triplet = ["MASK"] + example['en']
-                graph_seq = ["MASK"] + example['en'] + text_d
             else:
                 input_text_a = text_a
-                input_text_b = " ".join([text_b, text_c])
-                origin_triplet = example['en'] + ["MASK"]
-                graph_seq = example['en'] + ["MASK"] + text_d
-            # 加入graph信息, 拼接等量[UNK]
-            input_text_b = " ".join(["[CLS]", input_text_a, input_text_b, bpe.unk_token * len(text_d)])
+                input_text_b = bpe.sep_token.join([text_b, text_c])
+
 
             inputs = bpe(
-                input_text_b,
+                " ".join([input_text_a, input_text_b, bpe.unk_token * len(text_d), example['extra_info']]),
                 truncation="longest_first",
                 max_length=max_seq_length,
                 padding="longest",
-                add_special_tokens=False,
+                add_special_tokens=True,
             )
-        # assert bpe.mask_token_id in inputs.input_ids, "mask token must in input"
 
-        # graph_seq = input_text_b[] 把图结构信息读取出来
-        # [CLS] [ENTITY_13258] [RELATION_68] [MASK] [ENTITY_4] [RELATION_127] [ENTITY_8] [RELATION_9] [ENTITY_9011] [ENTITY_12477] [PAD] [PAD]
-        # 获取图结构信息
-        # 首先在solve中加入一个存储所有子图三元组的临时存储变量
-        # 在这里graph_information = example['graph']
-        new_rel = set()
-        new_rel.add(tuple((origin_triplet[0], origin_triplet[1])))
-        new_rel.add(tuple((origin_triplet[1], origin_triplet[0])))
-        new_rel.add(tuple((origin_triplet[1], origin_triplet[2])))
-        new_rel.add(tuple((origin_triplet[2], origin_triplet[1])))
-        for triplet in graph_list:
-            rel1, rel2, rel3, rel4 = tuple((triplet[0], triplet[1])), tuple((triplet[1], triplet[2])), tuple((triplet[1], triplet[0])), tuple((triplet[2], triplet[1]))
-            new_rel.add(rel1)
-            new_rel.add(rel2)
-            new_rel.add(rel3)
-            new_rel.add(rel4)
-        # 这里的三元组转换为new_rel
-        KGid2Graphid_map = defaultdict(int)
-        for i in range(len(graph_seq)):
-            KGid2Graphid_map[graph_seq[i]] = i
+            if text_a == "[MASK]":
+                origin_triplet = ["MASK"] + example['en']
+                graph_seq = ["MASK"] + example['en'] + text_d
+            else:
+                origin_triplet = example['en'] + ["MASK"]
+                graph_seq = example['en'] + ["MASK"] + text_d
+            new_rel = set()
+            new_rel.add(tuple((origin_triplet[0], origin_triplet[1])))
+            new_rel.add(tuple((origin_triplet[1], origin_triplet[0])))
+            new_rel.add(tuple((origin_triplet[1], origin_triplet[2])))
+            new_rel.add(tuple((origin_triplet[2], origin_triplet[1])))
+            for triplet in graph_list:
+                rel1, rel2, rel3, rel4 = tuple((triplet[0], triplet[1])), tuple((triplet[1], triplet[2])), tuple((triplet[1], triplet[0])), tuple((triplet[2], triplet[1]))
+                new_rel.add(rel1)
+                new_rel.add(rel2)
+                new_rel.add(rel3)
+                new_rel.add(rel4)
+            # 这里的三元组转换为new_rel
+            KGid2Graphid_map = defaultdict(int)
+            for i in range(len(graph_seq)):
+                KGid2Graphid_map[graph_seq[i]] = i
 
-        N = len(graph_seq)
-        adj = torch.zeros([N, N], dtype=torch.bool)
-        for item in list(new_rel):
-            adj[KGid2Graphid_map[item[0]], KGid2Graphid_map[item[1]]] = True
-        shortest_path_result, _ = algos.floyd_warshall(adj.numpy())
-        max_dist = np.amax(shortest_path_result)
-        # [PAD]部分， [CLS]部分补全， [SEP]额外引入也当作[PAD]处理
-        # 加上一个attention_bias, PAD部分设置为-inf，在送入model前，对其进行处理, 将其相加（让模型无法关注PAD）
-        
-        # 加入attention到huggingface的BertForMaskedLM（这个可能需要再去查查）
-        # attention_bias = torch.zero(N, N, dtype=torch.float)
-        # attention_bias[torch.tensor(shortest_path_result == )]
-        features = asdict(InputFeatures(input_ids=inputs["input_ids"],
-                                attention_mask=inputs['attention_mask'],
-                                labels=example['label'],
-                                label=example['real_label'],
-                                en=example['en_id'],
-                                rel=example['rel'],
-                                graph=example['text_d_id'],
-                                distance_attention = shortest_path_result.tolist(),
+            N = len(graph_seq)
+            adj = torch.zeros([N, N], dtype=torch.bool)
+            for item in list(new_rel):
+                adj[KGid2Graphid_map[item[0]], KGid2Graphid_map[item[1]]] = True
+            shortest_path_result, _ = algos.floyd_warshall(adj.numpy())
+       
+        if pretrain:
+            features = asdict(InputFeatures(input_ids=inputs["input_ids"],
+                                    attention_mask=inputs['attention_mask'],
+                                    labels=example['label'],
+                                    label=example['real_label'],
+                                    en=example['en'],    # take care here
+                                    rel=example['rel'],
+                                    distance_attention = 0
+                )
             )
-        )
+        else:
+            '''
+                edit by bizhen
+            '''
+            features = asdict(InputFeatures(input_ids=inputs["input_ids"],
+                                    attention_mask=inputs['attention_mask'],
+                                    labels=example['label'],
+                                    label=example['real_label'],
+                                    en=example['en_id'],    # take care here
+                                    rel=example['rel'],
+                                    graph=example['text_d_id'],
+                                    distance_attention = shortest_path_result.tolist(),
+                )
+            )
+
         return features
+
+
+if __name__ == "__main__":
+    dataset = KGCDataset('./dataset')

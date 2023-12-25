@@ -60,4 +60,3 @@ def get_all_edges(path, i, j):
         return []
     else:
         return get_all_edges(path, i, k) + [k] + get_all_edges(path, k, j)
-
