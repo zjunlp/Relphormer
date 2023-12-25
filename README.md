@@ -94,10 +94,7 @@ wget https://hf-mirror.com/bert-base-uncased/resolve/main/vocab.txt
 
 ```shell
 >> cd Relphormer/
->> cd pretrain/
->> mkdir logs
->> bash scripts/pretrain_fb15k-237.sh
->> tail -f -n 2000 logs/pretrain_fb15k-237.log
+>> bash scripts/pretrain_fb15k.sh
 ```
 
 The pretrained models are saved in the `Relphormer/pretrain/output` directory.
@@ -111,13 +108,12 @@ The pretrained models are saved in the `Relphormer/pretrain/output` directory.
 
 ```shell
 >> cd Relphormer
->> python dataset/create_neighbor.py --dataset "fb15k-237"  # or python create_neighbor.py --dataset "umls"
->> mkdir logs
->> bash scripts/fb15k-237/fb15k-237.sh
->> tail -f -n 2000 logs/train_fb15k-237.log
+>> python dataset/create_neighbor.py --dataset "fb15k-237"
+>> bash scripts/fb15k-237/fb15k.sh
 ```
 
 The trained models are saved in the `Relphormer/output` directory.
+
 
 ## QA Task
 The experimental settings in QA follow the [Hitter](https://arxiv.org/pdf/2008.12813.pdf) experimental settings, and the environment installation can be done by referring to [GitHub](https://github.com/microsoft/HittER). We only modified **hitter-best.py** to fit our model.
