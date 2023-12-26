@@ -12,4 +12,3 @@ python main.py --gpus "3," --max_epochs=15  --num_workers=32 \
    --precision 16 \
    --max_seq_length 32 \
    --lr 3e-5
-

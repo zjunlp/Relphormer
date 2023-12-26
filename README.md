@@ -24,8 +24,7 @@ Finally, we utilize our pre-trained KG transformer for KG-based downstream tasks
 
 # Environments
 
-- python (3.8.13)
-- cuda(11.2)
+- python (3.8.18)
 - Ubuntu-18.04.6 (4.15.0-156-generic)
 
 # Requirements
@@ -59,10 +58,8 @@ The expected structure of files is:
     │   └── model.png    
     ├── scripts
     │   ├── fb15k-237
-    │   ├── wn18rr
-    │   └── umls
+    │   └── wn18rr
     ├── QA
-    ├── logs
     ├── main.py
     └── requirements.txt
 ```

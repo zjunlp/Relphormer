@@ -13,4 +13,3 @@ python main.py --gpus "2," --max_epochs=25  --num_workers=32 \
    --max_seq_length 64 \
    --max_triplet 5 \
    --lr 1e-5
-
