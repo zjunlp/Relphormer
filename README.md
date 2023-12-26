@@ -1,6 +1,3 @@
-**Sorry for the inconvenience, this project is re-organizing now and we will upload the new version soon!**
-
-
 # Relphormer
 
 Code for the Neurocomputing 2023 paper: "[Relphormer: Relational Graph Transformer for Knowledge Graph Representations](https://arxiv.org/abs/2205.10852)".
