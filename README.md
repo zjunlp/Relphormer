@@ -88,7 +88,7 @@ wget https://hf-mirror.com/bert-base-uncased/resolve/main/vocab.txt
 
 ```shell
 >> cd Relphormer/
->> bash scripts/pretrain_fb15k.sh
+>> bash scripts/fb15k-237/pretrain_fb15k.sh
 ```
 
 The pretrained models are saved in the `Relphormer/pretrain/output` directory.
