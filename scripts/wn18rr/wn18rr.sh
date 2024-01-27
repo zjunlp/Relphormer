@@ -3,12 +3,12 @@ python main.py --gpus "3," --max_epochs=20  --num_workers=32 \
    --accumulate_grad_batches 1 \
    --model_class Relphormer \
    --batch_size 128 \
-   --checkpoint "output_pretrained/WN18RR/epoch=14-step=49299-Eval/hits10=0.90.ckpt" \
+   --checkpoint "output_pretrained/wn18rr/epoch=14-step=49299-Eval/hits10=0.90.ckpt" \
    --pretrain 0 \
    --bce 0 \
    --check_val_every_n_epoch 1 \
    --overwrite_cache \
-   --data_dir dataset/WN18RR \
+   --data_dir dataset/wn18rr \
    --eval_batch_size 256 \
    --max_seq_length 64 \
    --max_triplet 2 \
