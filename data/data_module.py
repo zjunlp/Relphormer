@@ -103,10 +103,14 @@ class DataCollatorForSeq2Seq:
         '''
             editted by bizhen
         '''
+        pretrain_stage = True
 
-        if sum(features['distance_attention']) == 0:
-            pretrain_stage = True
-        else:
+        try:
+            
+            if sum(features['distance_attention']) == 0:
+                pretrain_stage = True
+ 
+        except:
             pretrain_stage = False
 
         if pretrain_stage is False:       
