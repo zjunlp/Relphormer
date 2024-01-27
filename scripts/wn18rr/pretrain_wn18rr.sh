@@ -6,7 +6,7 @@ python main.py --gpus "3," --max_epochs=15  --num_workers=32 \
    --batch_size 128 \
    --pretrain 1 \
    --check_val_every_n_epoch 1 \
-   --data_dir dataset/WN18RR \
+   --data_dir dataset/wn18rr \
    --overwrite_cache \
    --eval_batch_size 256 \
    --precision 16 \
